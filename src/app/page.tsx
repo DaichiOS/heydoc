@@ -11,6 +11,7 @@ export default function Home() {
   const [userReason, setUserReason] = useState('')
   const [userSymptoms, setUserSymptoms] = useState('')
   const [doctorAvailable, setDoctorAvailable] = useState(false)
+  const [callDuration, setCallDuration] = useState(201) // Start at 3:21 (201 seconds)
   const stepRefs = useRef<(HTMLDivElement | null)[]>([])
 
   // Add smooth scrolling behavior to the page
@@ -105,6 +106,26 @@ export default function Home() {
     }
   }, [demoStep, queuePosition])
 
+  // Call duration timer - increments every second when in step 3
+  useEffect(() => {
+    let timer: NodeJS.Timeout
+    if (demoStep === 3) {
+      timer = setInterval(() => {
+        setCallDuration(prev => prev + 1)
+      }, 1000)
+    }
+    return () => {
+      if (timer) clearInterval(timer)
+    }
+  }, [demoStep])
+
+  // Format call duration from seconds to MM:SS
+  const formatCallDuration = (seconds: number): string => {
+    const mins = Math.floor(seconds / 60)
+    const secs = seconds % 60
+    return `${mins}:${secs.toString().padStart(2, '0')}`
+  }
+
   const handleJoinQueue = () => {
     // Use placeholder text if fields are empty
     const reason = userReason.trim() || "Need a medical certificate for work absence due to flu symptoms"
@@ -142,6 +163,7 @@ export default function Home() {
     setUserReason('')
     setUserSymptoms('')
     setDoctorAvailable(false)
+    setCallDuration(201) // Reset to 3:21
     
     // Smooth scroll back to step 1
     setTimeout(() => {
@@ -339,23 +361,23 @@ export default function Home() {
       <section className="px-6 sm:px-8 lg:px-12 py-20 lg:py-32 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-24">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
+          <div className="text-center mb-16 lg:mb-24">
+            <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-slate-900 mb-6 lg:mb-8 tracking-tight">
               Need healthcare on the go?
             </h2>
-            <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
               See how easy it is to get healthcare with HeyDoc
             </p>
             
             {/* Progress indicator */}
-            <div className="flex justify-center mt-12">
-              <div className="flex items-center space-x-3">
+            <div className="flex justify-center mt-8 lg:mt-12">
+              <div className="flex items-center space-x-2 sm:space-x-3">
                 {[0, 1, 2, 3].map((step) => (
                   <div key={step} className="flex items-center">
-                    <div className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                    <div className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-500 ${
                       demoStep >= step ? 'bg-emerald-500 scale-110' : 'bg-slate-300'
                     }`}></div>
-                    {step < 3 && <div className="w-16 h-0.5 bg-slate-200"></div>}
+                    {step < 3 && <div className="w-8 sm:w-12 lg:w-16 h-0.5 bg-slate-200"></div>}
                   </div>
                 ))}
               </div>
@@ -363,29 +385,29 @@ export default function Home() {
           </div>
 
           {/* Demo Steps */}
-          <div className="space-y-32">
+          <div className="space-y-16 lg:space-y-32">
             {/* Step 1 - Health Assessment Form Only */}
             <div 
               ref={(el) => { stepRefs.current[0] = el }}
-              className="grid lg:grid-cols-2 gap-12 items-start"
+              className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start"
             >
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
-                    <span className="text-[#1C1B3A] font-bold">01</span>
+              <div className="space-y-4 lg:space-y-6">
+                <div className="flex items-center space-x-3 lg:space-x-4">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
+                    <span className="text-[#1C1B3A] font-bold text-sm lg:text-base">01</span>
                   </div>
-                  <h3 className="text-3xl font-bold text-slate-900">Tell us how we can help</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Tell us how we can help</h3>
                 </div>
-                <p className="text-lg text-slate-600 leading-relaxed">
+                <p className="text-base lg:text-lg text-slate-600 leading-relaxed">
                   Share your symptoms or health concerns. This helps our doctors prepare and makes your consultation faster and more effective.
                 </p>
               </div>
               
-              <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+              <div className="w-full bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-xl border border-slate-100">
                 {/* Always show Health Assessment Form for Step 1 */}
-                <div className="space-y-4 min-h-[400px]">
+                <div className="space-y-4 min-h-[350px] lg:min-h-[400px]">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-semibold text-slate-900">Quick Health Assessment</h4>
+                    <h4 className="font-semibold text-slate-900 text-sm lg:text-base">Quick Health Assessment</h4>
                     <div className="w-3 h-3 rounded-full bg-slate-300"></div>
                   </div>
                   
@@ -414,7 +436,7 @@ export default function Home() {
                   <div className="pt-4">
                     <button
                       onClick={handleJoinQueue}
-                      className="w-full px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 bg-[#1C1B3A] text-white hover:bg-[#252347] hover:scale-105 shadow-lg cursor-pointer active:scale-95"
+                      className="w-full px-6 lg:px-8 py-3 lg:py-4 rounded-xl font-semibold text-base lg:text-lg transition-all duration-200 bg-[#1C1B3A] text-white hover:bg-[#252347] hover:scale-105 shadow-lg cursor-pointer active:scale-95"
                     >
                       Join the queue
                     </button>
@@ -426,26 +448,26 @@ export default function Home() {
             {/* Step 2 - Queue Status & Doctor Matching */}
             <div 
               ref={(el) => { stepRefs.current[1] = el }}
-              className="grid lg:grid-cols-2 gap-12 items-start"
+              className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start"
             >
-              <div className="lg:order-2 space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
-                    <span className="text-[#1C1B3A] font-bold">02</span>
+              <div className="lg:order-2 space-y-4 lg:space-y-6">
+                <div className="flex items-center space-x-3 lg:space-x-4">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
+                    <span className="text-[#1C1B3A] font-bold text-sm lg:text-base">02</span>
                   </div>
-                  <h3 className="text-3xl font-bold text-slate-900">Get matched with a doctor</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Get matched with a doctor</h3>
                 </div>
-                <p className="text-lg text-slate-600 leading-relaxed">
+                <p className="text-base lg:text-lg text-slate-600 leading-relaxed">
                   We&apos;re finding you the right doctor for your needs.
                 </p>
               </div>
               
-              <div className="lg:order-1 bg-white rounded-3xl p-4 shadow-xl border border-slate-100">
+              <div className="lg:order-1 w-full bg-white rounded-2xl lg:rounded-3xl p-3 lg:p-4 shadow-xl border border-slate-100">
                 {demoStep >= 1 ? (
                   /* Queue Status Screen */
-                  <div className="space-y-6 min-h-[400px]">
+                  <div className="space-y-4 lg:space-y-6 min-h-[350px] lg:min-h-[400px]">
                     <div className="flex items-center justify-between">
-                      <h4 className={`font-semibold transition-colors duration-500 ${
+                      <h4 className={`font-semibold text-sm lg:text-base transition-colors duration-500 ${
                         doctorAvailable ? 'text-emerald-600' : 'text-slate-900'
                       }`}>
                         {doctorAvailable ? 'Doctor Available!' : 'Finding You a Doctor'}
@@ -463,7 +485,7 @@ export default function Home() {
                     </div>
 
                     {/* User's Details Summary */}
-                    <div className="bg-slate-50 rounded-lg p-4">
+                    <div className="bg-slate-50 rounded-lg p-3 lg:p-4">
                       <div className="text-sm font-semibold text-slate-900 mb-2">Patient Details:</div>
                       <div className="text-sm text-slate-700 mb-1">&quot;{userReason}&quot;</div>
                       {userSymptoms && (
@@ -475,10 +497,10 @@ export default function Home() {
                     <div className="bg-[#1C1B3A] text-white rounded-xl transition-all duration-500">
                       {!doctorAvailable ? (
                         /* Loading State */
-                        <div className="p-6 space-y-4">
+                        <div className="p-4 lg:p-6 space-y-3 lg:space-y-4">
                           <div className="text-center">
                             <div className="text-sm opacity-80 mb-1">Your position</div>
-                            <div className="text-2xl font-bold transition-all duration-500">
+                            <div className="text-xl lg:text-2xl font-bold transition-all duration-500">
                               {queuePosition === 2 ? '2nd' : `${queuePosition}th`} in queue
                             </div>
                             <div className="text-sm opacity-80 mt-1">
@@ -512,8 +534,8 @@ export default function Home() {
                           <div className="bg-[#1C1B3A] rounded-xl relative">
                             <div className="aspect-video bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg relative overflow-hidden">
                               <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="text-center text-white -mt-12">
-                                  <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                                <div className="text-center text-white -mt-6 lg:-mt-12">
+                                  <div className="w-14 h-14 lg:w-24 lg:h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 lg:mb-4 overflow-hidden">
                                     <Image
                                       src="/images/drwilson.png"
                                       alt="Dr. Sarah Wilson"
@@ -522,26 +544,26 @@ export default function Home() {
                                       className="w-full h-full object-cover object-top rounded-full"
                                     />
                                   </div>
-                                  <div className="font-semibold text-xl">Dr. Sarah Wilson</div>
-                                  <div className="text-sm opacity-80 mt-2">Ready to connect</div>
+                                  <div className="font-semibold text-base lg:text-xl">Dr. Sarah Wilson</div>
+                                  <div className="text-xs lg:text-sm opacity-80 mt-1">Ready to connect</div>
                                 </div>
                               </div>
                               
                               {/* Video controls */}
-                              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
-                                <div className="w-14 h-14 rounded-full flex items-center justify-center bg-white/20">
-                                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <div className="absolute bottom-1 lg:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 lg:space-x-4">
+                                <div className="w-8 h-8 lg:w-14 lg:h-14 rounded-full flex items-center justify-center bg-white/20">
+                                  <svg className="w-4 h-4 lg:w-7 lg:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                                   </svg>
                                 </div>
                                 <div className="relative">
                                   {/* Pulsing ring indicator */}
-                                  <div className="absolute inset-0 w-14 h-14 rounded-full bg-green-400/30 animate-ping"></div>
+                                  <div className="absolute inset-0 w-8 h-8 lg:w-14 lg:h-14 rounded-full bg-green-400/30 animate-ping"></div>
                                   <div 
                                     onClick={goToStep3}
-                                    className="relative w-14 h-14 rounded-full flex items-center justify-center bg-green-500 hover:bg-green-600 cursor-pointer transition-colors"
+                                    className="relative w-8 h-8 lg:w-14 lg:h-14 rounded-full flex items-center justify-center bg-green-500 hover:bg-green-600 cursor-pointer transition-colors"
                                   >
-                                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg className="w-4 h-4 lg:w-7 lg:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
                                     </svg>
                                   </div>
@@ -550,7 +572,7 @@ export default function Home() {
                             </div>
                           </div>
                           
-                          <div className="flex items-center justify-center mt-6">
+                          <div className="flex items-center justify-center mt-3 lg:mt-6">
                             <button
                               onClick={handleCancelQueue}
                               className="text-xs text-white/60 hover:text-red-300 transition-colors duration-200 flex items-center space-x-1 group cursor-pointer"
@@ -571,9 +593,9 @@ export default function Home() {
                         <div className="text-sm font-semibold text-slate-900">Available Doctors</div>
                         
                         <div className="space-y-2">
-                          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                            <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-[#1C1B3A] rounded-full flex items-center justify-center overflow-hidden">
+                          <div className="flex items-center justify-between p-2 lg:p-3 bg-slate-50 rounded-lg">
+                            <div className="flex items-center space-x-2 lg:space-x-3">
+                              <div className="w-6 h-6 lg:w-8 lg:h-8 bg-[#1C1B3A] rounded-full flex items-center justify-center overflow-hidden">
                                 <Image
                                   src="/images/drwilson.png"
                                   alt="Dr. Sarah Wilson"
@@ -596,9 +618,9 @@ export default function Home() {
                             </div>
                           </div>
                           
-                          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                            <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-[#1C1B3A] rounded-full flex items-center justify-center">
+                          <div className="flex items-center justify-between p-2 lg:p-3 bg-slate-50 rounded-lg">
+                            <div className="flex items-center space-x-2 lg:space-x-3">
+                              <div className="w-6 h-6 lg:w-8 lg:h-8 bg-[#1C1B3A] rounded-full flex items-center justify-center">
                                 <span className="text-white text-xs font-bold">MC</span>
                               </div>
                               <div>
@@ -611,9 +633,9 @@ export default function Home() {
                             </div>
                           </div>
                           
-                          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
-                            <div className="flex items-center space-x-3">
-                              <div className="w-8 h-8 bg-[#1C1B3A] rounded-full flex items-center justify-center">
+                          <div className="flex items-center justify-between p-2 lg:p-3 bg-slate-50 rounded-lg">
+                            <div className="flex items-center space-x-2 lg:space-x-3">
+                              <div className="w-6 h-6 lg:w-8 lg:h-8 bg-[#1C1B3A] rounded-full flex items-center justify-center">
                                 <span className="text-white text-xs font-bold">AP</span>
                               </div>
                               <div>
@@ -630,8 +652,8 @@ export default function Home() {
                     )}
                   </div>
                 ) : (
-                  <div className="text-center py-8 text-slate-400">
-                    <div className="text-lg">Complete step 1 to join the queue</div>
+                  <div className="text-center py-6 lg:py-8 text-slate-400">
+                    <div className="text-base lg:text-lg">Complete step 1 to join the queue</div>
                   </div>
                 )}
               </div>
@@ -640,29 +662,29 @@ export default function Home() {
             {/* Step 3 - Video Consultation */}
             <div 
               ref={(el) => { stepRefs.current[2] = el }}
-              className="grid lg:grid-cols-2 gap-12 items-start"
+              className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start"
             >
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
-                    <span className="text-[#1C1B3A] font-bold">03</span>
+              <div className="space-y-4 lg:space-y-6">
+                <div className="flex items-center space-x-3 lg:space-x-4">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
+                    <span className="text-[#1C1B3A] font-bold text-sm lg:text-base">03</span>
                   </div>
-                  <h3 className="text-3xl font-bold text-slate-900">Video consultation</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Video consultation</h3>
                 </div>
-                <p className="text-lg text-slate-600 leading-relaxed">
+                <p className="text-base lg:text-lg text-slate-600 leading-relaxed">
                   Connect with your doctor for a comprehensive consultation.
                 </p>
               </div>
               
-              <div className="bg-white rounded-3xl p-4 shadow-xl border border-slate-100">
+              <div className="w-full bg-white rounded-2xl lg:rounded-3xl p-3 lg:p-4 shadow-xl border border-slate-100">
                 {demoStep >= 3 ? (
                   <div>
                     {/* Large Video Interface */}
-                    <div className="bg-[#1C1B3A] rounded-xl p-3 relative">
+                    <div className="bg-[#1C1B3A] rounded-xl p-1.5 lg:p-3 relative">
                       <div className="aspect-video bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg relative overflow-hidden">
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <div className="text-center text-white -mt-12">
-                            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                          <div className="text-center text-white -mt-6 lg:-mt-12">
+                            <div className="w-14 h-14 lg:w-24 lg:h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 lg:mb-4 overflow-hidden">
                               <Image
                                 src="/images/drwilson.png"
                                 alt="Dr. Sarah Wilson"
@@ -671,34 +693,34 @@ export default function Home() {
                                 className="w-full h-full object-cover object-top rounded-full"
                               />
                             </div>
-                            <div className="font-semibold text-xl">Dr. Sarah Wilson</div>
-                            <div className="text-sm opacity-80 mt-2">
+                            <div className="font-semibold text-base lg:text-xl">Dr. Sarah Wilson</div>
+                            <div className="text-xs lg:text-sm opacity-80 mt-1">
                               {demoStep >= 4 ? 'Call ended' : 'Live consultation'}
                             </div>
                           </div>
                         </div>
                         
                         {/* Video controls */}
-                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
-                          <div className={`w-14 h-14 rounded-full flex items-center justify-center ${
+                        <div className="absolute bottom-1 lg:bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 lg:space-x-4">
+                          <div className={`w-8 h-8 lg:w-14 lg:h-14 rounded-full flex items-center justify-center ${
                             demoStep >= 4 ? 'bg-slate-600' : 'bg-white/20'
                           }`}>
-                            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className="w-4 h-4 lg:w-7 lg:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
                             </svg>
                           </div>
                           <div className="relative">
                             {/* Pulsing ring indicator - only show when call is active */}
                             {demoStep === 3 && (
-                              <div className="absolute inset-0 w-14 h-14 rounded-full bg-red-400/30 animate-ping"></div>
+                              <div className="absolute inset-0 w-8 h-8 lg:w-14 lg:h-14 rounded-full bg-red-400/30 animate-ping"></div>
                             )}
                             <div 
                               onClick={demoStep === 3 ? goToStep4 : undefined}
-                              className={`relative w-14 h-14 rounded-full flex items-center justify-center ${
+                              className={`relative w-8 h-8 lg:w-14 lg:h-14 rounded-full flex items-center justify-center ${
                                 demoStep >= 4 ? 'bg-red-600 cursor-default' : 'bg-red-500 cursor-pointer hover:bg-red-600'
                               } transition-colors`}
                             >
-                              <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                              <svg className="w-4 h-4 lg:w-7 lg:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                               </svg>
                             </div>
@@ -707,22 +729,22 @@ export default function Home() {
                       </div>
                       
                       {/* Call info */}
-                      <div className="mt-3 flex justify-between items-center text-white text-sm">
-                        <span>
-                          {demoStep >= 4 ? 'Call duration: 8:34' : 'Connected: 3:21'}
+                      <div className="mt-1.5 lg:mt-3 flex justify-between items-center text-white text-xs lg:text-sm px-1">
+                        <span className="truncate">
+                          {demoStep >= 4 ? `Call duration: ${formatCallDuration(callDuration)}` : `Connected: ${formatCallDuration(callDuration)}`}
                         </span>
-                        <div className="flex items-center space-x-2">
-                          <div className={`w-2 h-2 rounded-full ${
+                        <div className="flex items-center space-x-1 lg:space-x-2">
+                          <div className={`w-1.5 h-1.5 lg:w-2 lg:h-2 rounded-full ${
                             demoStep >= 4 ? 'bg-slate-500' : 'bg-green-500 animate-pulse'
                           }`}></div>
-                          <span>{demoStep >= 4 ? 'Secure' : 'Encrypted'}</span>
+                          <span className="text-xs lg:text-sm">{demoStep >= 4 ? 'Secure' : 'Encrypted'}</span>
                         </div>
                       </div>
                     </div>
                   </div>
                 ) : (
-                  <div className="text-center py-8 text-slate-400">
-                    <div className="text-lg">Click on the green call icon to start your consultation!</div>
+                  <div className="text-center py-6 lg:py-8 text-slate-400">
+                    <div className="text-base lg:text-lg">Click on the green call icon to start your consultation!</div>
                   </div>
                 )}
               </div>
@@ -731,41 +753,41 @@ export default function Home() {
             {/* Step 4 - Receive Results */}
             <div 
               ref={(el) => { stepRefs.current[3] = el }}
-              className="grid lg:grid-cols-2 gap-12 items-start"
+              className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start"
             >
-              <div className="lg:order-2 space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
-                    <span className="text-[#1C1B3A] font-bold">04</span>
+              <div className="lg:order-2 space-y-4 lg:space-y-6">
+                <div className="flex items-center space-x-3 lg:space-x-4">
+                  <div className="w-10 h-10 lg:w-12 lg:h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
+                    <span className="text-[#1C1B3A] font-bold text-sm lg:text-base">04</span>
                   </div>
-                  <h3 className="text-3xl font-bold text-slate-900">Receive instantly</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Receive instantly</h3>
                 </div>
-                <p className="text-lg text-slate-600 leading-relaxed">
+                <p className="text-base lg:text-lg text-slate-600 leading-relaxed">
                   Get your prescription, medical certificate, or referral via SMS and email instantly. Ready when you are.
                 </p>
               </div>
               
-              <div className="lg:order-1 bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+              <div className="lg:order-1 w-full bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-xl border border-slate-100">
                 {demoStep >= 4 ? (
                   <div className="space-y-4">
                     <div className="bg-teal-50 border border-teal-200 rounded-lg p-3 animate-fadeIn">
                       <div className="text-sm text-teal-800 font-semibold">✓ Documents delivered instantly!</div>
                     </div>
                     
-                    <div className="flex items-center justify-between bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-blue-50 border border-blue-200 rounded-lg p-4 gap-3 sm:gap-0">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                          <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                        <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-4 h-4 lg:w-5 lg:h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                           </svg>
                         </div>
                         <div>
-                          <div className="font-semibold text-slate-900">Email Delivered</div>
+                          <div className="font-semibold text-slate-900 text-sm lg:text-base">Email Delivered</div>
                           <div className="text-sm text-slate-600">Medical certificate sent</div>
                         </div>
                       </div>
-                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors cursor-pointer flex items-center space-x-2">
+                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 lg:px-4 py-2 rounded-lg font-medium text-sm transition-colors cursor-pointer flex items-center justify-center space-x-2">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
@@ -773,19 +795,19 @@ export default function Home() {
                       </button>
                     </div>
                     
-                    <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg p-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-green-50 border border-green-200 rounded-lg p-4 gap-3 sm:gap-0">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
-                          <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                        <div className="w-8 h-8 lg:w-10 lg:h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-4 h-4 lg:w-5 lg:h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                             <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
                           </svg>
                         </div>
                         <div>
-                          <div className="font-semibold text-slate-900">SMS Sent</div>
+                          <div className="font-semibold text-slate-900 text-sm lg:text-base">SMS Sent</div>
                           <div className="text-sm text-slate-600">Download link delivered</div>
                         </div>
                       </div>
-                      <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors cursor-pointer flex items-center space-x-2">
+                      <button className="bg-green-600 hover:bg-green-700 text-white px-3 lg:px-4 py-2 rounded-lg font-medium text-sm transition-colors cursor-pointer flex items-center justify-center space-x-2">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
@@ -799,8 +821,8 @@ export default function Home() {
                     </div>
                   </div>
                 ) : (
-                  <div className="text-center py-8 text-slate-400">
-                    <div className="text-lg">Complete consultation to receive documents</div>
+                  <div className="text-center py-6 lg:py-8 text-slate-400">
+                    <div className="text-base lg:text-lg">Complete consultation to receive documents</div>
                   </div>
                 )}
               </div>
@@ -808,21 +830,21 @@ export default function Home() {
           </div>
 
           {/* Reset Demo */}
-          <div className="text-center mt-20">
+          <div className="text-center mt-16 lg:mt-20">
             <button
               onClick={resetDemo}
               className="text-slate-600 hover:text-slate-900 font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 px-4 py-2 rounded-lg hover:bg-slate-100"
             >
               ↻ Try the demo again
             </button>
-            <div className="mt-8">
+            <div className="mt-6 lg:mt-8">
               <button 
                 onClick={() => setIsWaitlistOpen(true)}
-                className="bg-[#1C1B3A] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#252347] hover:scale-105 transition-all duration-200 shadow-lg cursor-pointer active:scale-95"
+                className="bg-[#1C1B3A] text-white px-6 lg:px-8 py-3 lg:py-4 rounded-xl font-semibold text-base lg:text-lg hover:bg-[#252347] hover:scale-105 transition-all duration-200 shadow-lg cursor-pointer active:scale-95"
               >
                 Join the Waitlist
               </button>
-              <p className="text-sm text-slate-500 mt-4">Be among the first to access HeyDoc when we launch</p>
+              <p className="text-sm text-slate-500 mt-3 lg:mt-4">Be among the first to access HeyDoc when we launch</p>
             </div>
           </div>
         </div>
@@ -830,26 +852,25 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="bg-[#EFF4F9] border-t border-slate-200/50">
-        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-8 lg:py-16">
+          {/* Mobile-first simplified layout */}
+          <div className="text-center lg:text-left">
             
             {/* Logo and Description */}
-            <div className="md:col-span-2 space-y-4">
-              <div className="space-y-3">
-                <Image
-                  src="/logos/heydoc.png"
-                  alt="HeyDoc"
-                  width={400}
-                  height={200}
-                  className="h-16 w-auto object-left object-contain -ml-12"
-                />
-                <p className="text-slate-600 text-sm max-w-md leading-relaxed">
-                  Quality healthcare, anywhere in Australia. Built by doctors for better patient access.
-                </p>
-              </div>
+            <div className="space-y-3 lg:space-y-4 mb-8 lg:mb-12">
+              <Image
+                src="/logos/heydoc.png"
+                alt="HeyDoc"
+                width={400}
+                height={200}
+                className="h-12 lg:h-16 w-auto mx-auto lg:mx-0 lg:object-left lg:object-contain lg:-ml-12"
+              />
+              <p className="text-slate-600 text-sm max-w-md mx-auto lg:mx-0 leading-relaxed">
+                Quality healthcare, anywhere in Australia. Built by doctors for better patient access.
+              </p>
               
               {/* Social Media */}
-              <div className="flex space-x-4 pt-2">
+              <div className="flex justify-center lg:justify-start space-x-3 lg:space-x-4 pt-2">
                 <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm hover:shadow-md transition-shadow cursor-pointer">
                   <svg className="w-4 h-4 text-slate-600" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
@@ -868,39 +889,53 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Company */}
-            <div className="space-y-4">
-              <h4 className="text-slate-900 font-semibold text-sm">Company</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">About Us</a>
-                <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Contact</a>
-                <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Careers</a>
-                <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Blog</a>
+            {/* Desktop grid layout for links - hidden on mobile */}
+            <div className="hidden lg:grid lg:grid-cols-2 lg:gap-8 lg:mb-12">
+              {/* Company */}
+              <div className="space-y-4">
+                <h4 className="text-slate-900 font-semibold text-sm">Company</h4>
+                <div className="space-y-2">
+                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">About Us</a>
+                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Contact</a>
+                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Careers</a>
+                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Blog</a>
+                </div>
+              </div>
+
+              {/* Services */}
+              <div className="space-y-4">
+                <h4 className="text-slate-900 font-semibold text-sm">Services</h4>
+                <div className="space-y-2">
+                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">GP Consultations</a>
+                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Mental Health</a>
+                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Women&apos;s Health</a>
+                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Specialist Referrals</a>
+                </div>
               </div>
             </div>
 
-            {/* Services */}
-            <div className="space-y-4">
-              <h4 className="text-slate-900 font-semibold text-sm">Services</h4>
-              <div className="space-y-2">
-                <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">GP Consultations</a>
-                <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Mental Health</a>
-                <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Women&apos;s Health</a>
-                <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Specialist Referrals</a>
+            {/* Mobile simplified links */}
+            <div className="lg:hidden mb-8">
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
+                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">About</a>
+                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
+                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">GP Consultations</a>
+                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">Mental Health</a>
               </div>
             </div>
-          </div>
 
-          {/* Bottom Section */}
-          <div className="border-t border-slate-200/50 mt-12 pt-8">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-slate-500 text-sm">
-                © 2025 HeyDoc. All rights reserved.
-              </div>
-              <div className="flex space-x-6">
-                <a href="#" className="text-slate-500 text-sm hover:text-slate-900 transition-colors">Privacy Policy</a>
-                <a href="#" className="text-slate-500 text-sm hover:text-slate-900 transition-colors">Terms of Service</a>
-                <a href="#" className="text-slate-500 text-sm hover:text-slate-900 transition-colors">Cookie Policy</a>
+            {/* Bottom Section */}
+            <div className="border-t border-slate-200/50 pt-6 lg:pt-8">
+              <div className="flex flex-col lg:flex-row justify-between items-center space-y-3 lg:space-y-0">
+                <div className="text-slate-500 text-sm">
+                  © 2025 HeyDoc. All rights reserved.
+                </div>
+                <div className="flex flex-wrap justify-center lg:justify-end gap-x-4 gap-y-1 text-xs lg:text-sm">
+                  <a href="#" className="text-slate-500 hover:text-slate-900 transition-colors">Privacy Policy</a>
+                  <a href="#" className="text-slate-500 hover:text-slate-900 transition-colors">Terms of Service</a>
+                  <a href="#" className="text-slate-500 hover:text-slate-900 transition-colors lg:hidden">Cookie Policy</a>
+                  <a href="#" className="hidden lg:inline text-slate-500 hover:text-slate-900 transition-colors">Cookie Policy</a>
+                </div>
               </div>
             </div>
           </div>
