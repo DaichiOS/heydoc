@@ -464,7 +464,7 @@ export default function Home() {
 
                     {/* User's Details Summary */}
                     <div className="bg-slate-50 rounded-lg p-4">
-                      <div className="text-sm font-semibold text-slate-900 mb-2">Your Request:</div>
+                      <div className="text-sm font-semibold text-slate-900 mb-2">Patient Details:</div>
                       <div className="text-sm text-slate-700 mb-1">&quot;{userReason}&quot;</div>
                       {userSymptoms && (
                         <div className="text-xs text-slate-600">Symptoms: {userSymptoms}</div>
