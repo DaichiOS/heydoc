@@ -1,103 +1,176 @@
-import Image from "next/image";
+'use client'
+
+import { WaitlistModal } from "@/components/waitlist-modal"
+import Image from "next/image"
+import { useState } from "react"
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  return (
+    <div 
+      className="min-h-screen bg-[#EFF4F9]"
+    >
+      {/* Header with Logo */}
+      <header className="px-6 sm:px-8 lg:px-12 pt-8 pb-4">
+        <div className="flex justify-start">
+          <Image
+            src="/logos/heydoc.png"
+            alt="HeyDoc"
+            width={600}
+            height={300}
+            className="h-48 w-auto"
+          />
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </header>
+
+      {/* Hero Section */}
+      <section className="px-6 sm:px-8 lg:px-12 py-16 lg:py-24">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            
+            {/* Left Column - Content */}
+            <div className="space-y-8">
+              {/* Trust Badge */}
+              <div className="inline-flex items-center bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 border border-blue-200">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                <span className="text-sm font-medium text-slate-700">Built by doctors, trusted by patients</span>
+              </div>
+
+              {/* Main Headline */}
+              <div className="space-y-4">
+                <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 leading-tight">
+                  Quality Healthcare,
+                  <span className="text-[#1C1B3A] block">Anywhere in Australia</span>
+                </h1>
+                
+                <p className="text-xl lg:text-2xl text-slate-600 leading-relaxed">
+                  Connect with licensed healthcare professionals from the comfort of your home. 
+                  Accessible, secure, and convenient telehealth services designed by doctors 
+                  who understand your needs.
+                </p>
+              </div>
+
+              {/* Key Benefits */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 bg-[#1C1B3A] rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-700 font-medium">GP Consultations</span>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 bg-[#1C1B3A] rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-700 font-medium">Mental Health Support</span>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 bg-[#1C1B3A] rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-700 font-medium">Women's Health</span>
+                </div>
+                
+                <div className="flex items-center space-x-3">
+                  <div className="w-6 h-6 bg-[#1C1B3A] rounded-full flex items-center justify-center">
+                    <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                  <span className="text-slate-700 font-medium">Specialist Referrals</span>
+                </div>
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button 
+                  onClick={() => setIsWaitlistOpen(true)}
+                  className="bg-[#1C1B3A] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#252347] hover:scale-105 hover:shadow-xl transition-all duration-200 shadow-lg cursor-pointer active:scale-95"
+                >
+                  Join Waitlist
+                </button>
+                
+                <button className="border-2 border-[#1C1B3A] text-[#1C1B3A] px-8 py-4 rounded-xl font-semibold text-lg hover:scale-105 hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-95">
+                  Learn More
+                </button>
+              </div>
+
+              {/* Social Proof */}
+              <div className="flex items-center space-x-6 pt-4">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#1C1B3A]">50,000+</div>
+                  <div className="text-sm text-slate-600">Consultations</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#1C1B3A]">500+</div>
+                  <div className="text-sm text-slate-600">Healthcare Providers</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-[#1C1B3A]">24/7</div>
+                  <div className="text-sm text-slate-600">Available</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Visual Element */}
+            <div className="relative lg:pl-8">
+              <div className="bg-white/50 backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-white/20">
+                <div className="space-y-6">
+                  {/* Mock consultation interface */}
+                  <div className="flex items-center space-x-4">
+                    <div className="w-12 h-12 bg-[#1C1B3A] rounded-full flex items-center justify-center">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="font-semibold text-slate-900">Dr. Albert Vu</div>
+                      <div className="text-sm text-slate-600">General Practitioner</div>
+                    </div>
+                    <div className="ml-auto">
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-slate-100 rounded-xl p-4">
+                    <div className="text-sm text-slate-600 mb-2">Next Available:</div>
+                    <div className="font-semibold text-slate-900">Today, 2:30 PM</div>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="text-sm font-medium text-slate-900">Consultation Types:</div>
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-between bg-white rounded-lg p-3">
+                        <span className="text-slate-700">General Health</span>
+                        <span className="text-green-600 font-medium">Available</span>
+                      </div>
+                      <div className="flex items-center justify-between bg-white rounded-lg p-3">
+                        <span className="text-slate-700">Mental Health</span>
+                        <span className="text-green-600 font-medium">Available</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Waitlist Modal */}
+      <WaitlistModal 
+        isOpen={isWaitlistOpen} 
+        onClose={() => setIsWaitlistOpen(false)} 
+      />
     </div>
-  );
+  )
 }
