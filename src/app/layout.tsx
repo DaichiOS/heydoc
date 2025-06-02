@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "/logos/heydoc-social-image.png",
+        url: "/logos/heydoc-socials2.png",
         width: 1200,
         height: 800,
         alt: "HeyDoc - Quality Healthcare, Anywhere in Australia",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "heydoc - Access quality healthcare from the comfort of your home",
     description: "Access quality healthcare from the comfort of your home. Connect with licensed doctors through our secure telehealth platform.",
-    images: ["/logos/heydoc-social-image.png"],
+    images: ["/logos/heydoc-socials2.png"],
   },
 };
 
