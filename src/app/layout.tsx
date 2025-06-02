@@ -28,7 +28,7 @@ export const metadata: Metadata = {
       {
         url: "/logos/heydoc-social-image.png",
         width: 1200,
-        height: 630,
+        height: 800,
         alt: "HeyDoc - Quality Healthcare, Anywhere in Australia",
       },
     ],
