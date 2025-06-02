@@ -129,7 +129,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       {...register('name')}
                       type="text"
                       id="name"
-                      className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#1C1B3A] focus:border-transparent transition-colors"
+                      className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#1C1B3A] focus:border-transparent transition-colors text-slate-900"
                       placeholder="Enter your full name"
                     />
                   </div>
@@ -149,7 +149,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       {...register('email')}
                       type="email"
                       id="email"
-                      className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#1C1B3A] focus:border-transparent transition-colors"
+                      className="w-full pl-10 pr-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#1C1B3A] focus:border-transparent transition-colors text-slate-900"
                       placeholder="Enter your email"
                     />
                   </div>

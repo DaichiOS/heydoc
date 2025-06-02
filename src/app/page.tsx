@@ -171,6 +171,124 @@ export default function Home() {
         </div>
       </section>
 
+      {/* How It Works Section */}
+      <section className="px-6 sm:px-8 lg:px-12 py-20 lg:py-32 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-24">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
+              How it works
+            </h2>
+            <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+              Connect with Australian doctors in four simple steps
+            </p>
+            
+            {/* Progress indicator */}
+            <div className="flex justify-center mt-12">
+              <div className="flex items-center space-x-3">
+                <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
+                <div className="w-16 h-0.5 bg-slate-200"></div>
+                <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                <div className="w-16 h-0.5 bg-slate-200"></div>
+                <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
+                <div className="w-16 h-0.5 bg-slate-200"></div>
+                <div className="w-2 h-2 rounded-full bg-teal-500"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Steps Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+            {/* Step 1 */}
+            <div className="group">
+              <div className="bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-emerald-100 h-full">
+                <div className="text-center">
+                  <div className="mb-6">
+                    <div className="w-20 h-20 bg-emerald-50 rounded-3xl flex items-center justify-center mx-auto group-hover:bg-emerald-100 transition-colors duration-300 border border-emerald-100">
+                      <svg className="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    </div>
+                    <div className="text-sm font-bold text-emerald-600 mt-4 tracking-wider">STEP 01</div>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Join the queue</h3>
+                  <p className="text-slate-600 leading-relaxed">Secure your spot instantly. No appointments needed - get seen by the next available doctor.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="group">
+              <div className="bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-blue-100 h-full">
+                <div className="text-center">
+                  <div className="mb-6">
+                    <div className="w-20 h-20 bg-blue-50 rounded-3xl flex items-center justify-center mx-auto group-hover:bg-blue-100 transition-colors duration-300 border border-blue-100">
+                      <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                      </svg>
+                    </div>
+                    <div className="text-sm font-bold text-blue-600 mt-4 tracking-wider">STEP 02</div>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Secure payment</h3>
+                  <p className="text-slate-600 leading-relaxed">Safe, encrypted payment processing. Transparent pricing with no hidden fees.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="group">
+              <div className="bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-indigo-100 h-full">
+                <div className="text-center">
+                  <div className="mb-6">
+                    <div className="w-20 h-20 bg-indigo-50 rounded-3xl flex items-center justify-center mx-auto group-hover:bg-indigo-100 transition-colors duration-300 border border-indigo-100">
+                      <svg className="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div className="text-sm font-bold text-indigo-600 mt-4 tracking-wider">STEP 03</div>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Talk to an Aussie doctor</h3>
+                  <p className="text-slate-600 leading-relaxed">Connect with Australian-registered practitioners who understand local health needs.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Step 4 */}
+            <div className="group">
+              <div className="bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-teal-100 h-full">
+                <div className="text-center">
+                  <div className="mb-6">
+                    <div className="w-20 h-20 bg-teal-50 rounded-3xl flex items-center justify-center mx-auto group-hover:bg-teal-100 transition-colors duration-300 border border-teal-100">
+                      <svg className="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                      </svg>
+                    </div>
+                    <div className="text-sm font-bold text-teal-600 mt-4 tracking-wider">STEP 04</div>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-4">Receive instantly</h3>
+                  <p className="text-slate-600 leading-relaxed">Get your prescription, medical certificate, or referral via SMS and email instantly.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Enhanced Call to Action */}
+          <div className="text-center mt-20">
+            <div className="max-w-md mx-auto">
+              <p className="text-slate-600 mb-8 text-lg">Ready to be notified when we launch?</p>
+              <button 
+                onClick={() => setIsWaitlistOpen(true)}
+                className="group relative inline-flex items-center justify-center w-full bg-[#1C1B3A] text-white px-8 py-5 rounded-2xl font-semibold text-lg hover:bg-[#252347] transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer active:scale-95 overflow-hidden"
+              >
+                <span className="relative z-10">Join the Waitlist</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              </button>
+              <p className="text-sm text-slate-500 mt-4">Be among the first to access HeyDoc when we launch</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Waitlist Modal */}
       <WaitlistModal 
         isOpen={isWaitlistOpen} 
