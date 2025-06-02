@@ -2,21 +2,187 @@
 
 import { WaitlistModal } from "@/components/waitlist-modal"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function Home() {
   const [isWaitlistOpen, setIsWaitlistOpen] = useState(false)
+  const [demoStep, setDemoStep] = useState(0)
+  const [queuePosition, setQueuePosition] = useState(4)
+  const [userReason, setUserReason] = useState('')
+  const [userSymptoms, setUserSymptoms] = useState('')
+  const [doctorAvailable, setDoctorAvailable] = useState(false)
+  const stepRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  // Add smooth scrolling behavior to the page
+  useEffect(() => {
+    document.documentElement.style.scrollBehavior = 'smooth'
+    
+    return () => {
+      document.documentElement.style.scrollBehavior = 'auto'
+    }
+  }, [])
+
+  // Custom smooth scroll function with better easing
+  const smoothScrollToElement = (element: HTMLElement, offset: number = 0) => {
+    // Fallback to standard scrollIntoView if custom scroll fails
+    try {
+      const rect = element.getBoundingClientRect()
+      const targetPosition = window.pageYOffset + rect.top - (window.innerHeight / 2) + (rect.height / 2) + offset
+      const startPosition = window.pageYOffset
+      const distance = targetPosition - startPosition
+      const duration = 1200 // Slightly faster for more responsiveness
+      let start: number | null = null
+
+      // Responsive easing - starts faster, ends smooth
+      const easeOutCubic = (t: number): number => {
+        return 1 - Math.pow(1 - t, 3)
+      }
+
+      const animation = (currentTime: number) => {
+        if (start === null) start = currentTime
+        const timeElapsed = currentTime - start
+        const progress = Math.min(timeElapsed / duration, 1)
+        
+        const ease = easeOutCubic(progress)
+        window.scrollTo(0, startPosition + distance * ease)
+        
+        if (timeElapsed < duration) {
+          requestAnimationFrame(animation)
+        }
+      }
+
+      requestAnimationFrame(animation)
+    } catch {
+      console.log('Custom scroll failed, using fallback')
+      // Fallback to standard scrollIntoView
+      element.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'center',
+        inline: 'center'
+      })
+    }
+  }
+
+  useEffect(() => {
+    const observers = stepRefs.current.map((ref) => {
+      if (!ref) return null
+      
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            // Observer logic here if needed
+          }
+        },
+        { threshold: 0.6 }
+      )
+      
+      observer.observe(ref)
+      return observer
+    })
+
+    return () => {
+      observers.forEach(observer => observer?.disconnect())
+    }
+  }, [])
+
+  // Queue position animation (faster - 2 seconds total)
+  useEffect(() => {
+    if (demoStep >= 1 && queuePosition > 2) {
+      const timer = setTimeout(() => {
+        setQueuePosition(prev => Math.max(2, prev - 1))
+      }, 1000) // Changed from 1500ms to 1000ms for 2 second total (4->3->2)
+      return () => clearTimeout(timer)
+    }
+  }, [demoStep, queuePosition])
+
+  // Doctor becomes available after queue countdown
+  useEffect(() => {
+    if (demoStep >= 1 && queuePosition === 2) {
+      const timer = setTimeout(() => {
+        setDoctorAvailable(true)
+      }, 1000) // Reduced from 1500ms to 1000ms
+      return () => clearTimeout(timer)
+    }
+  }, [demoStep, queuePosition])
+
+  const handleJoinQueue = () => {
+    // Use placeholder text if fields are empty
+    const reason = userReason.trim() || "Need a medical certificate for work absence due to flu symptoms"
+    const symptoms = userSymptoms.trim() || "Mild fever, headache, fatigue for 2 days"
+    
+    setUserReason(reason)
+    setUserSymptoms(symptoms)
+    setDemoStep(1)
+    setQueuePosition(4) // Start animation from 4th position instead of 5th
+    
+    // Smooth scroll to step 2 (queue status) after form submission
+    setTimeout(() => {
+      if (stepRefs.current[1]) {
+        smoothScrollToElement(stepRefs.current[1])
+      }
+    }, 100)
+  }
+
+  const handleCancelQueue = () => {
+    setDemoStep(0)
+    setQueuePosition(4) // Reset to 4th position
+    setDoctorAvailable(false)
+    
+    // Smooth scroll back to step 1 form
+    setTimeout(() => {
+      if (stepRefs.current[0]) {
+        smoothScrollToElement(stepRefs.current[0])
+      }
+    }, 100)
+  }
+
+  const resetDemo = () => {
+    setDemoStep(0)
+    setQueuePosition(4) // Reset to 4th position
+    setUserReason('')
+    setUserSymptoms('')
+    setDoctorAvailable(false)
+    
+    // Smooth scroll back to step 1
+    setTimeout(() => {
+      if (stepRefs.current[0]) {
+        smoothScrollToElement(stepRefs.current[0])
+      }
+    }, 100)
+  }
+
+  const goToStep3 = () => {
+    setDemoStep(3) // Set to step 3 first
+    
+    // Then smooth scroll to step 3
+    setTimeout(() => {
+      if (stepRefs.current[2]) {
+        smoothScrollToElement(stepRefs.current[2])
+      }
+    }, 100)
+  }
+
+  const goToStep4 = () => {
+    setDemoStep(4) // Set to step 4 first
+    
+    // Then smooth scroll to step 4
+    setTimeout(() => {
+      if (stepRefs.current[3]) {
+        smoothScrollToElement(stepRefs.current[3])
+      }
+    }, 100)
+  }
 
   return (
     <div 
-      className="min-h-screen bg-[#EFF4F9]"
+      className="min-h-screen bg-[#EFF4F9] relative"
     >
       {/* Header with Logo */}
       <header className="px-6 sm:px-8 lg:px-12 pt-8 sm:pt-8 pb-6 sm:pb-4">
         <div className="flex justify-start">
           <Image
             src="/logos/heydoc.png"
-            alt="HeyDoc"
+            alt="heydoc"
             width={600}
             height={300}
             className="h-36 sm:h-40 lg:h-48 w-auto"
@@ -45,10 +211,8 @@ export default function Home() {
                   <span className="text-[#1C1B3A] block">Anywhere in Australia</span>
                 </h1>
                 
-                <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 leading-relaxed">
-                  Connect with licensed healthcare professionals from the comfort of your home. 
-                  Accessible, secure, and convenient telehealth services designed by doctors 
-                  who understand your needs.
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  Get started with your healthcare needs.
                 </p>
               </div>
 
@@ -171,117 +335,492 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How It Works Section */}
-      <section className="px-6 sm:px-8 lg:px-12 py-20 lg:py-32 bg-slate-50">
+      {/* Interactive Demo Section */}
+      <section className="px-6 sm:px-8 lg:px-12 py-20 lg:py-32 bg-slate-50 relative">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-24">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-8 tracking-tight">
-              How it works
+              Need healthcare on the go?
             </h2>
             <p className="text-xl sm:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Connect with Australian doctors in four simple steps
+              See how easy it is to get healthcare with HeyDoc
             </p>
             
             {/* Progress indicator */}
             <div className="flex justify-center mt-12">
               <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 rounded-full bg-emerald-500"></div>
-                <div className="w-16 h-0.5 bg-slate-200"></div>
-                <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                <div className="w-16 h-0.5 bg-slate-200"></div>
-                <div className="w-2 h-2 rounded-full bg-indigo-500"></div>
-                <div className="w-16 h-0.5 bg-slate-200"></div>
-                <div className="w-2 h-2 rounded-full bg-teal-500"></div>
+                {[0, 1, 2, 3].map((step) => (
+                  <div key={step} className="flex items-center">
+                    <div className={`w-3 h-3 rounded-full transition-all duration-500 ${
+                      demoStep >= step ? 'bg-emerald-500 scale-110' : 'bg-slate-300'
+                    }`}></div>
+                    {step < 3 && <div className="w-16 h-0.5 bg-slate-200"></div>}
+                  </div>
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Steps Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
-            {/* Step 1 */}
-            <div className="group">
-              <div className="bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-emerald-100 h-full">
-                <div className="text-center">
-                  <div className="mb-6">
-                    <div className="w-20 h-20 bg-emerald-50 rounded-3xl flex items-center justify-center mx-auto group-hover:bg-emerald-100 transition-colors duration-300 border border-emerald-100">
-                      <svg className="w-10 h-10 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                      </svg>
-                    </div>
-                    <div className="text-sm font-bold text-emerald-600 mt-4 tracking-wider">STEP 01</div>
+          {/* Demo Steps */}
+          <div className="space-y-32">
+            {/* Step 1 - Health Assessment Form Only */}
+            <div 
+              ref={(el) => { stepRefs.current[0] = el }}
+              className="grid lg:grid-cols-2 gap-12 items-start"
+            >
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
+                    <span className="text-[#1C1B3A] font-bold">01</span>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Join the queue</h3>
-                  <p className="text-slate-600 leading-relaxed">Secure your spot instantly. No appointments needed - get seen by the next available doctor.</p>
+                  <h3 className="text-3xl font-bold text-slate-900">Tell us how we can help</h3>
+                </div>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  Share your symptoms or health concerns. This helps our doctors prepare and makes your consultation faster and more effective.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                {/* Always show Health Assessment Form for Step 1 */}
+                <div className="space-y-4 min-h-[400px]">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-semibold text-slate-900">Quick Health Assessment</h4>
+                    <div className="w-3 h-3 rounded-full bg-slate-300"></div>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <div className="text-sm font-medium text-slate-900">What brings you here today? *</div>
+                    <textarea
+                      value={userReason}
+                      onChange={(e) => setUserReason(e.target.value)}
+                      className="w-full p-3 border rounded-lg bg-slate-50 border-slate-200 text-slate-900 text-sm resize-none focus:border-[#1C1B3A] focus:ring-2 focus:ring-[#1C1B3A]/20 transition-colors"
+                      placeholder="e.g., Need a medical certificate for work absence due to flu symptoms..."
+                      rows={3}
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <div className="text-sm font-medium text-slate-900">Any current symptoms? (Optional)</div>
+                    <textarea
+                      value={userSymptoms}
+                      onChange={(e) => setUserSymptoms(e.target.value)}
+                      className="w-full p-3 border rounded-lg bg-slate-50 border-slate-200 text-slate-900 text-sm resize-none focus:border-[#1C1B3A] focus:ring-2 focus:ring-[#1C1B3A]/20 transition-colors"
+                      placeholder="e.g., Mild fever, headache, fatigue for 2 days..."
+                      rows={2}
+                    />
+                  </div>
+
+                  <div className="pt-4">
+                    <button
+                      onClick={handleJoinQueue}
+                      className="w-full px-8 py-4 rounded-xl font-semibold text-lg transition-all duration-200 bg-[#1C1B3A] text-white hover:bg-[#252347] hover:scale-105 shadow-lg cursor-pointer active:scale-95"
+                    >
+                      Join the queue
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Step 2 */}
-            <div className="group">
-              <div className="bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-blue-100 h-full">
-                <div className="text-center">
-                  <div className="mb-6">
-                    <div className="w-20 h-20 bg-blue-50 rounded-3xl flex items-center justify-center mx-auto group-hover:bg-blue-100 transition-colors duration-300 border border-blue-100">
-                      <svg className="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                      </svg>
-                    </div>
-                    <div className="text-sm font-bold text-blue-600 mt-4 tracking-wider">STEP 02</div>
+            {/* Step 2 - Queue Status & Doctor Matching */}
+            <div 
+              ref={(el) => { stepRefs.current[1] = el }}
+              className="grid lg:grid-cols-2 gap-12 items-start"
+            >
+              <div className="lg:order-2 space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
+                    <span className="text-[#1C1B3A] font-bold">02</span>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Secure payment</h3>
-                  <p className="text-slate-600 leading-relaxed">Safe, encrypted payment processing. Transparent pricing with no hidden fees.</p>
+                  <h3 className="text-3xl font-bold text-slate-900">Get matched with a doctor</h3>
                 </div>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  We&apos;re finding you the right doctor for your needs.
+                </p>
+              </div>
+              
+              <div className="lg:order-1 bg-white rounded-3xl p-4 shadow-xl border border-slate-100">
+                {demoStep >= 1 ? (
+                  /* Queue Status Screen */
+                  <div className="space-y-6 min-h-[400px]">
+                    <div className="flex items-center justify-between">
+                      <h4 className={`font-semibold transition-colors duration-500 ${
+                        doctorAvailable ? 'text-emerald-600' : 'text-slate-900'
+                      }`}>
+                        {doctorAvailable ? 'Doctor Available!' : 'Finding You a Doctor'}
+                      </h4>
+                    </div>
+                    
+                    <div className={`border rounded-lg p-3 animate-fadeIn transition-colors duration-500 ${
+                      doctorAvailable ? 'bg-emerald-50 border-emerald-200' : 'bg-blue-50 border-blue-200'
+                    }`}>
+                      <div className={`text-sm font-semibold transition-colors duration-500 ${
+                        doctorAvailable ? 'text-emerald-800' : 'text-blue-800'
+                      }`}>
+                        {doctorAvailable ? '✓ Dr. Wilson is ready to see you!' : '✓ Finding your doctor...'}
+                      </div>
+                    </div>
+
+                    {/* User's Details Summary */}
+                    <div className="bg-slate-50 rounded-lg p-4">
+                      <div className="text-sm font-semibold text-slate-900 mb-2">Your Request:</div>
+                      <div className="text-sm text-slate-700 mb-1">&quot;{userReason}&quot;</div>
+                      {userSymptoms && (
+                        <div className="text-xs text-slate-600">Symptoms: {userSymptoms}</div>
+                      )}
+                    </div>
+                    
+                    {/* Queue Status with Loading Animation */}
+                    <div className="bg-[#1C1B3A] text-white rounded-xl transition-all duration-500">
+                      {!doctorAvailable ? (
+                        /* Loading State */
+                        <div className="p-6 space-y-4">
+                          <div className="text-center">
+                            <div className="text-sm opacity-80 mb-1">Your position</div>
+                            <div className="text-2xl font-bold transition-all duration-500">
+                              {queuePosition === 2 ? '2nd' : `${queuePosition}th`} in queue
+                            </div>
+                            <div className="text-sm opacity-80 mt-1">
+                              Estimated wait: {queuePosition === 2 ? '2-3' : `${queuePosition * 2}-${queuePosition * 2 + 2}`} minutes
+                            </div>
+                          </div>
+                          
+                          {/* Always show loading dots and exit button */}
+                          <div className="flex items-center justify-between">
+                            <div className="flex space-x-1">
+                              <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                              <div className="w-2 h-2 bg-white rounded-full animate-pulse" style={{animationDelay: '0.2s'}}></div>
+                              <div className="w-2 h-2 bg-white rounded-full animate-pulse" style={{animationDelay: '0.4s'}}></div>
+                            </div>
+                            
+                            <button
+                              onClick={handleCancelQueue}
+                              className="text-xs text-white/60 hover:text-red-300 transition-colors duration-200 flex items-center space-x-1 group cursor-pointer"
+                            >
+                              <svg className="w-3 h-3 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3-3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                              </svg>
+                              <span>Exit Queue</span>
+                            </button>
+                          </div>
+                        </div>
+                      ) : (
+                        /* Doctor Ready - Large Video Interface like Step 3 */
+                        <div className="p-2">
+                          {/* Large Video Interface */}
+                          <div className="bg-[#1C1B3A] rounded-xl relative">
+                            <div className="aspect-video bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg relative overflow-hidden">
+                              <div className="absolute inset-0 flex items-center justify-center">
+                                <div className="text-center text-white -mt-12">
+                                  <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                                    <Image
+                                      src="/images/drwilson.png"
+                                      alt="Dr. Sarah Wilson"
+                                      width={96}
+                                      height={96}
+                                      className="w-full h-full object-cover object-top rounded-full"
+                                    />
+                                  </div>
+                                  <div className="font-semibold text-xl">Dr. Sarah Wilson</div>
+                                  <div className="text-sm opacity-80 mt-2">Ready to connect</div>
+                                </div>
+                              </div>
+                              
+                              {/* Video controls */}
+                              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
+                                <div className="w-14 h-14 rounded-full flex items-center justify-center bg-white/20">
+                                  <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                                  </svg>
+                                </div>
+                                <div className="relative">
+                                  {/* Pulsing ring indicator */}
+                                  <div className="absolute inset-0 w-14 h-14 rounded-full bg-green-400/30 animate-ping"></div>
+                                  <div 
+                                    onClick={goToStep3}
+                                    className="relative w-14 h-14 rounded-full flex items-center justify-center bg-green-500 hover:bg-green-600 cursor-pointer transition-colors"
+                                  >
+                                    <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                                    </svg>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center justify-center mt-6">
+                            <button
+                              onClick={handleCancelQueue}
+                              className="text-xs text-white/60 hover:text-red-300 transition-colors duration-200 flex items-center space-x-1 group cursor-pointer"
+                            >
+                              <svg className="w-3 h-3 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3-3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                              </svg>
+                              <span>Exit Queue</span>
+                            </button>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
+                    {/* Live Doctor Status - only show when still searching for doctors */}
+                    {!doctorAvailable && (
+                      <div className="space-y-3">
+                        <div className="text-sm font-semibold text-slate-900">Available Doctors</div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                            <div className="flex items-center space-x-3">
+                              <div className="w-8 h-8 bg-[#1C1B3A] rounded-full flex items-center justify-center overflow-hidden">
+                                <Image
+                                  src="/images/drwilson.png"
+                                  alt="Dr. Sarah Wilson"
+                                  width={32}
+                                  height={32}
+                                  className="w-full h-full object-cover object-top rounded-full"
+                                />
+                              </div>
+                              <div>
+                                <div className="text-sm font-semibold text-slate-900">Dr. Sarah Wilson</div>
+                                <div className="text-xs text-slate-600">General Practice</div>
+                              </div>
+                            </div>
+                            <div className={`text-xs px-2 py-1 rounded-full transition-all duration-500 ${
+                              doctorAvailable 
+                                ? 'bg-green-100 text-green-800' 
+                                : 'bg-orange-100 text-orange-800'
+                            }`}>
+                              {doctorAvailable ? 'Available Now!' : `In consultation (${queuePosition === 2 ? '1' : '3'} min left)`}
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                            <div className="flex items-center space-x-3">
+                              <div className="w-8 h-8 bg-[#1C1B3A] rounded-full flex items-center justify-center">
+                                <span className="text-white text-xs font-bold">MC</span>
+                              </div>
+                              <div>
+                                <div className="text-sm font-semibold text-slate-900">Dr. Mark Chen</div>
+                                <div className="text-xs text-slate-600">General Practice</div>
+                              </div>
+                            </div>
+                            <div className="text-xs px-2 py-1 bg-red-100 text-red-800 rounded-full">
+                              In consultation (8 min left)
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center justify-between p-3 bg-slate-50 rounded-lg">
+                            <div className="flex items-center space-x-3">
+                              <div className="w-8 h-8 bg-[#1C1B3A] rounded-full flex items-center justify-center">
+                                <span className="text-white text-xs font-bold">AP</span>
+                              </div>
+                              <div>
+                                <div className="text-sm font-semibold text-slate-900">Dr. Anna Park</div>
+                                <div className="text-xs text-slate-600">Mental Health</div>
+                              </div>
+                            </div>
+                            <div className="text-xs px-2 py-1 bg-slate-100 text-slate-600 rounded-full">
+                              Offline
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div className="text-center py-8 text-slate-400">
+                    <div className="text-lg">Complete step 1 to join the queue</div>
+                  </div>
+                )}
               </div>
             </div>
 
-            {/* Step 3 */}
-            <div className="group">
-              <div className="bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-indigo-100 h-full">
-                <div className="text-center">
-                  <div className="mb-6">
-                    <div className="w-20 h-20 bg-indigo-50 rounded-3xl flex items-center justify-center mx-auto group-hover:bg-indigo-100 transition-colors duration-300 border border-indigo-100">
-                      <svg className="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div className="text-sm font-bold text-indigo-600 mt-4 tracking-wider">STEP 03</div>
+            {/* Step 3 - Video Consultation */}
+            <div 
+              ref={(el) => { stepRefs.current[2] = el }}
+              className="grid lg:grid-cols-2 gap-12 items-start"
+            >
+              <div className="space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
+                    <span className="text-[#1C1B3A] font-bold">03</span>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Talk to an Aussie doctor</h3>
-                  <p className="text-slate-600 leading-relaxed">Connect with Australian-registered practitioners who understand local health needs.</p>
+                  <h3 className="text-3xl font-bold text-slate-900">Video consultation</h3>
                 </div>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  Connect with your doctor for a comprehensive consultation.
+                </p>
+              </div>
+              
+              <div className="bg-white rounded-3xl p-4 shadow-xl border border-slate-100">
+                {demoStep >= 3 ? (
+                  <div>
+                    {/* Large Video Interface */}
+                    <div className="bg-[#1C1B3A] rounded-xl p-3 relative">
+                      <div className="aspect-video bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg relative overflow-hidden">
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="text-center text-white -mt-12">
+                            <div className="w-24 h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4 overflow-hidden">
+                              <Image
+                                src="/images/drwilson.png"
+                                alt="Dr. Sarah Wilson"
+                                width={96}
+                                height={96}
+                                className="w-full h-full object-cover object-top rounded-full"
+                              />
+                            </div>
+                            <div className="font-semibold text-xl">Dr. Sarah Wilson</div>
+                            <div className="text-sm opacity-80 mt-2">
+                              {demoStep >= 4 ? 'Call ended' : 'Live consultation'}
+                            </div>
+                          </div>
+                        </div>
+                        
+                        {/* Video controls */}
+                        <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4">
+                          <div className={`w-14 h-14 rounded-full flex items-center justify-center ${
+                            demoStep >= 4 ? 'bg-slate-600' : 'bg-white/20'
+                          }`}>
+                            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                            </svg>
+                          </div>
+                          <div className="relative">
+                            {/* Pulsing ring indicator - only show when call is active */}
+                            {demoStep === 3 && (
+                              <div className="absolute inset-0 w-14 h-14 rounded-full bg-red-400/30 animate-ping"></div>
+                            )}
+                            <div 
+                              onClick={demoStep === 3 ? goToStep4 : undefined}
+                              className={`relative w-14 h-14 rounded-full flex items-center justify-center ${
+                                demoStep >= 4 ? 'bg-red-600 cursor-default' : 'bg-red-500 cursor-pointer hover:bg-red-600'
+                              } transition-colors`}
+                            >
+                              <svg className="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Call info */}
+                      <div className="mt-3 flex justify-between items-center text-white text-sm">
+                        <span>
+                          {demoStep >= 4 ? 'Call duration: 8:34' : 'Connected: 3:21'}
+                        </span>
+                        <div className="flex items-center space-x-2">
+                          <div className={`w-2 h-2 rounded-full ${
+                            demoStep >= 4 ? 'bg-slate-500' : 'bg-green-500 animate-pulse'
+                          }`}></div>
+                          <span>{demoStep >= 4 ? 'Secure' : 'Encrypted'}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="text-center py-8 text-slate-400">
+                    <div className="text-lg">Click on the green call icon to start your consultation!</div>
+                  </div>
+                )}
               </div>
             </div>
 
-            {/* Step 4 */}
-            <div className="group">
-              <div className="bg-white rounded-3xl p-8 hover:shadow-xl transition-all duration-300 border border-slate-100 hover:border-teal-100 h-full">
-                <div className="text-center">
-                  <div className="mb-6">
-                    <div className="w-20 h-20 bg-teal-50 rounded-3xl flex items-center justify-center mx-auto group-hover:bg-teal-100 transition-colors duration-300 border border-teal-100">
-                      <svg className="w-10 h-10 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                      </svg>
-                    </div>
-                    <div className="text-sm font-bold text-teal-600 mt-4 tracking-wider">STEP 04</div>
+            {/* Step 4 - Receive Results */}
+            <div 
+              ref={(el) => { stepRefs.current[3] = el }}
+              className="grid lg:grid-cols-2 gap-12 items-start"
+            >
+              <div className="lg:order-2 space-y-6">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
+                    <span className="text-[#1C1B3A] font-bold">04</span>
                   </div>
-                  <h3 className="text-xl font-bold text-slate-900 mb-4">Receive instantly</h3>
-                  <p className="text-slate-600 leading-relaxed">Get your prescription, medical certificate, or referral via SMS and email instantly.</p>
+                  <h3 className="text-3xl font-bold text-slate-900">Receive instantly</h3>
                 </div>
+                <p className="text-lg text-slate-600 leading-relaxed">
+                  Get your prescription, medical certificate, or referral via SMS and email instantly. Ready when you are.
+                </p>
+              </div>
+              
+              <div className="lg:order-1 bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
+                {demoStep >= 4 ? (
+                  <div className="space-y-4">
+                    <div className="bg-teal-50 border border-teal-200 rounded-lg p-3 animate-fadeIn">
+                      <div className="text-sm text-teal-800 font-semibold">✓ Documents delivered instantly!</div>
+                    </div>
+                    
+                    <div className="flex items-center justify-between bg-blue-50 border border-blue-200 rounded-lg p-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-slate-900">Email Delivered</div>
+                          <div className="text-sm text-slate-600">Medical certificate sent</div>
+                        </div>
+                      </div>
+                      <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors cursor-pointer flex items-center space-x-2">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>Download PDF</span>
+                      </button>
+                    </div>
+                    
+                    <div className="flex items-center justify-between bg-green-50 border border-green-200 rounded-lg p-4">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                          <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-semibold text-slate-900">SMS Sent</div>
+                          <div className="text-sm text-slate-600">Download link delivered</div>
+                        </div>
+                      </div>
+                      <button className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors cursor-pointer flex items-center space-x-2">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                        <span>Open Link</span>
+                      </button>
+                    </div>
+                    
+                    <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+                      <div className="text-sm text-emerald-800 font-semibold">All done! 🎉</div>
+                      <div className="text-sm text-emerald-700">Your documents are ready to download</div>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="text-center py-8 text-slate-400">
+                    <div className="text-lg">Complete consultation to receive documents</div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
 
-          {/* Enhanced Call to Action */}
+          {/* Reset Demo */}
           <div className="text-center mt-20">
-            <div className="max-w-md mx-auto">
-              <p className="text-slate-600 mb-8 text-lg">Ready to be notified when we launch?</p>
+            <button
+              onClick={resetDemo}
+              className="text-slate-600 hover:text-slate-900 font-medium transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 px-4 py-2 rounded-lg hover:bg-slate-100"
+            >
+              ↻ Try the demo again
+            </button>
+            <div className="mt-8">
               <button 
                 onClick={() => setIsWaitlistOpen(true)}
-                className="group relative inline-flex items-center justify-center w-full bg-[#1C1B3A] text-white px-8 py-5 rounded-2xl font-semibold text-lg hover:bg-[#252347] transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer active:scale-95 overflow-hidden"
+                className="bg-[#1C1B3A] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#252347] hover:scale-105 transition-all duration-200 shadow-lg cursor-pointer active:scale-95"
               >
-                <span className="relative z-10">Join the Waitlist</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/20 to-blue-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                Join the Waitlist
               </button>
               <p className="text-sm text-slate-500 mt-4">Be among the first to access HeyDoc when we launch</p>
             </div>
@@ -297,3 +836,5 @@ export default function Home() {
     </div>
   )
 }
+
+
