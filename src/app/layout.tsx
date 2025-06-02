@@ -24,6 +24,20 @@ export const metadata: Metadata = {
     description: "Access quality healthcare from the comfort of your home. Connect with licensed doctors through our secure telehealth platform.",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/logos/heydoc-social-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HeyDoc - Quality Healthcare, Anywhere in Australia",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "heydoc - Access quality healthcare from the comfort of your home",
+    description: "Access quality healthcare from the comfort of your home. Connect with licensed doctors through our secure telehealth platform.",
+    images: ["/logos/heydoc-social-image.png"],
   },
 };
 
