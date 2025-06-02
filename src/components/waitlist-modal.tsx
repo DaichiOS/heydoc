@@ -97,9 +97,9 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
               <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
                 <CheckCircle className="w-8 h-8 text-green-600" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-900">You're on the list!</h3>
+              <h3 className="text-xl font-semibold text-slate-900">You&apos;re on the list!</h3>
               <p className="text-slate-600">
-                We'll notify you as soon as hey.doc is available in your area.
+                We&apos;ll notify you as soon as HeyDoc is available in your area.
               </p>
             </div>
           ) : (
