@@ -337,7 +337,7 @@ export default function Home() {
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold text-slate-900 text-base sm:text-base truncate">Dr. Albert Vu</div>
-                      <div className="text-sm sm:text-sm text-slate-600">General Practitioner</div>
+                      <div className="text-sm sm:text-sm text-slate-600">Doctor</div>
                     </div>
                     <div className="ml-auto">
                       <div className="w-3 sm:w-3 h-3 sm:h-3 bg-green-500 rounded-full"></div>
@@ -618,7 +618,7 @@ export default function Home() {
                               </div>
                               <div>
                                 <div className="text-sm font-semibold text-slate-900">Dr. Sarah Wilson</div>
-                                <div className="text-xs text-slate-600">General Practice</div>
+                                <div className="text-xs text-slate-600">Doctor</div>
                               </div>
                             </div>
                             <div className={`text-xs px-2 py-1 rounded-full transition-all duration-500 ${
@@ -637,7 +637,7 @@ export default function Home() {
                               </div>
                               <div>
                                 <div className="text-sm font-semibold text-slate-900">Dr. Mark Chen</div>
-                                <div className="text-xs text-slate-600">General Practice</div>
+                                <div className="text-xs text-slate-600">Doctor</div>
                               </div>
                             </div>
                             <div className="text-xs px-2 py-1 bg-red-100 text-red-800 rounded-full">

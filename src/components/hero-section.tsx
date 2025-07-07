@@ -32,7 +32,7 @@ export function HeroSection({ onWaitlistOpen }: HeroSectionProps) {
 						{/* Key Benefits */}
 						<div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 border border-white/40 shadow-sm lg:bg-transparent lg:p-0 lg:border-none lg:shadow-none lg:rounded-none">
 							<div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-4">
-								<BenefitItem text="GP Consultations" />
+								<BenefitItem text="Doctor Consultations" />
 								<BenefitItem text="Mental Health Support" />
 								<BenefitItem text="Women's Health" />
 								<BenefitItem text="Specialist Referrals" />
@@ -81,7 +81,7 @@ export function HeroSection({ onWaitlistOpen }: HeroSectionProps) {
 									</div>
 									<div className="flex-1 min-w-0">
 										<div className="font-semibold text-slate-900 text-base sm:text-base truncate">Dr. Albert Vu</div>
-										<div className="text-sm sm:text-sm text-slate-600">General Practitioner</div>
+										<div className="text-sm sm:text-sm text-slate-600">Doctor</div>
 									</div>
 									<div className="ml-auto">
 										<div className="w-3 sm:w-3 h-3 sm:h-3 bg-green-500 rounded-full"></div>
