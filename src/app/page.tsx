@@ -2,6 +2,7 @@
 
 import { WaitlistModal } from "@/components/waitlist-modal"
 import Image from "next/image"
+import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 
 export default function Home() {
@@ -218,9 +219,9 @@ export default function Home() {
             />
           </a>
           <nav className="hidden sm:flex items-center space-x-6">
-            <a href="/about" className="text-slate-700 hover:text-[#1C1B3A] font-medium transition-colors">
+            <Link href="/about" className="text-slate-700 hover:text-[#1C1B3A] font-medium transition-colors">
               About
-            </a>
+            </Link>
             <a
               href="https://app.heydochealth.com.au/register"
               target="_blank"
@@ -254,7 +255,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  Connect with fertility specialists across Australia through our secure telehealth platform. Get the support you need, when you need it. <a href="/about" className="text-[#1C1B3A] hover:underline font-medium">Learn more about us</a>.
+                  Connect with fertility specialists across Australia through our secure telehealth platform. Get the support you need, when you need it. <Link href="/about" className="text-[#1C1B3A] hover:underline font-medium">Learn more about us</Link>.
                 </p>
               </div>
 
@@ -902,7 +903,7 @@ export default function Home() {
                 </svg>
               </summary>
               <p className="mt-4 text-slate-700 leading-relaxed">
-                HeyDoc is Australia's only doctor-led fertility telehealth and referral network. We connect you with AHPRA-registered fertility doctors through secure online consultations. You complete a health questionnaire, speak with a fertility specialist via video call, and receive specialist referrals to leading fertility clinics across Australia. <a href="/about" className="text-[#1C1B3A] hover:underline font-medium">Read more about our mission</a>.
+                HeyDoc is Australia's only doctor-led fertility telehealth and referral network. We connect you with AHPRA-registered fertility doctors through secure online consultations. You complete a health questionnaire, speak with a fertility specialist via video call, and receive specialist referrals to leading fertility clinics across Australia. <Link href="/about" className="text-[#1C1B3A] hover:underline font-medium">Read more about our mission</Link>.
               </p>
             </details>
 
@@ -986,7 +987,7 @@ export default function Home() {
                 </svg>
               </summary>
               <p className="mt-4 text-slate-700 leading-relaxed">
-                Yes! HeyDoc is available across all of Australia through our telehealth platform. Whether you're in Sydney, Melbourne, Brisbane, Perth, Adelaide, or regional areas, you can access our fertility doctors online and receive referrals to fertility clinics throughout Australia. <a href="/careers" className="text-[#1C1B3A] hover:underline font-medium">Join our growing team</a>.
+                Yes! HeyDoc is available across all of Australia through our telehealth platform. Whether you're in Sydney, Melbourne, Brisbane, Perth, Adelaide, or regional areas, you can access our fertility doctors online and receive referrals to fertility clinics throughout Australia. <Link href="/careers" className="text-[#1C1B3A] hover:underline font-medium">Join our growing team</Link>.
               </p>
             </details>
           </div>
@@ -1069,9 +1070,9 @@ export default function Home() {
               <div className="space-y-4">
                 <h4 className="text-slate-900 font-semibold text-sm">Company</h4>
                 <div className="space-y-2">
-                  <a href="/about" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">About Us</a>
+                  <Link href="/about" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">About Us</Link>
                   <a href="mailto:support@heydochealth.com.au" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Contact</a>
-                  <a href="/careers" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Careers</a>
+                  <Link href="/careers" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Careers</Link>
                   <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Blog</a>
                 </div>
               </div>
@@ -1091,7 +1092,7 @@ export default function Home() {
             {/* Mobile simplified links */}
             <div className="lg:hidden mb-8">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
-                <a href="/about" className="text-slate-600 hover:text-slate-900 transition-colors">About</a>
+                <Link href="/about" className="text-slate-600 hover:text-slate-900 transition-colors">About</Link>
                 <a href="mailto:support@heydochealth.com.au" className="text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
                 <a href="https://app.heydochealth.com.au/register" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors">Fertility Consultation</a>
                 <a href="https://app.heydochealth.com.au/register" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors">Male Fertility</a>
