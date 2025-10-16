@@ -254,7 +254,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  Connect with fertility specialists across Australia through our secure telehealth platform. Get the support you need, when you need it.
+                  Connect with fertility specialists across Australia through our secure telehealth platform. Get the support you need, when you need it. <a href="/about" className="text-[#1C1B3A] hover:underline font-medium">Learn more about us</a>.
                 </p>
               </div>
 
@@ -569,6 +569,7 @@ export default function Home() {
                                       alt="Dr. Sarah Wilson - AHPRA Registered Fertility Doctor"
                                       width={96}
                                       height={96}
+                                      loading="lazy"
                                       className="w-full h-full object-cover object-top rounded-full"
                                     />
                                   </div>
@@ -629,6 +630,7 @@ export default function Home() {
                                   alt="Dr. Sarah Wilson"
                                   width={32}
                                   height={32}
+                                  loading="lazy"
                                   className="w-full h-full object-cover object-top rounded-full"
                                 />
                               </div>
@@ -718,6 +720,7 @@ export default function Home() {
                                 alt="Dr. Sarah Wilson"
                                 width={96}
                                 height={96}
+                                loading="lazy"
                                 className="w-full h-full object-cover object-top rounded-full"
                               />
                             </div>
@@ -899,7 +902,7 @@ export default function Home() {
                 </svg>
               </summary>
               <p className="mt-4 text-slate-700 leading-relaxed">
-                HeyDoc is Australia's only doctor-led fertility telehealth and referral network. We connect you with AHPRA-registered fertility doctors through secure online consultations. You complete a health questionnaire, speak with a fertility specialist via video call, and receive specialist referrals to leading fertility clinics across Australia.
+                HeyDoc is Australia's only doctor-led fertility telehealth and referral network. We connect you with AHPRA-registered fertility doctors through secure online consultations. You complete a health questionnaire, speak with a fertility specialist via video call, and receive specialist referrals to leading fertility clinics across Australia. <a href="/about" className="text-[#1C1B3A] hover:underline font-medium">Read more about our mission</a>.
               </p>
             </details>
 
@@ -983,7 +986,7 @@ export default function Home() {
                 </svg>
               </summary>
               <p className="mt-4 text-slate-700 leading-relaxed">
-                Yes! HeyDoc is available across all of Australia through our telehealth platform. Whether you're in Sydney, Melbourne, Brisbane, Perth, Adelaide, or regional areas, you can access our fertility doctors online and receive referrals to fertility clinics throughout Australia.
+                Yes! HeyDoc is available across all of Australia through our telehealth platform. Whether you're in Sydney, Melbourne, Brisbane, Perth, Adelaide, or regional areas, you can access our fertility doctors online and receive referrals to fertility clinics throughout Australia. <a href="/careers" className="text-[#1C1B3A] hover:underline font-medium">Join our growing team</a>.
               </p>
             </details>
           </div>
@@ -1023,6 +1026,7 @@ export default function Home() {
                 alt="HeyDoc"
                 width={400}
                 height={200}
+                loading="lazy"
                 className="h-12 lg:h-16 w-auto mx-auto lg:mx-0 lg:object-left lg:object-contain lg:-ml-12"
               />
               <p className="text-slate-600 text-sm max-w-md mx-auto lg:mx-0 leading-relaxed">
