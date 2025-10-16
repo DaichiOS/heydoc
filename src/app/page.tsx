@@ -210,7 +210,7 @@ export default function Home() {
           >
             <Image
               src="/logos/heydoc.png"
-              alt="heydoc"
+              alt="HeyDoc - Australia's Expert Fertility Telehealth Platform"
               width={600}
               height={300}
               className="h-36 sm:h-40 lg:h-48 w-auto transition-all duration-300 group-hover:brightness-110 group-hover:contrast-110"
@@ -254,7 +254,7 @@ export default function Home() {
                 </h1>
 
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  Connect with fertility specialists across Australia. Get the support you need, when you need it.
+                  Connect with fertility specialists across Australia through our secure telehealth platform. Get the support you need, when you need it.
                 </p>
               </div>
 
@@ -566,7 +566,7 @@ export default function Home() {
                                   <div className="w-14 h-14 lg:w-24 lg:h-24 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2 lg:mb-4 overflow-hidden">
                                     <Image
                                       src="/images/drwilson.png"
-                                      alt="Dr. Sarah Wilson"
+                                      alt="Dr. Sarah Wilson - AHPRA Registered Fertility Doctor"
                                       width={96}
                                       height={96}
                                       className="w-full h-full object-cover object-top rounded-full"
@@ -873,6 +873,138 @@ export default function Home() {
                 Join the Waitlist
               </button>
               <p className="text-sm text-slate-500 mt-3 lg:mt-4">Be among the first to access HeyDoc when we launch</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="px-6 sm:px-8 lg:px-12 py-16 lg:py-24 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-slate-600">
+              Everything you need to know about our fertility telehealth services
+            </p>
+          </div>
+
+          <div className="space-y-6">
+            <details className="group bg-slate-50 rounded-xl p-6 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-slate-900 text-lg list-none">
+                <span>What is HeyDoc and how does it work?</span>
+                <svg className="w-5 h-5 text-slate-600 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                HeyDoc is Australia's only doctor-led fertility telehealth and referral network. We connect you with AHPRA-registered fertility doctors through secure online consultations. You complete a health questionnaire, speak with a fertility specialist via video call, and receive specialist referrals to leading fertility clinics across Australia.
+              </p>
+            </details>
+
+            <details className="group bg-slate-50 rounded-xl p-6 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-slate-900 text-lg list-none">
+                <span>Do I need a referral to see a fertility specialist in Australia?</span>
+                <svg className="w-5 h-5 text-slate-600 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                Yes, to see a fertility specialist in Australia and access IVF treatment, you typically need a referral from a doctor. HeyDoc makes this process simple and convenient by providing online consultations with fertility-focused doctors who can provide the referrals you need.
+              </p>
+            </details>
+
+            <details className="group bg-slate-50 rounded-xl p-6 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-slate-900 text-lg list-none">
+                <span>Are your doctors AHPRA-registered?</span>
+                <svg className="w-5 h-5 text-slate-600 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                Yes, all our doctors are fully registered with AHPRA (Australian Health Practitioner Regulation Agency) and specialize in fertility medicine and reproductive health. Every consultation is conducted by qualified Australian doctors with expertise in fertility care.
+              </p>
+            </details>
+
+            <details className="group bg-slate-50 rounded-xl p-6 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-slate-900 text-lg list-none">
+                <span>How much does a consultation cost?</span>
+                <svg className="w-5 h-5 text-slate-600 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                We're currently offering a special opening price of $10 AUD per consultation (regular price $49). This includes a secure video consultation with an AHPRA-registered fertility doctor and your specialist referral letter delivered instantly via email.
+              </p>
+            </details>
+
+            <details className="group bg-slate-50 rounded-xl p-6 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-slate-900 text-lg list-none">
+                <span>Do you prescribe fertility medications?</span>
+                <svg className="w-5 h-5 text-slate-600 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                No, HeyDoc focuses solely on providing referrals to fertility specialists. We don't prescribe fertility medications online. This ensures you receive safe, comprehensive care from specialist fertility clinics who can provide ongoing treatment and monitoring.
+              </p>
+            </details>
+
+            <details className="group bg-slate-50 rounded-xl p-6 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-slate-900 text-lg list-none">
+                <span>What fertility services do you provide?</span>
+                <svg className="w-5 h-5 text-slate-600 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                We provide online fertility consultations for both women and men, specialist referrals to fertility clinics across Australia, pre-conception health assessments, and fertility-focused pathology requests. All consultations are conducted through our secure telehealth platform.
+              </p>
+            </details>
+
+            <details className="group bg-slate-50 rounded-xl p-6 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-slate-900 text-lg list-none">
+                <span>How long does it take to get my referral?</span>
+                <svg className="w-5 h-5 text-slate-600 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                You'll receive your fertility specialist referral instantly via email and SMS after your consultation. The entire process from booking to receiving your referral typically takes less than 30 minutes.
+              </p>
+            </details>
+
+            <details className="group bg-slate-50 rounded-xl p-6 cursor-pointer">
+              <summary className="flex justify-between items-center font-semibold text-slate-900 text-lg list-none">
+                <span>Can I use this service if I live outside major cities?</span>
+                <svg className="w-5 h-5 text-slate-600 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p className="mt-4 text-slate-700 leading-relaxed">
+                Yes! HeyDoc is available across all of Australia through our telehealth platform. Whether you're in Sydney, Melbourne, Brisbane, Perth, Adelaide, or regional areas, you can access our fertility doctors online and receive referrals to fertility clinics throughout Australia.
+              </p>
+            </details>
+          </div>
+
+          <div className="mt-12 text-center">
+            <p className="text-slate-600 mb-4">Still have questions?</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="https://app.heydochealth.com.au/register"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block bg-[#1C1B3A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#252347] transition-colors"
+              >
+                Book Consultation
+              </a>
+              <a
+                href="mailto:support@heydochealth.com.au"
+                className="inline-block border-2 border-[#1C1B3A] text-[#1C1B3A] px-6 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-colors"
+              >
+                Contact Support
+              </a>
             </div>
           </div>
         </div>

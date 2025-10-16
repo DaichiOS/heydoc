@@ -33,8 +33,8 @@ export default function AboutPage() {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 leading-tight">
               About HeyDoc
             </h1>
-            <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed">
-              Australia&apos;s only online doctor-led fertility referral network
+            <p className="text-xl sm:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto">
+              Australia&apos;s only online doctor-led fertility telehealth and referral network
             </p>
           </div>
 
@@ -45,7 +45,7 @@ export default function AboutPage() {
             <section>
               <h2 className="text-2xl lg:text-3xl font-bold text-slate-900 mb-4">Who We Are</h2>
               <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                HeyDoc is a specialized fertility referral platform founded and run by doctors specializing in fertility medicine and obstetrics. We connect Australian patients with AHPRA-registered fertility doctors through secure online consultations, providing the specialist referrals needed to access fertility clinics across Australia.
+                HeyDoc is a specialized fertility telehealth and referral platform founded and run by doctors specializing in fertility medicine and obstetrics. We connect Australian patients with AHPRA-registered fertility doctors through secure online telehealth consultations, providing the specialist referrals needed to access fertility clinics across Australia.
               </p>
               <p className="text-lg text-slate-700 leading-relaxed">
                 Unlike generic telehealth platforms, HeyDoc is purpose-built for fertility and pre-conception care. We have one goal — supporting your fertility journey with expert medical guidance.
