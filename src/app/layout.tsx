@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "heydoc - Expert Fertility Telehealth & Specialist Referrals",
-  description: "Connect with AHPRA-registered fertility doctors across Australia through our secure telehealth platform. Get personalized fertility consultations and specialist referrals online. Start your fertility journey today.",
+  description: "Connect with AHPRA-registered fertility doctors across Australia. Get specialist referrals and personalized fertility consultations online.",
   keywords: "fertility specialist, IVF referral, fertility consultation, male fertility, pre-conception care, online fertility doctor, Australia fertility, fertility telehealth, telehealth fertility consultation, online fertility specialist",
   authors: [{ name: "heydoc" }],
   viewport: "width=device-width, initial-scale=1",
