@@ -882,7 +882,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="px-6 sm:px-8 lg:px-12 py-16 lg:py-24 bg-white">
+      <section id="faq" className="px-6 sm:px-8 lg:px-12 py-16 lg:py-24 bg-white">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
