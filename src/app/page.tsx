@@ -128,14 +128,14 @@ export default function Home() {
 
   const handleJoinQueue = () => {
     // Use placeholder text if fields are empty
-    const reason = userReason.trim() || "Need a medical certificate for work absence due to flu symptoms"
-    const symptoms = userSymptoms.trim() || "Mild fever, headache, fatigue for 2 days"
-    
+    const reason = userReason.trim() || "Looking to start IVF treatment and need a fertility specialist referral"
+    const symptoms = userSymptoms.trim() || "Trying to conceive for 12 months, regular cycles"
+
     setUserReason(reason)
     setUserSymptoms(symptoms)
     setDemoStep(1)
     setQueuePosition(4) // Start animation from 4th position instead of 5th
-    
+
     // Smooth scroll to step 2 (queue status) after form submission
     setTimeout(() => {
       if (stepRefs.current[1]) {
@@ -201,10 +201,10 @@ export default function Home() {
     >
       {/* Header with Logo */}
       <header className="px-6 sm:px-8 lg:px-12 pt-8 sm:pt-8 pb-6 sm:pb-4">
-        <div className="flex justify-start">
-          <a 
-            href="https://app.heydochealth.com.au/" 
-            target="_blank" 
+        <div className="flex justify-between items-center">
+          <a
+            href="https://app.heydochealth.com.au/"
+            target="_blank"
             rel="noopener noreferrer"
             className="group cursor-pointer transition-all duration-300 hover:scale-105 hover:drop-shadow-lg active:scale-95"
           >
@@ -217,6 +217,19 @@ export default function Home() {
               priority
             />
           </a>
+          <nav className="hidden sm:flex items-center space-x-6">
+            <a href="/about" className="text-slate-700 hover:text-[#1C1B3A] font-medium transition-colors">
+              About
+            </a>
+            <a
+              href="https://app.heydochealth.com.au/register"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#1C1B3A] text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-[#252347] transition-colors"
+            >
+              Book Now
+            </a>
+          </nav>
         </div>
       </header>
 
@@ -230,18 +243,18 @@ export default function Home() {
               {/* Trust Badge */}
               <div className="inline-flex items-center bg-white/90 backdrop-blur-sm rounded-full px-4 sm:px-4 py-2.5 sm:py-2 border border-blue-200 shadow-sm">
                 <div className="w-2 h-2 bg-green-500 rounded-full mr-3 sm:mr-2"></div>
-                <span className="text-sm sm:text-sm font-medium text-slate-700">Built by doctors, trusted by patients</span>
+                <span className="text-sm sm:text-sm font-medium text-slate-700">Australian AHPRA-Registered Fertility Doctors</span>
               </div>
 
               {/* Main Headline */}
               <div className="space-y-4 sm:space-y-4">
                 <h1 className="text-4xl sm:text-4xl lg:text-6xl font-bold text-slate-900 leading-tight">
-                  Quality Healthcare,
-                  <span className="text-[#1C1B3A] block">Anywhere in Australia</span>
+                  Expert Fertility Care,
+                  <span className="text-[#1C1B3A] block">Anytime</span>
                 </h1>
-                
+
                 <p className="text-lg text-slate-600 leading-relaxed">
-                  Get started with your healthcare needs.
+                  Connect with fertility specialists across Australia. Get the support you need, when you need it.
                 </p>
               </div>
 
@@ -254,27 +267,18 @@ export default function Home() {
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span className="text-base sm:text-base text-slate-700 font-medium">GP Consultations</span>
+                    <span className="text-base sm:text-base text-slate-700 font-medium">Fertility Consultation</span>
                   </div>
-                  
+
                   <div className="flex items-center space-x-3">
                     <div className="w-6 sm:w-6 h-6 sm:h-6 bg-[#1C1B3A] rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="w-3 sm:w-3 h-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                       </svg>
                     </div>
-                    <span className="text-base sm:text-base text-slate-700 font-medium">Mental Health Support</span>
+                    <span className="text-base sm:text-base text-slate-700 font-medium">Male Fertility Support</span>
                   </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <div className="w-6 sm:w-6 h-6 sm:h-6 bg-[#1C1B3A] rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-3 sm:w-3 h-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <span className="text-base sm:text-base text-slate-700 font-medium">Women&apos;s Health</span>
-                  </div>
-                  
+
                   <div className="flex items-center space-x-3">
                     <div className="w-6 sm:w-6 h-6 sm:h-6 bg-[#1C1B3A] rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="w-3 sm:w-3 h-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -283,23 +287,35 @@ export default function Home() {
                     </div>
                     <span className="text-base sm:text-base text-slate-700 font-medium">Specialist Referrals</span>
                   </div>
+
+                  <div className="flex items-center space-x-3">
+                    <div className="w-6 sm:w-6 h-6 sm:h-6 bg-[#1C1B3A] rounded-full flex items-center justify-center flex-shrink-0">
+                      <svg className="w-3 sm:w-3 h-3 sm:h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <span className="text-base sm:text-base text-slate-700 font-medium">Pre-Conception Care</span>
+                  </div>
                 </div>
               </div>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-4">
-                <a 
-                  href="https://app.heydochealth.com.au/" 
-                  target="_blank" 
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-3">
+                <a
+                  href="https://app.heydochealth.com.au/register"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#1C1B3A] text-white px-8 sm:px-8 py-4 sm:py-4 rounded-xl font-semibold text-lg sm:text-lg hover:bg-[#252347] hover:scale-105 hover:shadow-xl transition-all duration-200 shadow-lg cursor-pointer active:scale-95 inline-flex items-center justify-center"
+                  className="group bg-[#1C1B3A] text-white px-6 sm:px-7 py-3.5 sm:py-3.5 rounded-lg font-semibold text-base sm:text-base hover:bg-[#252347] transition-all duration-200 shadow-md hover:shadow-lg cursor-pointer inline-flex items-center justify-center gap-2"
                 >
-                  Try Demo
+                  <span>Request Consultation</span>
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
                 </a>
-                
-                <button 
+
+                <button
                   onClick={() => setIsWaitlistOpen(true)}
-                  className="border-2 border-[#1C1B3A] text-[#1C1B3A] px-8 sm:px-8 py-4 sm:py-4 rounded-xl font-semibold text-lg sm:text-lg hover:scale-105 hover:shadow-lg transition-all duration-200 cursor-pointer active:scale-95 bg-white/50 lg:bg-transparent"
+                  className="border border-slate-300 text-slate-700 px-6 sm:px-7 py-3.5 sm:py-3.5 rounded-lg font-medium text-base sm:text-base hover:border-[#1C1B3A] hover:text-[#1C1B3A] hover:bg-white transition-all duration-200 cursor-pointer bg-white/80 lg:bg-white/60"
                 >
                   Join Waitlist
                 </button>
@@ -353,11 +369,11 @@ export default function Home() {
                     <div className="text-sm sm:text-sm font-medium text-slate-900">Consultation Types:</div>
                     <div className="space-y-2">
                       <div className="flex items-center justify-between bg-white rounded-lg p-3 sm:p-3">
-                        <span className="text-slate-700 text-sm sm:text-sm">General Health</span>
+                        <span className="text-slate-700 text-sm sm:text-sm">Fertility Consultation</span>
                         <span className="text-green-600 font-medium text-sm sm:text-sm">Available</span>
                       </div>
                       <div className="flex items-center justify-between bg-white rounded-lg p-3 sm:p-3">
-                        <span className="text-slate-700 text-sm sm:text-sm">Mental Health</span>
+                        <span className="text-slate-700 text-sm sm:text-sm">Male Fertility</span>
                         <span className="text-green-600 font-medium text-sm sm:text-sm">Available</span>
                       </div>
                     </div>
@@ -375,10 +391,10 @@ export default function Home() {
           {/* Section Header */}
           <div className="text-center mb-16 lg:mb-24">
             <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-slate-900 mb-6 lg:mb-8 tracking-tight">
-              Need healthcare on the go?
+              Start your fertility journey
             </h2>
             <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              See how easy it is to get healthcare with HeyDoc
+              See how easy it is to get fertility support with HeyDoc
             </p>
             
             {/* Progress indicator */}
@@ -408,10 +424,10 @@ export default function Home() {
                   <div className="w-10 h-10 lg:w-12 lg:h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
                     <span className="text-[#1C1B3A] font-bold text-sm lg:text-base">01</span>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Tell us how we can help</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Answer Questions</h3>
                 </div>
                 <p className="text-base lg:text-lg text-slate-600 leading-relaxed">
-                  Share your symptoms or health concerns. This helps our doctors prepare and makes your consultation faster and more effective.
+                  Complete a quick questionnaire about your fertility journey and health history to help our fertility doctors provide personalized care.
                 </p>
               </div>
               
@@ -429,18 +445,18 @@ export default function Home() {
                       value={userReason}
                       onChange={(e) => setUserReason(e.target.value)}
                       className="w-full p-3 border rounded-lg bg-slate-50 border-slate-200 text-slate-900 text-sm resize-none focus:border-[#1C1B3A] focus:ring-2 focus:ring-[#1C1B3A]/20 transition-colors"
-                      placeholder="e.g., Need a medical certificate for work absence due to flu symptoms..."
+                      placeholder="e.g., Looking to start IVF treatment and need a fertility specialist referral..."
                       rows={3}
                     />
                   </div>
-                  
+
                   <div className="space-y-2">
-                    <div className="text-sm font-medium text-slate-900">Any current symptoms? (Optional)</div>
+                    <div className="text-sm font-medium text-slate-900">Fertility journey details (Optional)</div>
                     <textarea
                       value={userSymptoms}
                       onChange={(e) => setUserSymptoms(e.target.value)}
                       className="w-full p-3 border rounded-lg bg-slate-50 border-slate-200 text-slate-900 text-sm resize-none focus:border-[#1C1B3A] focus:ring-2 focus:ring-[#1C1B3A]/20 transition-colors"
-                      placeholder="e.g., Mild fever, headache, fatigue for 2 days..."
+                      placeholder="e.g., Trying to conceive for 12 months, regular cycles..."
                       rows={2}
                     />
                   </div>
@@ -467,10 +483,10 @@ export default function Home() {
                   <div className="w-10 h-10 lg:w-12 lg:h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
                     <span className="text-[#1C1B3A] font-bold text-sm lg:text-base">02</span>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Get matched with a doctor</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Speak with a Fertility Doctor</h3>
                 </div>
                 <p className="text-base lg:text-lg text-slate-600 leading-relaxed">
-                  We&apos;re finding you the right doctor for your needs.
+                  Connect online with an Australian AHPRA-registered fertility doctor who specializes in reproductive health.
                 </p>
               </div>
               
@@ -681,10 +697,10 @@ export default function Home() {
                   <div className="w-10 h-10 lg:w-12 lg:h-12 bg-slate-100 rounded-2xl flex items-center justify-center">
                     <span className="text-[#1C1B3A] font-bold text-sm lg:text-base">03</span>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Video consultation</h3>
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Get Your Referral</h3>
                 </div>
                 <p className="text-base lg:text-lg text-slate-600 leading-relaxed">
-                  Connect with your doctor for a comprehensive consultation.
+                  Discuss your fertility goals and receive a specialist referral to leading fertility clinics across Australia.
                 </p>
               </div>
               
@@ -775,7 +791,7 @@ export default function Home() {
                   <h3 className="text-2xl lg:text-3xl font-bold text-slate-900">Receive instantly</h3>
                 </div>
                 <p className="text-base lg:text-lg text-slate-600 leading-relaxed">
-                  Get your prescription, medical certificate, or referral via SMS and email instantly. Ready when you are.
+                  Get your fertility specialist referral via SMS and email instantly, ready to book your appointment.
                 </p>
               </div>
               
@@ -783,9 +799,9 @@ export default function Home() {
                 {demoStep >= 4 ? (
                   <div className="space-y-4">
                     <div className="bg-teal-50 border border-teal-200 rounded-lg p-3 animate-fadeIn">
-                      <div className="text-sm text-teal-800 font-semibold">✓ Documents delivered instantly!</div>
+                      <div className="text-sm text-teal-800 font-semibold">✓ Referral delivered instantly!</div>
                     </div>
-                    
+
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between bg-blue-50 border border-blue-200 rounded-lg p-4 gap-3 sm:gap-0">
                       <div className="flex items-center space-x-3">
                         <div className="w-8 h-8 lg:w-10 lg:h-10 bg-blue-100 rounded-lg flex items-center justify-center">
@@ -796,7 +812,7 @@ export default function Home() {
                         </div>
                         <div>
                           <div className="font-semibold text-slate-900 text-sm lg:text-base">Email Delivered</div>
-                          <div className="text-sm text-slate-600">Medical certificate sent</div>
+                          <div className="text-sm text-slate-600">Fertility specialist referral sent</div>
                         </div>
                       </div>
                       <button className="bg-blue-600 hover:bg-blue-700 text-white px-3 lg:px-4 py-2 rounded-lg font-medium text-sm transition-colors cursor-pointer flex items-center justify-center space-x-2">
@@ -878,7 +894,7 @@ export default function Home() {
                 className="h-12 lg:h-16 w-auto mx-auto lg:mx-0 lg:object-left lg:object-contain lg:-ml-12"
               />
               <p className="text-slate-600 text-sm max-w-md mx-auto lg:mx-0 leading-relaxed">
-                Quality healthcare, anywhere in Australia. Built by doctors for better patient access.
+                Expert fertility care, across Australia. Built by doctors specializing in reproductive health.
               </p>
               
               {/* Social Media */}
@@ -917,9 +933,9 @@ export default function Home() {
               <div className="space-y-4">
                 <h4 className="text-slate-900 font-semibold text-sm">Company</h4>
                 <div className="space-y-2">
-                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">About Us</a>
-                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Contact</a>
-                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Careers</a>
+                  <a href="/about" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">About Us</a>
+                  <a href="mailto:support@heydochealth.com.au" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Contact</a>
+                  <a href="/careers" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Careers</a>
                   <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Blog</a>
                 </div>
               </div>
@@ -928,10 +944,10 @@ export default function Home() {
               <div className="space-y-4">
                 <h4 className="text-slate-900 font-semibold text-sm">Services</h4>
                 <div className="space-y-2">
-                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">GP Consultations</a>
-                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Mental Health</a>
-                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Women&apos;s Health</a>
-                  <a href="#" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Specialist Referrals</a>
+                  <a href="https://app.heydochealth.com.au/register" target="_blank" rel="noopener noreferrer" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Fertility Consultation</a>
+                  <a href="https://app.heydochealth.com.au/register" target="_blank" rel="noopener noreferrer" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Male Fertility Support</a>
+                  <a href="https://app.heydochealth.com.au/register" target="_blank" rel="noopener noreferrer" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Pre-Conception Care</a>
+                  <a href="https://app.heydochealth.com.au/register" target="_blank" rel="noopener noreferrer" className="block text-slate-600 text-sm hover:text-slate-900 transition-colors">Specialist Referrals</a>
                 </div>
               </div>
             </div>
@@ -939,10 +955,10 @@ export default function Home() {
             {/* Mobile simplified links */}
             <div className="lg:hidden mb-8">
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm">
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">About</a>
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">GP Consultations</a>
-                <a href="#" className="text-slate-600 hover:text-slate-900 transition-colors">Mental Health</a>
+                <a href="/about" className="text-slate-600 hover:text-slate-900 transition-colors">About</a>
+                <a href="mailto:support@heydochealth.com.au" className="text-slate-600 hover:text-slate-900 transition-colors">Contact</a>
+                <a href="https://app.heydochealth.com.au/register" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors">Fertility Consultation</a>
+                <a href="https://app.heydochealth.com.au/register" target="_blank" rel="noopener noreferrer" className="text-slate-600 hover:text-slate-900 transition-colors">Male Fertility</a>
               </div>
             </div>
 

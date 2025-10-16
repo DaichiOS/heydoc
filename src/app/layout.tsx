@@ -13,15 +13,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "heydoc - Access quality healthcare from the comfort of your home",
-  description: "Access quality healthcare from the comfort of your home. Connect with licensed doctors through our secure telehealth platform for consultations, medical certificates, and mental health support.",
-  keywords: "telehealth, online doctor, medical consultation, healthcare, telemedicine",
+  title: "heydoc - Expert Fertility Care & Specialist Referrals",
+  description: "Connect with AHPRA-registered fertility doctors across Australia. Get personalized fertility consultations and specialist referrals online. Start your fertility journey today.",
+  keywords: "fertility specialist, IVF referral, fertility consultation, male fertility, pre-conception care, online fertility doctor, Australia fertility",
   authors: [{ name: "heydoc" }],
   viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
   openGraph: {
-    title: "heydoc - Access quality healthcare from the comfort of your home",
-    description: "Access quality healthcare from the comfort of your home. Connect with licensed doctors through our secure telehealth platform.",
+    title: "heydoc - Expert Fertility Care & Specialist Referrals",
+    description: "Connect with AHPRA-registered fertility doctors across Australia. Get personalized fertility consultations and specialist referrals online.",
     type: "website",
     locale: "en_US",
     images: [
@@ -29,14 +29,14 @@ export const metadata: Metadata = {
         url: "/logos/heydoc-socials2.png",
         width: 1200,
         height: 800,
-        alt: "HeyDoc - Quality Healthcare, Anywhere in Australia",
+        alt: "HeyDoc - Expert Fertility Care, Anytime",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "heydoc - Access quality healthcare from the comfort of your home",
-    description: "Access quality healthcare from the comfort of your home. Connect with licensed doctors through our secure telehealth platform.",
+    title: "heydoc - Expert Fertility Care & Specialist Referrals",
+    description: "Connect with AHPRA-registered fertility doctors across Australia. Get personalized fertility consultations and specialist referrals online.",
     images: ["/logos/heydoc-socials2.png"],
   },
 };
