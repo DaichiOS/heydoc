@@ -1,7 +1,16 @@
-'use client'
-
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "About Us - HeyDoc Fertility Telehealth | AHPRA-Registered Doctors",
+  description: "Australia's only doctor-led fertility telehealth network. Connect with AHPRA-registered fertility specialists online for referrals and consultations.",
+  openGraph: {
+    title: "About HeyDoc - Expert Fertility Care Across Australia",
+    description: "Doctor-led fertility telehealth platform connecting Australians with AHPRA-registered fertility specialists.",
+    url: "https://heydochealth.com.au/about",
+  },
+}
 
 export default function AboutPage() {
   return (

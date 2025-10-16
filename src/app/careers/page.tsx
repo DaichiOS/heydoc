@@ -1,11 +1,61 @@
-'use client'
-
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
+
+export const metadata: Metadata = {
+  title: "Careers at HeyDoc - Join Australia's Leading Fertility Telehealth Team",
+  description: "Join HeyDoc's mission to make fertility care accessible across Australia. Remote positions available. Work with AHPRA-registered fertility doctors.",
+  openGraph: {
+    title: "Careers at HeyDoc - Make an Impact in Fertility Healthcare",
+    description: "Join our doctor-led fertility telehealth startup. Remote work, flexible hours, meaningful impact.",
+    url: "https://heydochealth.com.au/careers",
+  },
+}
 
 export default function CareersPage() {
+  const jobPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "title": "Administrative Assistant",
+    "description": "We're looking for a detail-oriented and organized Administrative Assistant to join our growing team. You'll play a crucial role in ensuring smooth day-to-day operations and providing excellent support to both our medical team and patients.",
+    "datePosted": "2025-01-17",
+    "employmentType": ["PART_TIME", "FULL_TIME"],
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "HeyDoc",
+      "sameAs": "https://heydochealth.com.au",
+      "logo": "https://heydochealth.com.au/logos/heydoc.png"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "AU"
+      }
+    },
+    "applicantLocationRequirements": {
+      "@type": "Country",
+      "name": "Australia"
+    },
+    "jobLocationType": "TELECOMMUTE",
+    "baseSalary": {
+      "@type": "MonetaryAmount",
+      "currency": "AUD",
+      "value": {
+        "@type": "QuantitativeValue",
+        "unitText": "HOUR"
+      }
+    },
+    "responsibilities": "Respond to patient emails, check and upload lab results, manage appointments, process documentation, maintain records, coordinate communication",
+    "skills": "Communication, attention to detail, technology proficiency, discretion, self-motivation, empathy"
+  }
+
   return (
     <div className="min-h-screen bg-[#EFF4F9]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jobPostingSchema) }}
+      />
       {/* Header with Logo */}
       <header className="px-6 sm:px-8 lg:px-12 pt-8 sm:pt-8 pb-6 sm:pb-4">
         <div className="flex justify-start">
