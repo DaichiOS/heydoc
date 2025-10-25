@@ -8,6 +8,7 @@ import { HeroSection } from '@/components/home/HeroSection'
 import { TrustBarSection } from '@/components/home/TrustBarSection'
 import { ProcessSection } from '@/components/home/ProcessSection'
 import { HowItWorksSection } from '@/components/home/HowItWorksSection'
+import { NotificationCardsSection } from '@/components/home/NotificationCardsSection'
 import { FAQSection } from '@/components/home/FAQSection'
 import { CTASection } from '@/components/home/CTASection'
 import { FooterSection } from '@/components/home/FooterSection'
@@ -81,6 +82,7 @@ export default function HomePage() {
 			<TrustBarSection />
 			<ProcessSection />
 			<HowItWorksSection />
+			<NotificationCardsSection />
 			<FAQSection />
 			<CTASection />
 			<FooterSection

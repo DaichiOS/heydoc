@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { Plus, Minus } from 'lucide-react'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 interface FAQItem {
 	question: string
@@ -37,6 +38,21 @@ const faqData: FAQItem[] = [
 
 export function FAQSection() {
 	const [openIndexes, setOpenIndexes] = useState<number[]>([0])
+	const ref = useRef(null)
+	const { scrollYProgress } = useScroll({
+		target: ref,
+		offset: ["start 0.85", "start 0.2"]
+	})
+
+	// Animations for title - MUCH more dramatic
+	const titleOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1])
+	const titleY = useTransform(scrollYProgress, [0, 0.5], [100, 0])
+	const titleScale = useTransform(scrollYProgress, [0, 0.5], [0.85, 1])
+
+	// Animations for FAQ items - staggered and dramatic
+	const faqOpacity = useTransform(scrollYProgress, [0.3, 0.8], [0, 1])
+	const faqY = useTransform(scrollYProgress, [0.3, 0.8], [120, 0])
+	const faqScale = useTransform(scrollYProgress, [0.3, 0.8], [0.9, 1])
 
 	const toggleQuestion = (index: number) => {
 		setOpenIndexes(prev =>
@@ -47,20 +63,26 @@ export function FAQSection() {
 	}
 
 	return (
-		<section id="faq" className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-blue-100 to-white relative overflow-hidden">
+		<section id="faq" ref={ref} className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-blue-100 to-white relative overflow-hidden">
 			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Title */}
-				<div className="text-center mb-10 sm:mb-12">
+				<motion.div
+					className="text-center mb-10 sm:mb-12"
+					style={{ opacity: titleOpacity, y: titleY, scale: titleScale }}
+				>
 					<h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#1C1B3A] mb-3 sm:mb-4" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 						Frequently Asked Questions
 					</h2>
 					<p className="text-base sm:text-lg text-[#1C1B3A]/70 max-w-2xl mx-auto" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 						Everything you need to know about getting your fertility specialist referral through HeyDoc
 					</p>
-				</div>
+				</motion.div>
 
 				{/* FAQ Items */}
-				<div className="space-y-3 sm:space-y-4">
+				<motion.div
+					className="space-y-3 sm:space-y-4"
+					style={{ opacity: faqOpacity, y: faqY, scale: faqScale }}
+				>
 					{faqData.map((faq, index) => (
 						<div
 							key={index}
@@ -105,7 +127,7 @@ export function FAQSection() {
 							</div>
 						</div>
 					))}
-				</div>
+				</motion.div>
 			</div>
 		</section>
 	)

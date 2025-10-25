@@ -8,15 +8,23 @@ export function HowItWorksSection() {
 	const ref = useRef(null)
 	const { scrollYProgress } = useScroll({
 		target: ref,
-		offset: ["start 0.9", "start 0.3"]
+		offset: ["start 0.85", "start 0.2"]
 	})
 
-	// Map scroll progress to opacity and position
-	const opacity1 = useTransform(scrollYProgress, [0, 0.4], [0, 1])
-	const y1 = useTransform(scrollYProgress, [0, 0.4], [40, 0])
+	// Map scroll progress to opacity and position - MUCH more dramatic
+	const opacity1 = useTransform(scrollYProgress, [0, 0.5], [0, 1])
+	const y1 = useTransform(scrollYProgress, [0, 0.5], [100, 0])
+	const scale1 = useTransform(scrollYProgress, [0, 0.5], [0.85, 1])
 
-	const opacity2 = useTransform(scrollYProgress, [0.2, 0.6], [0, 1])
-	const y2 = useTransform(scrollYProgress, [0.2, 0.6], [40, 0])
+	const opacity2 = useTransform(scrollYProgress, [0.3, 0.8], [0, 1])
+	const y2 = useTransform(scrollYProgress, [0.3, 0.8], [120, 0])
+	const scale2 = useTransform(scrollYProgress, [0.3, 0.8], [0.9, 1])
+
+	// Special animation for center image - dramatic entrance
+	const imageOpacity = useTransform(scrollYProgress, [0.4, 0.9], [0, 1])
+	const imageY = useTransform(scrollYProgress, [0.4, 0.9], [150, 0])
+	const imageScale = useTransform(scrollYProgress, [0.4, 0.9], [0.8, 1])
+	const imageRotate = useTransform(scrollYProgress, [0.4, 0.9], [5, 0])
 
 	return (
 		<section className="py-20 sm:py-24 md:py-32 bg-gradient-to-br from-blue-50 to-white relative overflow-hidden" ref={ref}>
@@ -24,7 +32,7 @@ export function HowItWorksSection() {
 				{/* Title at top */}
 				<motion.div
 					className="text-center mb-16"
-					style={{ opacity: opacity1, y: y1 }}
+					style={{ opacity: opacity1, y: y1, scale: scale1 }}
 				>
 					<h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#1C1B3A] mb-3" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
 						Why Aussies Love HeyDoc
@@ -37,7 +45,7 @@ export function HowItWorksSection() {
 				{/* Grid layout for mobile and desktop */}
 				<motion.div
 					className="grid grid-cols-1 lg:grid-cols-[280px_280px_280px] gap-6 justify-center max-w-6xl mx-auto"
-					style={{ opacity: opacity2, y: y2 }}
+					style={{ opacity: opacity2, y: y2, scale: scale2 }}
 				>
 					{/* Card 1 */}
 					<div className="bg-gradient-to-br from-blue-100 to-white rounded-xl p-6 h-[240px] flex flex-col justify-center lg:col-start-1 lg:row-start-1">
@@ -78,7 +86,15 @@ export function HowItWorksSection() {
 					</div>
 
 					{/* Image */}
-					<div className="relative w-full h-[500px] overflow-hidden flex-shrink-0 lg:col-start-2 lg:row-start-1 lg:row-span-2 rounded-xl">
+					<motion.div
+						className="relative w-full h-[500px] overflow-hidden flex-shrink-0 lg:col-start-2 lg:row-start-1 lg:row-span-2 rounded-xl"
+						style={{
+							opacity: imageOpacity,
+							y: imageY,
+							scale: imageScale,
+							rotate: imageRotate
+						}}
+					>
 						<Image
 							src="/images/portrait3.png"
 							alt="HeyDoc fertility consultation"
@@ -88,7 +104,7 @@ export function HowItWorksSection() {
 								objectPosition: 'center'
 							}}
 						/>
-					</div>
+					</motion.div>
 
 					{/* Card 3 */}
 					<div className="bg-gradient-to-br from-blue-100 to-white rounded-xl p-6 h-[240px] flex flex-col justify-center lg:col-start-1 lg:row-start-2">

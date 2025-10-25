@@ -8,18 +8,36 @@ export function ProcessSection() {
 	const ref = useRef(null)
 	const { scrollYProgress } = useScroll({
 		target: ref,
-		offset: ["start 0.9", "start 0.3"]
+		offset: ["start 0.85", "start 0.2"]
 	})
 
-	// Map scroll progress to opacity and position
-	const opacity1 = useTransform(scrollYProgress, [0, 0.4], [0, 1])
-	const y1 = useTransform(scrollYProgress, [0, 0.4], [40, 0])
+	// Map scroll progress to opacity and position - MUCH more dramatic
+	const opacity1 = useTransform(scrollYProgress, [0, 0.5], [0, 1])
+	const y1 = useTransform(scrollYProgress, [0, 0.5], [100, 0])
+	const scale1 = useTransform(scrollYProgress, [0, 0.5], [0.85, 1])
 
 	const opacity2 = useTransform(scrollYProgress, [0.2, 0.6], [0, 1])
-	const y2 = useTransform(scrollYProgress, [0.2, 0.6], [40, 0])
+	const y2 = useTransform(scrollYProgress, [0.2, 0.6], [120, 0])
+	const scale2 = useTransform(scrollYProgress, [0.2, 0.6], [0.9, 1])
 
 	const opacity3 = useTransform(scrollYProgress, [0.4, 0.8], [0, 1])
-	const y3 = useTransform(scrollYProgress, [0.4, 0.8], [40, 0])
+	const y3 = useTransform(scrollYProgress, [0.4, 0.8], [100, 0])
+	const scale3 = useTransform(scrollYProgress, [0.4, 0.8], [0.9, 1])
+
+	// Individual phone animations - staggered and dramatic!
+	const phone1Opacity = useTransform(scrollYProgress, [0.2, 0.5], [0, 1])
+	const phone1Y = useTransform(scrollYProgress, [0.2, 0.5], [150, 0])
+	const phone1Scale = useTransform(scrollYProgress, [0.2, 0.5], [0.7, 1])
+	const phone1Rotate = useTransform(scrollYProgress, [0.2, 0.5], [-15, -6])
+
+	const phone2Opacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1])
+	const phone2Y = useTransform(scrollYProgress, [0.3, 0.6], [180, 0])
+	const phone2Scale = useTransform(scrollYProgress, [0.3, 0.6], [0.6, 1])
+
+	const phone3Opacity = useTransform(scrollYProgress, [0.4, 0.7], [0, 1])
+	const phone3Y = useTransform(scrollYProgress, [0.4, 0.7], [150, 0])
+	const phone3Scale = useTransform(scrollYProgress, [0.4, 0.7], [0.7, 1])
+	const phone3Rotate = useTransform(scrollYProgress, [0.4, 0.7], [15, 6])
 
 	return (
 		<section className="py-20 sm:py-24 md:py-32 bg-white relative overflow-hidden" ref={ref}>
@@ -27,7 +45,7 @@ export function ProcessSection() {
 				{/* Title */}
 				<motion.div
 					className="text-center mb-12 sm:mb-16"
-					style={{ opacity: opacity1, y: y1 }}
+					style={{ opacity: opacity1, y: y1, scale: scale1 }}
 				>
 					<h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#1C1B3A] mb-4" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
 						How It Works
@@ -38,12 +56,17 @@ export function ProcessSection() {
 				</motion.div>
 
 				{/* Phone Mockups Row */}
-				<motion.div
-					className="flex justify-center items-end gap-6 sm:gap-8 md:gap-12 lg:gap-16 mb-10 sm:mb-12 px-8 sm:px-12 overflow-visible"
-					style={{ opacity: opacity2, y: y2 }}
-				>
+				<div className="flex justify-center items-end gap-6 sm:gap-8 md:gap-12 lg:gap-16 mb-10 sm:mb-12 px-8 sm:px-12 overflow-visible">
 					{/* Phone 1 - Questionnaire */}
-					<div className="flex-shrink-0 transform -rotate-6 -translate-x-12 sm:-translate-x-16 md:-translate-x-20 hover:scale-105 transition-transform duration-300">
+					<motion.div
+						className="flex-shrink-0 -translate-x-12 sm:-translate-x-16 md:-translate-x-20 hover:scale-105 transition-transform duration-300"
+						style={{
+							opacity: phone1Opacity,
+							y: phone1Y,
+							scale: phone1Scale,
+							rotate: phone1Rotate
+						}}
+					>
 						<div className="relative w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] h-[280px] sm:h-[360px] md:h-[440px] lg:h-[520px]">
 							<Image
 								src="/images/questionnaire.png"
@@ -55,10 +78,17 @@ export function ProcessSection() {
 								priority
 							/>
 						</div>
-					</div>
+					</motion.div>
 
 					{/* Phone 2 - Consultation */}
-					<div className="flex-shrink-0 transform -translate-y-4 sm:-translate-y-6 md:-translate-y-8 hover:scale-105 hover:-translate-y-4 sm:hover:-translate-y-6 md:hover:-translate-y-8 transition-transform duration-300">
+					<motion.div
+						className="flex-shrink-0 -translate-y-4 sm:-translate-y-6 md:-translate-y-8 hover:scale-105 hover:-translate-y-4 sm:hover:-translate-y-6 md:hover:-translate-y-8 transition-transform duration-300"
+						style={{
+							opacity: phone2Opacity,
+							y: phone2Y,
+							scale: phone2Scale
+						}}
+					>
 						<div className="relative w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] h-[280px] sm:h-[360px] md:h-[440px] lg:h-[520px]">
 							<Image
 								src="/images/consultation.png"
@@ -70,10 +100,18 @@ export function ProcessSection() {
 								priority
 							/>
 						</div>
-					</div>
+					</motion.div>
 
 					{/* Phone 3 - Referral */}
-					<div className="flex-shrink-0 transform rotate-6 translate-x-12 sm:translate-x-16 md:translate-x-20 hover:scale-105 transition-transform duration-300">
+					<motion.div
+						className="flex-shrink-0 translate-x-12 sm:translate-x-16 md:translate-x-20 hover:scale-105 transition-transform duration-300"
+						style={{
+							opacity: phone3Opacity,
+							y: phone3Y,
+							scale: phone3Scale,
+							rotate: phone3Rotate
+						}}
+					>
 						<div className="relative w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] h-[280px] sm:h-[360px] md:h-[440px] lg:h-[520px]">
 							<Image
 								src="/images/referral.png"
@@ -85,13 +123,13 @@ export function ProcessSection() {
 								priority
 							/>
 						</div>
-					</div>
-				</motion.div>
+					</motion.div>
+				</div>
 
 				{/* Step Descriptions */}
 				<motion.div
 					className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 lg:gap-8 max-w-5xl mx-auto"
-					style={{ opacity: opacity3, y: y3 }}
+					style={{ opacity: opacity3, y: y3, scale: scale3 }}
 				>
 					{/* Step 1 */}
 					<div className="text-center">
