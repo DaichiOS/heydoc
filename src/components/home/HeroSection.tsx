@@ -31,8 +31,8 @@ export function HeroSection() {
 						priority
 					/>
 				</div>
-				{/* Gradient overlay */}
-				<div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
+				{/* Gradient overlay - stronger on mobile for better readability */}
+				<div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/80 lg:from-black/10 lg:via-transparent lg:to-black/80"></div>
 			</div>
 
 			{/* Content Container */}
@@ -43,31 +43,31 @@ export function HeroSection() {
 						<div className="space-y-4 sm:space-y-5">
 							{/* Small tags */}
 							<div className="flex flex-wrap gap-2">
-								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium">
+								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
 									Fertility Care
 								</span>
-								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium">
+								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
 									Fast Referrals
 								</span>
-								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium">
+								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
 									100% Online
 								</span>
 							</div>
 
 							{/* Main Headline */}
-							<h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white leading-tight max-w-xs sm:max-w-sm md:max-w-md">
+							<h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white leading-tight max-w-xs sm:max-w-sm md:max-w-md" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3)' }}>
 								Your Path to Pregnancy Starts Today
 							</h1>
 
 							{/* Promo code hint */}
-							<p className="text-xs sm:text-sm text-white/80">
+							<p className="text-xs sm:text-sm text-white/90" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
 								Use code <span className="font-bold text-yellow-300">OPENING10</span> for 80% off your first consultation
 							</p>
 						</div>
 
 						{/* Right side - Description and CTA */}
 						<div className="space-y-4 sm:space-y-5 lg:pl-16 xl:pl-20 2xl:pl-24">
-							<p className="text-sm sm:text-base md:text-base lg:text-base text-white/90 leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg">
+							<p className="text-sm sm:text-base md:text-base lg:text-base text-white leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.4)' }}>
 								Get your fertility specialist referral in minutes, not weeks.<br />
 								AHPRA-registered doctors available 24/7 across Australia.
 							</p>
