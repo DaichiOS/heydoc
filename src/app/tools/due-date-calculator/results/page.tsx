@@ -185,7 +185,7 @@ function ResultsContent() {
             <div className="flex justify-end mb-6">
               <button
                 onClick={handleBack}
-                className="flex items-center gap-1 text-[#475c21]/50 hover:text-[#475c21] transition-colors text-sm"
+                className="flex items-center gap-1 text-[#1C1B3A]/50 hover:text-[#1C1B3A] transition-colors text-sm"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -198,7 +198,7 @@ function ResultsContent() {
             <div className="space-y-5 mb-6">
               {/* Due Date */}
               <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-semibold text-[#475c21] mb-2">
+                <div className="text-2xl sm:text-3xl font-semibold text-[#1C1B3A] mb-2">
                   {format(dueDateObj, 'EEEE, MMMM d, yyyy')}
                 </div>
                 {isPastDue && (
@@ -219,24 +219,24 @@ function ResultsContent() {
               {/* Stats Grid */}
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
-                  <div className="text-xs text-[#475c21]/60 mb-1">You're in</div>
-                  <div className="text-2xl font-semibold text-[#9ad134] mb-1">Week {currentWeek}</div>
+                  <div className="text-xs text-[#1C1B3A]/60 mb-1">You're in</div>
+                  <div className="text-2xl font-semibold text-blue-600 mb-1">Week {currentWeek}</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xs text-[#475c21]/60 mb-1">{isPastDue ? 'Now' : 'Only'}</div>
-                  <div className="text-2xl font-semibold text-[#9ad134] mb-1">
+                  <div className="text-xs text-[#1C1B3A]/60 mb-1">{isPastDue ? 'Now' : 'Only'}</div>
+                  <div className="text-2xl font-semibold text-blue-600 mb-1">
                     {isPastDue ? Math.abs(Number(daysRemaining)) : daysRemaining}
                   </div>
-                  <div className="text-xs font-medium text-[#475c21]">
+                  <div className="text-xs font-medium text-[#1C1B3A]">
                     {isPastDue ? 'Days Overdue' : 'Days to Go'}
                   </div>
                 </div>
                 <div className="text-center">
-                  <div className="text-xs text-[#475c21]/60 mb-1">Currently</div>
-                  <div className="text-2xl font-semibold text-[#9ad134] mb-1">
+                  <div className="text-xs text-[#1C1B3A]/60 mb-1">Currently</div>
+                  <div className="text-2xl font-semibold text-blue-600 mb-1">
                     {isPastDue ? 'Post-term' : (trimester === '1' ? '1st' : trimester === '2' ? '2nd' : '3rd')}
                   </div>
-                  <div className="text-xs font-medium text-[#475c21]">
+                  <div className="text-xs font-medium text-[#1C1B3A]">
                     {isPastDue ? '' : 'Trimester'}
                   </div>
                 </div>
@@ -250,7 +250,7 @@ function ResultsContent() {
               {!isPastDue && (
                 <button
                   onClick={handleAddToCalendar}
-                  className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 text-[#475c21] rounded-lg text-sm font-medium hover:bg-slate-50 hover:border-slate-400 transition-all"
+                  className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 text-[#1C1B3A] rounded-lg text-sm font-medium hover:bg-slate-50 hover:border-slate-400 transition-all"
                   title="Mark your calendar! This is when you might meet your little one."
                 >
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -261,7 +261,7 @@ function ResultsContent() {
               )}
               <button
                 onClick={handleShareTwitter}
-                className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 text-[#475c21] rounded-lg text-sm font-medium hover:bg-slate-50 hover:border-slate-400 transition-all"
+                className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 text-[#1C1B3A] rounded-lg text-sm font-medium hover:bg-slate-50 hover:border-slate-400 transition-all"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -270,7 +270,7 @@ function ResultsContent() {
               </button>
               <button
                 onClick={handleShareFacebook}
-                className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 text-[#475c21] rounded-lg text-sm font-medium hover:bg-slate-50 hover:border-slate-400 transition-all"
+                className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 text-[#1C1B3A] rounded-lg text-sm font-medium hover:bg-slate-50 hover:border-slate-400 transition-all"
               >
                 <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -279,7 +279,7 @@ function ResultsContent() {
               </button>
               <button
                 onClick={handleCopyLink}
-                className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 text-[#475c21] rounded-lg text-sm font-medium hover:bg-slate-50 hover:border-slate-400 transition-all"
+                className="flex items-center gap-2 px-4 py-2 bg-white border border-slate-300 text-[#1C1B3A] rounded-lg text-sm font-medium hover:bg-slate-50 hover:border-slate-400 transition-all"
               >
                 {copied ? (
                   <>
@@ -304,13 +304,13 @@ function ResultsContent() {
           <div className="flex flex-col sm:flex-row gap-3 mb-8">
             <Link
               href="/tools/due-date-calculator"
-              className="flex-1 bg-white border border-slate-300 text-[#475c21] py-3.5 px-6 rounded-lg font-medium hover:bg-slate-50 hover:border-slate-400 transition-all text-center"
+              className="flex-1 bg-white border border-slate-300 text-[#1C1B3A] py-3.5 px-6 rounded-lg font-medium hover:bg-slate-50 hover:border-slate-400 transition-all text-center"
             >
               Calculate Again
             </Link>
             <Link
               href="/register"
-              className="flex-1 bg-[#9ad134] text-white py-3.5 px-6 rounded-lg font-medium hover:bg-[#7ab82b] transition-all text-center"
+              className="flex-1 bg-[#1C1B3A] text-white py-3.5 px-6 rounded-lg font-medium hover:bg-[#2A2951] transition-all text-center"
             >
               Book Consultation
             </Link>
@@ -319,21 +319,21 @@ function ResultsContent() {
           {/* Trimester-Specific Tips */}
           {trimesterInfo && (
             <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-6 border border-slate-200">
-              <h3 className="text-lg font-semibold text-[#475c21] mb-4">{trimesterInfo.title}</h3>
+              <h3 className="text-lg font-semibold text-[#1C1B3A] mb-4">{trimesterInfo.title}</h3>
               <div className="space-y-2 mb-4">
                 {trimesterInfo.tips.map((tip, index) => (
                   <div key={index} className="group relative flex items-start gap-2">
-                    <svg className="w-5 h-5 text-[#9ad134] flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-5 h-5 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <div className="flex-1 relative">
-                      <p className="text-sm text-[#475c21] cursor-help border-b border-dotted border-slate-400 inline">
+                      <p className="text-sm text-[#1C1B3A] cursor-help border-b border-dotted border-slate-400 inline">
                         {tip.text}
                       </p>
                       {/* Tooltip - Above on desktop, below on mobile */}
-                      <div className="absolute left-0 top-full mt-2 w-full bg-[#9ad134] text-white text-xs rounded-lg p-3 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 sm:bottom-full sm:top-auto sm:mb-2 sm:mt-0 sm:w-80">
-                        <div className="absolute -top-1 left-8 w-2 h-2 bg-[#9ad134] transform rotate-45 sm:hidden"></div>
-                        <div className="hidden sm:block absolute -bottom-1 left-8 w-2 h-2 bg-[#9ad134] transform rotate-45"></div>
+                      <div className="absolute left-0 top-full mt-2 w-full bg-[#1C1B3A] text-white text-xs rounded-lg p-3 shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-10 sm:bottom-full sm:top-auto sm:mb-2 sm:mt-0 sm:w-80">
+                        <div className="absolute -top-1 left-8 w-2 h-2 bg-[#1C1B3A] transform rotate-45 sm:hidden"></div>
+                        <div className="hidden sm:block absolute -bottom-1 left-8 w-2 h-2 bg-[#1C1B3A] transform rotate-45"></div>
                         {tip.tooltip}
                       </div>
                     </div>
@@ -342,7 +342,7 @@ function ResultsContent() {
               </div>
               <Link
                 href="/tools/due-date-calculator/pregnancy-health-guide"
-                className="text-sm text-[#9ad134] font-medium hover:underline inline-flex items-center gap-1"
+                className="text-sm text-blue-500 font-medium hover:underline inline-flex items-center gap-1"
               >
                 Learn more about pregnancy health
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -357,59 +357,59 @@ function ResultsContent() {
       {/* SEO Content - Hidden but crawlable */}
       <div className="sr-only">
         <div className="prose prose-slate max-w-none">
-          <h2 className="text-2xl font-bold text-[#475c21] mb-6">
+          <h2 className="text-2xl font-bold text-[#1C1B3A] mb-6">
             Understanding Your Pregnancy Timeline
           </h2>
 
           <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
-            <h3 className="text-lg font-semibold text-[#475c21] mb-4">Pregnancy Trimesters</h3>
+            <h3 className="text-lg font-semibold text-[#1C1B3A] mb-4">Pregnancy Trimesters</h3>
             <div className="space-y-4">
               <div>
-                <div className="font-semibold text-[#475c21]">First Trimester (Weeks 1-13)</div>
-                <p className="text-sm text-[#475c21]/70 mt-1">Major organs and structures develop. This is a critical period for your baby's development.</p>
+                <div className="font-semibold text-[#1C1B3A]">First Trimester (Weeks 1-13)</div>
+                <p className="text-sm text-[#1C1B3A]/70 mt-1">Major organs and structures develop. This is a critical period for your baby's development.</p>
               </div>
               <div>
-                <div className="font-semibold text-[#475c21]">Second Trimester (Weeks 14-27)</div>
-                <p className="text-sm text-[#475c21]/70 mt-1">Baby grows rapidly, and you may start feeling movement. Many parents find this the most comfortable trimester.</p>
+                <div className="font-semibold text-[#1C1B3A]">Second Trimester (Weeks 14-27)</div>
+                <p className="text-sm text-[#1C1B3A]/70 mt-1">Baby grows rapidly, and you may start feeling movement. Many parents find this the most comfortable trimester.</p>
               </div>
               <div>
-                <div className="font-semibold text-[#475c21]">Third Trimester (Weeks 28-40+)</div>
-                <p className="text-sm text-[#475c21]/70 mt-1">Baby gains weight and prepares for birth. Regular checkups become more frequent.</p>
+                <div className="font-semibold text-[#1C1B3A]">Third Trimester (Weeks 28-40+)</div>
+                <p className="text-sm text-[#1C1B3A]/70 mt-1">Baby gains weight and prepares for birth. Regular checkups become more frequent.</p>
               </div>
             </div>
           </div>
 
           <div className="bg-white rounded-xl border border-slate-200 p-6 mb-8">
-            <h3 className="text-lg font-semibold text-[#475c21] mb-4">Next Steps</h3>
-            <ul className="space-y-3 text-sm text-[#475c21]">
+            <h3 className="text-lg font-semibold text-[#1C1B3A] mb-4">Next Steps</h3>
+            <ul className="space-y-3 text-sm text-[#1C1B3A]">
               <li className="flex items-start gap-2">
-                <span className="text-[#9ad134] mt-1">•</span>
+                <span className="text-blue-500 mt-1">•</span>
                 <span>Schedule your first prenatal appointment between 6-8 weeks of pregnancy</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#9ad134] mt-1">•</span>
+                <span className="text-blue-500 mt-1">•</span>
                 <span>Start taking prenatal vitamins with folic acid if you haven't already</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#9ad134] mt-1">•</span>
+                <span className="text-blue-500 mt-1">•</span>
                 <span>Discuss any medications or health conditions with your healthcare provider</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-[#9ad134] mt-1">•</span>
+                <span className="text-blue-500 mt-1">•</span>
                 <span>Begin planning for regular prenatal checkups throughout your pregnancy</span>
               </li>
             </ul>
           </div>
 
           {/* CTA */}
-          <div className="bg-gradient-to-br from-[#9ad134] to-[#7ab82b] rounded-xl p-8 text-white">
+          <div className="bg-gradient-to-br from-[#1C1B3A] to-[#2A2951] rounded-xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-3">Need Fertility or Prenatal Support?</h3>
             <p className="mb-6 text-slate-200">
               Whether you're planning to conceive or already pregnant, our AHPRA-registered doctors can provide expert fertility consultations, prenatal care guidance, and IVF referrals online.
             </p>
             <Link
               href="/register"
-              className="inline-block bg-white text-[#9ad134] px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors"
+              className="inline-block bg-white text-blue-500 px-8 py-3 rounded-lg font-semibold hover:bg-slate-100 transition-colors"
             >
               Book Your Consultation
             </Link>
@@ -424,7 +424,7 @@ export default function ResultsPage() {
   return (
     <Suspense fallback={
       <div className="min-h-screen flex items-center justify-center">
-        <div className="text-[#475c21]">Loading...</div>
+        <div className="text-[#1C1B3A]">Loading...</div>
       </div>
     }>
       <ResultsContent />

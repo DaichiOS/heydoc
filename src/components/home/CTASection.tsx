@@ -14,7 +14,7 @@ export function CTASection() {
 				</div>
 
 				{/* Heading */}
-				<h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#475C21] mb-8 sm:mb-10" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
+				<h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#1C1B3A] mb-8 sm:mb-10" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 					Ready to Start Your
 					<br />
 					Fertility Journey?
@@ -25,7 +25,7 @@ export function CTASection() {
 					href="https://app.heydochealth.com.au/register?type=patient"
 					target="_blank"
 					rel="noopener noreferrer"
-					className="inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-[#475C21] text-white font-semibold text-base sm:text-lg rounded-full hover:bg-[#5a7329] transition-all duration-200 shadow-lg hover:shadow-xl"
+					className="inline-flex items-center justify-center px-8 sm:px-10 py-3.5 sm:py-4 bg-[#1C1B3A] text-white font-semibold text-base sm:text-lg rounded-full hover:bg-[#2A2951] transition-all duration-200 shadow-lg hover:shadow-xl"
 					style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 600 }}
 				>
 					Book Consultation

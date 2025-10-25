@@ -36,21 +36,25 @@ const faqData: FAQItem[] = [
 ]
 
 export function FAQSection() {
-	const [openIndex, setOpenIndex] = useState<number | null>(0)
+	const [openIndexes, setOpenIndexes] = useState<number[]>([0])
 
 	const toggleQuestion = (index: number) => {
-		setOpenIndex(openIndex === index ? null : index)
+		setOpenIndexes(prev =>
+			prev.includes(index)
+				? prev.filter(i => i !== index)
+				: [...prev, index]
+		)
 	}
 
 	return (
-		<section id="faq" className="py-16 sm:py-20 md:py-24 bg-[#F7FFCC] relative overflow-hidden">
+		<section id="faq" className="py-16 sm:py-20 md:py-24 bg-gradient-to-br from-blue-100 to-white relative overflow-hidden">
 			<div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 				{/* Title */}
 				<div className="text-center mb-10 sm:mb-12">
-					<h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#475C21] mb-3 sm:mb-4" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
+					<h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#1C1B3A] mb-3 sm:mb-4" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 						Frequently Asked Questions
 					</h2>
-					<p className="text-base sm:text-lg text-[#475C21]/70 max-w-2xl mx-auto" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
+					<p className="text-base sm:text-lg text-[#1C1B3A]/70 max-w-2xl mx-auto" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 						Everything you need to know about getting your fertility specialist referral through HeyDoc
 					</p>
 				</div>
@@ -66,11 +70,11 @@ export function FAQSection() {
 								onClick={() => toggleQuestion(index)}
 								className="w-full flex items-center justify-between p-5 sm:p-6 text-left focus:outline-none group"
 							>
-								<span className="text-base sm:text-lg font-medium text-[#475C21] pr-4 group-hover:text-[#5a7329] transition-colors" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
+								<span className="text-base sm:text-lg font-medium text-[#1C1B3A] pr-4 group-hover:text-blue-600 transition-colors" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
 									{faq.question}
 								</span>
-								<div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#475C21] flex items-center justify-center text-white group-hover:bg-[#5a7329] transition-colors">
-									{openIndex === index ? (
+								<div className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-blue-100/60 backdrop-blur-md border border-blue-200/80 flex items-center justify-center text-blue-600 group-hover:bg-blue-200/70 group-hover:border-blue-300 group-hover:shadow-[0_0_15px_rgba(59,130,246,0.3)] transition-all">
+									{openIndexes.includes(index) ? (
 										<Minus className="w-4 h-4 sm:w-5 sm:h-5" />
 									) : (
 										<Plus className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -81,14 +85,21 @@ export function FAQSection() {
 							{/* Answer */}
 							<div
 								className={`transition-all duration-300 ease-in-out ${
-									openIndex === index
+									openIndexes.includes(index)
 										? 'max-h-96 opacity-100'
 										: 'max-h-0 opacity-0'
 								} overflow-hidden`}
 							>
 								<div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0">
-									<p className="text-sm sm:text-base text-[#475C21]/80 leading-relaxed" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
-										{faq.answer}
+									<p className="text-sm sm:text-base text-[#1C1B3A]/80 leading-relaxed" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
+										{faq.answer.split('OPENING10').map((part, i, arr) => (
+											<span key={i}>
+												{part}
+												{i < arr.length - 1 && (
+													<span className="font-bold text-blue-500">OPENING10</span>
+												)}
+											</span>
+										))}
 									</p>
 								</div>
 							</div>

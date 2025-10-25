@@ -155,9 +155,9 @@ export function NotificationBell() {
   const getNotificationIcon = (type: string) => {
     switch (type) {
       case 'lab_result_abnormal':
-        return <AlertCircle className="w-5 h-5 text-[#9AD134]" />
+        return <AlertCircle className="w-5 h-5 text-blue-500" />
       case 'lab_result_uploaded':
-        return <FileText className="w-5 h-5 text-[#9AD134]" />
+        return <FileText className="w-5 h-5 text-blue-500" />
       default:
         return <Bell className="w-5 h-5 text-white/70" />
     }
@@ -192,7 +192,7 @@ export function NotificationBell() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-96 bg-black/50 backdrop-blur-lg rounded-lg shadow-lg shadow-[#9AD134]/20 border border-white/30 z-50 max-h-[600px] flex flex-col">
+        <div className="absolute right-0 mt-2 w-96 bg-black/50 backdrop-blur-lg rounded-lg shadow-lg shadow-blue-500/20 border border-white/30 z-50 max-h-[600px] flex flex-col">
           <div className="px-4 pt-4 pb-3 border-b border-white/20">
             <div className="flex items-center justify-between">
               <h3 className="font-semibold text-white/95 text-base">Notifications</h3>
@@ -202,7 +202,7 @@ export function NotificationBell() {
                     {unreadCount > 0 && (
                       <button
                         onClick={markAllAsRead}
-                        className="text-xs text-[#9AD134] hover:text-[#8BC429] font-medium transition-colors"
+                        className="text-xs text-blue-500 hover:text-blue-600 font-medium transition-colors"
                       >
                         Mark all read
                       </button>
@@ -239,7 +239,7 @@ export function NotificationBell() {
                 <div
                   key={notification.id}
                   className={`group relative border-b border-white/10 transition-colors hover:bg-white/10 ${
-                    !notification.isRead ? 'bg-[#9AD134]/10' : ''
+                    !notification.isRead ? 'bg-blue-500/10' : ''
                   }`}
                 >
                   <div
@@ -256,7 +256,7 @@ export function NotificationBell() {
                           {notification.title}
                         </p>
                         {!notification.isRead && (
-                          <span className="flex-shrink-0 w-2 h-2 bg-[#9AD134] rounded-full mt-1"></span>
+                          <span className="flex-shrink-0 w-2 h-2 bg-blue-500 rounded-full mt-1"></span>
                         )}
                       </div>
                       <p className="text-sm text-white/80 mt-1 line-clamp-2">
@@ -290,7 +290,7 @@ export function NotificationBell() {
                   setIsOpen(false)
                   router.push('/doctor/notifications')
                 }}
-                className="text-sm text-[#9AD134] hover:text-[#8BC429] font-medium"
+                className="text-sm text-blue-500 hover:text-blue-600 font-medium"
               >
                 View all notifications
               </button>

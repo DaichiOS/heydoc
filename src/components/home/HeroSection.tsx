@@ -3,17 +3,17 @@ import Image from 'next/image'
 export function HeroSection() {
 	return (
 		<section className="relative h-screen min-h-screen overflow-hidden">
-			{/* Background Image - Mobile: couple.png, Desktop: full.jpg */}
+			{/* Background Image - Mobile: couple1.png, Desktop: full.jpg */}
 			<div className="absolute inset-0">
 				{/* Mobile background */}
 				<div className="lg:hidden absolute inset-0">
 					<Image
-						src="/images/couple.png"
+						src="/images/couple1.png"
 						alt="Expecting couple"
 						fill
 						style={{
 							objectFit: 'cover',
-							objectPosition: 'center'
+							objectPosition: '50% 35%'
 						}}
 						priority
 					/>
@@ -21,12 +21,12 @@ export function HeroSection() {
 				{/* Desktop background */}
 				<div className="hidden lg:block absolute inset-0">
 					<Image
-						src="/images/full.jpg"
+						src="/images/couple1.png"
 						alt="Expecting couple"
 						fill
 						style={{
 							objectFit: 'cover',
-							objectPosition: 'center'
+							objectPosition: '50% 30%'
 						}}
 						priority
 					/>
@@ -43,31 +43,36 @@ export function HeroSection() {
 						<div className="space-y-4 sm:space-y-5">
 							{/* Small tags */}
 							<div className="flex flex-wrap gap-2">
-								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
+								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm sm:text-base font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
 									Fertility Care
 								</span>
-								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
+								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm sm:text-base font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
 									Fast Referrals
 								</span>
-								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
+								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm sm:text-base font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
 									100% Online
 								</span>
 							</div>
 
 							{/* Main Headline */}
-							<h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white leading-tight max-w-xs sm:max-w-sm md:max-w-md" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3)' }}>
-								Your Path to Pregnancy Starts Today
-							</h1>
+							<div className="space-y-2">
+								<h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-bold text-white leading-tight max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3)' }}>
+									Need a Fertility Referral?
+								</h1>
+								<p className="text-base sm:text-lg md:text-xl text-white/80 max-w-xs sm:max-w-sm" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
+									Your Path to Pregnancy Starts Today
+								</p>
+							</div>
 
 							{/* Promo code hint */}
-							<p className="text-xs sm:text-sm text-white/90" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
+							<p className="text-sm sm:text-base md:text-lg text-white/90" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
 								Use code <span className="font-bold text-yellow-300">OPENING10</span> for 80% off your first consultation
 							</p>
 						</div>
 
 						{/* Right side - Description and CTA */}
 						<div className="space-y-4 sm:space-y-5 lg:pl-16 xl:pl-20 2xl:pl-24">
-							<p className="text-sm sm:text-base md:text-base lg:text-base text-white leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.4)' }}>
+							<p className="text-sm sm:text-base md:text-lg lg:text-lg text-white leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg" style={{ textShadow: '0 2px 6px rgba(0,0,0,0.4)' }}>
 								Get your fertility specialist referral in minutes, not weeks.<br />
 								AHPRA-registered doctors available 24/7 across Australia.
 							</p>
@@ -78,10 +83,10 @@ export function HeroSection() {
 									href="https://app.heydochealth.com.au/register?type=patient"
 									target="_blank"
 									rel="noopener noreferrer"
-									className="group relative inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-white/15 backdrop-blur-md border-2 border-white/40 rounded-full text-white font-semibold text-sm sm:text-base transition-all shadow-[0_0_25px_rgba(154,209,52,0.6),0_0_40px_rgba(154,209,52,0.3)] hover:shadow-[0_0_35px_rgba(154,209,52,0.8),0_0_50px_rgba(154,209,52,0.4)] hover:bg-white/25 hover:border-[#9AD134]/60 hover:scale-105 active:scale-95"
+									className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white/15 backdrop-blur-md border-2 border-white/40 rounded-full text-white font-semibold text-sm sm:text-base md:text-lg transition-all shadow-[0_0_25px_rgba(59,130,246,0.6),0_0_40px_rgba(59,130,246,0.3)] hover:shadow-[0_0_35px_rgba(59,130,246,0.8),0_0_50px_rgba(59,130,246,0.4)] hover:bg-blue-100/30 hover:border-blue-300/70 hover:scale-105 active:scale-95"
 								>
 									<span className="relative z-10">Book Consultation</span>
-									<div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+									<div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-200/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
 								</a>
 							</div>
 						</div>

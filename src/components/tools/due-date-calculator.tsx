@@ -250,7 +250,7 @@ export function DueDateCalculator() {
       <div className="text-center mb-2">
         <Link href="/" className="inline-block">
           <Image
-            src="/logos/heydoc-green.svg"
+            src="/logos/heydoc.png"
             alt="HeyDoc"
             width={140}
             height={48}
@@ -262,28 +262,28 @@ export function DueDateCalculator() {
 
       {/* Page Title */}
       <div className="text-center mb-6">
-        <h1 className="text-3xl sm:text-4xl font-bold text-[#475c21] mb-2">Due Date Calculator</h1>
-        <p className="text-[#475c21] text-base sm:text-lg">Calculate your estimated delivery date</p>
+        <h1 className="text-3xl sm:text-4xl font-bold text-[#1C1B3A] mb-2">Due Date Calculator</h1>
+        <p className="text-[#1C1B3A] text-base sm:text-lg">Calculate your estimated delivery date</p>
       </div>
 
       {/* Step 1: Method Selection */}
       {step === 'method' && (
         <div className="max-w-xl mx-auto">
-            <h2 className="text-lg sm:text-xl font-semibold text-[#475c21] mb-4 text-center">
+            <h2 className="text-lg sm:text-xl font-semibold text-[#1C1B3A] mb-4 text-center">
               How would you like to calculate your due date?
             </h2>
 
             <div className="space-y-2">
               <button
                 onClick={() => handleMethodSelect('lmp')}
-                className="group w-full p-3 rounded-xl bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 text-left transition-all hover:border-[#9ad134] hover:shadow-[0_8px_24px_rgba(154,209,52,0.12)] hover:scale-[1.01] active:scale-[0.99]"
+                className="group w-full p-3 rounded-xl bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 text-left transition-all hover:border-blue-500 hover:shadow-[0_8px_24px_rgba(59,130,246,0.12)] hover:scale-[1.01] active:scale-[0.99]"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="font-semibold text-[#475c21] text-base group-hover:text-[#9ad134] transition-colors mb-0.5">Last Menstrual Period</div>
-                    <div className="text-sm text-[#475c21]/70">Most common method</div>
+                    <div className="font-semibold text-[#1C1B3A] text-base group-hover:text-blue-500 transition-colors mb-0.5">Last Menstrual Period</div>
+                    <div className="text-sm text-[#1C1B3A]/70">Most common method</div>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#9ad134] transition-all flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-blue-500 transition-all flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -293,14 +293,14 @@ export function DueDateCalculator() {
 
               <button
                 onClick={() => handleMethodSelect('conception')}
-                className="group w-full p-3 rounded-xl bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 text-left transition-all hover:border-[#9ad134] hover:shadow-[0_8px_24px_rgba(154,209,52,0.12)] hover:scale-[1.01] active:scale-[0.99]"
+                className="group w-full p-3 rounded-xl bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 text-left transition-all hover:border-blue-500 hover:shadow-[0_8px_24px_rgba(59,130,246,0.12)] hover:scale-[1.01] active:scale-[0.99]"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="font-semibold text-[#475c21] text-base group-hover:text-[#9ad134] transition-colors mb-0.5">Conception/Ovulation Date</div>
-                    <div className="text-sm text-[#475c21]/70">If you know when you conceived</div>
+                    <div className="font-semibold text-[#1C1B3A] text-base group-hover:text-blue-500 transition-colors mb-0.5">Conception/Ovulation Date</div>
+                    <div className="text-sm text-[#1C1B3A]/70">If you know when you conceived</div>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#9ad134] transition-all flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-blue-500 transition-all flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -310,14 +310,14 @@ export function DueDateCalculator() {
 
               <button
                 onClick={() => handleMethodSelect('ivf')}
-                className="group w-full p-3 rounded-xl bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 text-left transition-all hover:border-[#9ad134] hover:shadow-[0_8px_24px_rgba(154,209,52,0.12)] hover:scale-[1.01] active:scale-[0.99]"
+                className="group w-full p-3 rounded-xl bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 text-left transition-all hover:border-blue-500 hover:shadow-[0_8px_24px_rgba(59,130,246,0.12)] hover:scale-[1.01] active:scale-[0.99]"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="font-semibold text-[#475c21] text-base group-hover:text-[#9ad134] transition-colors mb-0.5">IVF Transfer Date</div>
-                    <div className="text-sm text-[#475c21]/70">For IVF pregnancies</div>
+                    <div className="font-semibold text-[#1C1B3A] text-base group-hover:text-blue-500 transition-colors mb-0.5">IVF Transfer Date</div>
+                    <div className="text-sm text-[#1C1B3A]/70">For IVF pregnancies</div>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#9ad134] transition-all flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-blue-500 transition-all flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -327,14 +327,14 @@ export function DueDateCalculator() {
 
               <button
                 onClick={() => handleMethodSelect('ultrasound')}
-                className="group w-full p-3 rounded-xl bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 text-left transition-all hover:border-[#9ad134] hover:shadow-[0_8px_24px_rgba(154,209,52,0.12)] hover:scale-[1.01] active:scale-[0.99]"
+                className="group w-full p-3 rounded-xl bg-gradient-to-br from-slate-50 to-white border-2 border-slate-100 text-left transition-all hover:border-blue-500 hover:shadow-[0_8px_24px_rgba(59,130,246,0.12)] hover:scale-[1.01] active:scale-[0.99]"
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <div className="font-semibold text-[#475c21] text-base group-hover:text-[#9ad134] transition-colors mb-0.5">Ultrasound Scan</div>
-                    <div className="text-sm text-[#475c21]/70">Based on scan measurements</div>
+                    <div className="font-semibold text-[#1C1B3A] text-base group-hover:text-blue-500 transition-colors mb-0.5">Ultrasound Scan</div>
+                    <div className="text-sm text-[#1C1B3A]/70">Based on scan measurements</div>
                   </div>
-                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#9ad134] transition-all flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-blue-500 transition-all flex items-center justify-center flex-shrink-0">
                     <svg className="w-4 h-4 text-slate-400 group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
@@ -349,12 +349,12 @@ export function DueDateCalculator() {
         {step === 'input' && (
           <div className="max-w-lg mx-auto">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-2xl font-semibold text-[#475c21]">
+              <h2 className="text-2xl font-semibold text-[#1C1B3A]">
                 {getMethodTitle()}
               </h2>
               <button
                 onClick={handleBack}
-                className="flex items-center gap-1 text-[#475c21]/50 hover:text-[#475c21] transition-colors text-base ml-4"
+                className="flex items-center gap-1 text-[#1C1B3A]/50 hover:text-[#1C1B3A] transition-colors text-base ml-4"
               >
                 <ChevronLeft className="w-4 h-4" />
                 <span>Back</span>
@@ -365,7 +365,7 @@ export function DueDateCalculator() {
             {method === 'lmp' && (
               <>
                 <div>
-                  <label className="block text-base font-medium text-[#475c21] mb-2">
+                  <label className="block text-base font-medium text-[#1C1B3A] mb-2">
                     First day of your last period
                   </label>
                   <input
@@ -374,17 +374,17 @@ export function DueDateCalculator() {
                     onChange={(e) => setLmpDate(e.target.value)}
                     min={format(addDays(new Date(), -300), 'yyyy-MM-dd')}
                     max={format(new Date(), 'yyyy-MM-dd')}
-                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-[#9ad134]/20 focus:border-[#9ad134] transition-all outline-none"
+                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-base font-medium text-[#475c21] mb-2">
+                  <label className="block text-base font-medium text-[#1C1B3A] mb-2">
                     Average cycle length
                   </label>
                   <select
                     value={cycleLength}
                     onChange={(e) => setCycleLength(Number(e.target.value))}
-                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-[#9ad134]/20 focus:border-[#9ad134] transition-all outline-none"
+                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none"
                   >
                     {Array.from({ length: 15 }, (_, i) => i + 21).map((days) => (
                       <option key={days} value={days}>{days} days</option>
@@ -396,7 +396,7 @@ export function DueDateCalculator() {
 
             {method === 'conception' && (
               <div>
-                <label className="block text-base font-medium text-[#475c21] mb-2">
+                <label className="block text-base font-medium text-[#1C1B3A] mb-2">
                   Conception or ovulation date
                 </label>
                 <input
@@ -405,7 +405,7 @@ export function DueDateCalculator() {
                   onChange={(e) => setConceptionDate(e.target.value)}
                   min={format(addDays(new Date(), -300), 'yyyy-MM-dd')}
                   max={format(new Date(), 'yyyy-MM-dd')}
-                  className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-[#9ad134]/20 focus:border-[#9ad134] transition-all outline-none"
+                  className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none"
                 />
               </div>
             )}
@@ -413,7 +413,7 @@ export function DueDateCalculator() {
             {method === 'ivf' && (
               <>
                 <div>
-                  <label className="block text-base font-medium text-[#475c21] mb-2">
+                  <label className="block text-base font-medium text-[#1C1B3A] mb-2">
                     IVF embryo transfer date
                   </label>
                   <input
@@ -422,17 +422,17 @@ export function DueDateCalculator() {
                     onChange={(e) => setIvfTransferDate(e.target.value)}
                     min={format(addDays(new Date(), -300), 'yyyy-MM-dd')}
                     max={format(new Date(), 'yyyy-MM-dd')}
-                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-[#9ad134]/20 focus:border-[#9ad134] transition-all outline-none"
+                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-base font-medium text-[#475c21] mb-2">
+                  <label className="block text-base font-medium text-[#1C1B3A] mb-2">
                     Embryo age at transfer
                   </label>
                   <select
                     value={embryoAge}
                     onChange={(e) => setEmbryoAge(Number(e.target.value) as EmbryoAge)}
-                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-[#9ad134]/20 focus:border-[#9ad134] transition-all outline-none"
+                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none"
                   >
                     <option value={3}>Day 3 embryo</option>
                     <option value={5}>Day 5 embryo (blastocyst)</option>
@@ -444,7 +444,7 @@ export function DueDateCalculator() {
             {method === 'ultrasound' && (
               <>
                 <div>
-                  <label className="block text-base font-medium text-[#475c21] mb-2">
+                  <label className="block text-base font-medium text-[#1C1B3A] mb-2">
                     Ultrasound scan date
                   </label>
                   <input
@@ -453,34 +453,34 @@ export function DueDateCalculator() {
                     onChange={(e) => setUltrasoundDate(e.target.value)}
                     min={format(addDays(new Date(), -300), 'yyyy-MM-dd')}
                     max={format(new Date(), 'yyyy-MM-dd')}
-                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-[#9ad134]/20 focus:border-[#9ad134] transition-all outline-none"
+                    className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none"
                   />
                 </div>
                 <div>
-                  <label className="block text-base font-medium text-[#475c21] mb-2">
+                  <label className="block text-base font-medium text-[#1C1B3A] mb-2">
                     Gestational age at scan
                   </label>
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-sm text-[#475c21] mb-2">Weeks</label>
+                      <label className="block text-sm text-[#1C1B3A] mb-2">Weeks</label>
                       <input
                         type="number"
                         min="4"
                         max="42"
                         value={gestationalAge.weeks}
                         onChange={(e) => setGestationalAge({ ...gestationalAge, weeks: Number(e.target.value) })}
-                        className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-[#9ad134]/20 focus:border-[#9ad134] transition-all outline-none"
+                        className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none"
                       />
                     </div>
                     <div>
-                      <label className="block text-sm text-[#475c21] mb-2">Days</label>
+                      <label className="block text-sm text-[#1C1B3A] mb-2">Days</label>
                       <input
                         type="number"
                         min="0"
                         max="6"
                         value={gestationalAge.days}
                         onChange={(e) => setGestationalAge({ ...gestationalAge, days: Number(e.target.value) })}
-                        className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-[#9ad134]/20 focus:border-[#9ad134] transition-all outline-none"
+                        className="w-full px-4 py-2.5 text-base text-slate-900 bg-white border-2 border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all outline-none"
                       />
                     </div>
                   </div>
@@ -492,7 +492,7 @@ export function DueDateCalculator() {
             <button
               onClick={handleCalculate}
               disabled={!canCalculate()}
-              className="w-full bg-[#9ad134] text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-[#7ab82b] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md active:scale-[0.99]"
+              className="w-full bg-[#1C1B3A] text-white py-3 px-6 rounded-lg font-semibold text-lg hover:bg-[#2A2951] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-sm hover:shadow-md active:scale-[0.99]"
             >
               Calculate Due Date
             </button>

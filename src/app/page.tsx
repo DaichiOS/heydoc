@@ -6,6 +6,7 @@ import { PrivacyModal } from '@/components/legal/privacy-modal'
 import { TermsModal } from '@/components/legal/terms-modal'
 import { HeroSection } from '@/components/home/HeroSection'
 import { TrustBarSection } from '@/components/home/TrustBarSection'
+import { ProcessSection } from '@/components/home/ProcessSection'
 import { HowItWorksSection } from '@/components/home/HowItWorksSection'
 import { FAQSection } from '@/components/home/FAQSection'
 import { CTASection } from '@/components/home/CTASection'
@@ -78,6 +79,7 @@ export default function HomePage() {
 			{/* All Sections */}
 			<HeroSection />
 			<TrustBarSection />
+			<ProcessSection />
 			<HowItWorksSection />
 			<FAQSection />
 			<CTASection />
