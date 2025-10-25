@@ -16,18 +16,18 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col"
+        className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/50 w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-[#1C1B3A] text-white px-6 py-4 flex justify-between items-center flex-shrink-0">
+        <div className="bg-[#9ad134]/90 backdrop-blur-md text-white px-6 py-4 flex justify-between items-center flex-shrink-0 border-b border-white/20">
           <div>
             <h2 className="text-2xl font-bold">Privacy Policy</h2>
-            <p className="text-blue-200 text-sm mt-1">HeyDoc Pty Ltd ABN 88 526 376 986</p>
+            <p className="text-white/80 text-sm mt-1">HeyDoc Pty Ltd ABN 88 526 376 986</p>
           </div>
           <button
             onClick={onClose}
-            className="text-white hover:text-blue-200 transition-colors p-2 rounded-lg hover:bg-white/10"
+            className="text-white hover:text-white/80 transition-colors p-2 rounded-lg hover:bg-white/10"
           >
             <X className="w-6 h-6" />
           </button>
@@ -37,7 +37,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
         <div className="overflow-y-auto flex-1 px-6 py-8 space-y-8">
           {/* Section 1 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">1. Introduction</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">1. Introduction</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc Health Pty Ltd (ABN 88 526 376 986) ("HeyDoc", "we", "us", "our") is an Australian healthcare
@@ -60,7 +60,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 2 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">2. What is Personal Information</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">2. What is Personal Information</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 For the purposes of this Privacy Policy, "personal information" (also referred to as personal data) means
@@ -76,7 +76,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 3 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">3. What Information We Collect</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">3. What Information We Collect</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 The type of personal information collected by HeyDoc depends on your interaction with our services but
@@ -101,7 +101,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 4 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">4. How We Collect Your Information</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">4. How We Collect Your Information</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>We collect personal information directly from you when you:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
@@ -119,7 +119,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 5 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">5. Why We Collect and Use Your Information</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">5. Why We Collect and Use Your Information</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>HeyDoc collects, holds, and uses personal information for purposes including:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
@@ -137,7 +137,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 6 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">6. Sensitive Information</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">6. Sensitive Information</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 As part of providing healthcare services, we may collect "sensitive information" as defined in the
@@ -157,7 +157,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 7 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">7. Use and Disclosure of Personal Information</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">7. Use and Disclosure of Personal Information</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc will use or disclose personal information solely for the purposes outlined in this Policy or
@@ -190,7 +190,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 8 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">8. Cookies and Website Analytics</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">8. Cookies and Website Analytics</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 Our website may use cookies and similar technologies to enhance user experience, analyse traffic, and
@@ -208,7 +208,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 9 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">9. Storage and Security of Information</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">9. Storage and Security of Information</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 We store personal information in electronic form using secure databases and cloud storage solutions based
@@ -227,7 +227,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 10 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">10. Access and Correction</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">10. Access and Correction</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 You are entitled to request access to the personal information HeyDoc holds about you and to seek
@@ -245,7 +245,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 11 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">11. Overseas Disclosure</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">11. Overseas Disclosure</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>HeyDoc does not routinely disclose personal information to overseas recipients.</p>
               <p>
@@ -257,7 +257,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 12 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">12. Anonymity and Pseudonymity</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">12. Anonymity and Pseudonymity</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 Where lawful and practicable, you may choose to interact with HeyDoc anonymously or by using a pseudonym
@@ -269,7 +269,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 13 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">13. Complaints and Enquiries</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">13. Complaints and Enquiries</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 If you have any questions, concerns, or complaints about how HeyDoc has handled your personal information,
@@ -284,14 +284,14 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
 
           {/* Section 14 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">14. Changes to This Privacy Policy</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">14. Changes to This Privacy Policy</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc may update this Privacy Policy from time to time to reflect legal or operational changes.
               </p>
               <p>
                 The latest version will always be available on our website at{' '}
-                <a href="https://www.heydochealth.com.au" className="text-[#1C1B3A] hover:underline">
+                <a href="https://www.heydochealth.com.au" className="text-[#475c21] hover:underline">
                   www.heydochealth.com.au
                 </a>
                 .
@@ -305,10 +305,10 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 px-6 py-4 border-t border-gray-200 flex-shrink-0">
+        <div className="bg-white/80 backdrop-blur-md px-6 py-4 border-t border-gray-200/50 flex-shrink-0">
           <button
             onClick={onClose}
-            className="w-full bg-[#1C1B3A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#2A2951] transition-colors"
+            className="w-full bg-[#9ad134] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7ab82b] transition-colors"
           >
             Close
           </button>

@@ -16,18 +16,18 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col"
+        className="bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-white/50 w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-[#1C1B3A] text-white px-6 py-4 flex justify-between items-center flex-shrink-0">
+        <div className="bg-[#9ad134]/90 backdrop-blur-md text-white px-6 py-4 flex justify-between items-center flex-shrink-0 border-b border-white/20">
           <div>
             <h2 className="text-2xl font-bold">Terms & Conditions</h2>
-            <p className="text-blue-200 text-sm mt-1">HeyDoc Pty Ltd ABN 88 526 376 986</p>
+            <p className="text-white/80 text-sm mt-1">HeyDoc Pty Ltd ABN 88 526 376 986</p>
           </div>
           <button
             onClick={onClose}
-            className="text-white hover:text-blue-200 transition-colors p-2 rounded-lg hover:bg-white/10"
+            className="text-white hover:text-white/80 transition-colors p-2 rounded-lg hover:bg-white/10"
           >
             <X className="w-6 h-6" />
           </button>
@@ -37,13 +37,13 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
         <div className="overflow-y-auto flex-1 px-6 py-8 space-y-8">
           {/* Header Info */}
           <div className="text-sm text-gray-600">
-            <p className="font-semibold text-[#1C1B3A]">General Terms of Service</p>
+            <p className="font-semibold text-[#475c21]">General Terms of Service</p>
             <p>Last updated: October 2025</p>
           </div>
 
           {/* Section 1 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">1. About HeyDoc</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">1. About HeyDoc</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc Health Pty Ltd ("HeyDoc", "we", "us", or "our") operates an online platform ("Platform") that facilitates access to healthcare information, administrative coordination, and referral services for patients ("Patients") and qualified healthcare providers ("Healthcare Practitioners").
@@ -56,7 +56,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 2 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">2. Not Medical or Healthcare Advice</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">2. Not Medical or Healthcare Advice</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc is not a medical or healthcare provider. The information made available through our Platform is for general informational purposes only and is not a substitute for independent professional medical advice, diagnosis, or treatment.
@@ -69,7 +69,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 3 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">3. No Emergency Service</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">3. No Emergency Service</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 The Platform and any services provided through HeyDoc are not suitable for medical emergencies or urgent conditions.
@@ -82,7 +82,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 4 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">4. Not a Substitute for Ongoing Care</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">4. Not a Substitute for Ongoing Care</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc's Platform is intended to complement—not replace—your relationship with your usual general practitioner or other medical professional. We encourage you to maintain regular consultations with your healthcare provider for ongoing management and review of your health.
@@ -92,7 +92,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 5 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">5. Accuracy of Information Provided by Users</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">5. Accuracy of Information Provided by Users</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 To ensure the effectiveness of any referral or coordination service, users must provide accurate, complete, and up-to-date information. You acknowledge and agree to:
@@ -110,7 +110,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 6 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">6. Limitation of Liability and Indemnity</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">6. Limitation of Liability and Indemnity</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>You acknowledge and agree that:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
@@ -126,7 +126,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 7 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">7. Use of the Platform</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">7. Use of the Platform</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>By accessing or using the Platform, you agree that:</p>
               <ul className="list-disc list-inside space-y-2 ml-4">
@@ -144,7 +144,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 8 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">8. Payments and Refunds</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">8. Payments and Refunds</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 Payment options and fees, where applicable, will be displayed on the Platform. You agree to pay all fees or charges in accordance with the payment terms in effect at the time of booking or service request.
@@ -157,7 +157,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 9 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">9. Platform Availability and Service Limitations</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">9. Platform Availability and Service Limitations</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc makes every reasonable effort to ensure continuous access to the Platform. However, we do not guarantee that the Platform will be available at all times or that access will be uninterrupted or error-free.
@@ -170,7 +170,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 10 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">10. Communication Tools</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">10. Communication Tools</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc may communicate with users via secure messaging, email, or telephone for administrative and service-related purposes only. We do not authorise the use of these tools for clinical consultations or medical advice. By providing your contact details, you consent to receiving such communications.
@@ -180,7 +180,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 11 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">11. Reviews and User Content</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">11. Reviews and User Content</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 From time to time, you may be invited to provide feedback or reviews regarding your experience with HeyDoc. By submitting content, you grant HeyDoc a non-exclusive, royalty-free, perpetual, and worldwide licence to use, reproduce, and publish that content for promotional or analytical purposes.
@@ -193,7 +193,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 12 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">12. Intellectual Property</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">12. Intellectual Property</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 All content, design, text, graphics, interfaces, and other materials available on the Platform, including the HeyDoc name and logo, are the property of HeyDoc or its licensors and are protected under Australian intellectual-property law.
@@ -206,14 +206,14 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 13 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">13. Privacy Policy</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">13. Privacy Policy</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc respects your right to privacy and complies with the Privacy Act 1988 (Cth) and the Australian Privacy Principles. Our Privacy Policy outlines how we collect, use, store, and disclose your personal information.
               </p>
               <p>
                 A copy of our current Privacy Policy is available at{' '}
-                <a href="https://www.heydochealth.com.au" className="text-[#1C1B3A] hover:underline">
+                <a href="https://www.heydochealth.com.au" className="text-[#475c21] hover:underline">
                   www.heydochealth.com.au
                 </a>
               </p>
@@ -222,7 +222,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 14 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">14. Amendments</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">14. Amendments</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 HeyDoc may amend these Terms from time to time. Any updates will take effect upon publication on our website. Your continued use of the Platform following such publication constitutes acceptance of the amended Terms.
@@ -232,7 +232,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Section 15 */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">15. Governing Law</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">15. Governing Law</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 These Terms are governed by the laws of New South Wales, Australia. Each party submits to the non-exclusive jurisdiction of the courts of New South Wales and courts competent to hear appeals from those courts.
@@ -242,19 +242,19 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
 
           {/* Contact Information */}
           <section>
-            <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">Contact Us</h3>
+            <h3 className="text-xl font-semibold text-[#475c21] mb-3">Contact Us</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>If you have any questions regarding these Terms, please contact:</p>
               <p className="font-medium">HeyDoc Pty Ltd</p>
               <p>
                 Email:{' '}
-                <a href="mailto:admin@heydochealth.com.au" className="text-[#1C1B3A] hover:underline">
+                <a href="mailto:admin@heydochealth.com.au" className="text-[#475c21] hover:underline">
                   admin@heydochealth.com.au
                 </a>
               </p>
               <p>
                 Website:{' '}
-                <a href="https://www.heydochealth.com.au" className="text-[#1C1B3A] hover:underline">
+                <a href="https://www.heydochealth.com.au" className="text-[#475c21] hover:underline">
                   www.heydochealth.com.au
                 </a>
               </p>
@@ -263,10 +263,10 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
         </div>
 
         {/* Footer */}
-        <div className="bg-gray-50 px-6 py-4 border-t border-gray-200 flex-shrink-0">
+        <div className="bg-white/80 backdrop-blur-md px-6 py-4 border-t border-gray-200/50 flex-shrink-0">
           <button
             onClick={onClose}
-            className="w-full bg-[#1C1B3A] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#2A2951] transition-colors"
+            className="w-full bg-[#9ad134] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#7ab82b] transition-colors"
           >
             Close
           </button>
