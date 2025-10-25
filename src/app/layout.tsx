@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   keywords: "fertility specialist, IVF referral, fertility consultation, male fertility, pre-conception care, online fertility doctor, Australia fertility, fertility telehealth, telehealth fertility consultation, online fertility specialist",
   authors: [{ name: "heydoc" }],
   robots: "index, follow",
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
   alternates: {
     canonical: "https://heydochealth.com.au",
   },
