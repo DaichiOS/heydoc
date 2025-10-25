@@ -108,7 +108,7 @@ export default function RootLayout({
         "name": "What is HeyDoc and how does it work?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "HeyDoc is Australia's only doctor-led fertility telehealth and referral network. We connect you with AHPRA-registered fertility doctors through secure online consultations. You complete a health questionnaire, speak with a fertility specialist via video call, and receive specialist referrals to leading fertility clinics across Australia."
+          "text": "HeyDoc is Australia's only doctor-led fertility telehealth and referral network. We connect you with AHPRA-registered fertility doctors through secure online consultations. You complete a health questionnaire, speak with a fertility specialist via phone call, and receive specialist referrals to leading fertility clinics across Australia."
         }
       },
       {
@@ -132,7 +132,7 @@ export default function RootLayout({
         "name": "How much does a consultation cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We're currently offering a special opening price of $10 AUD per consultation (regular price $49). This includes a secure video consultation with an AHPRA-registered fertility doctor and your specialist referral letter delivered instantly via email."
+          "text": "We're currently offering a special opening price of $10 AUD per consultation (regular price $49). This includes a secure phone consultation with an AHPRA-registered fertility doctor and your specialist referral letter delivered instantly via email."
         }
       },
       {

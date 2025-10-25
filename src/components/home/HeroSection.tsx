@@ -1,0 +1,93 @@
+import Image from 'next/image'
+
+export function HeroSection() {
+	return (
+		<section className="relative h-screen min-h-screen overflow-hidden">
+			{/* Background Image - Mobile: couple.png, Desktop: full.jpg */}
+			<div className="absolute inset-0">
+				{/* Mobile background */}
+				<div className="lg:hidden absolute inset-0">
+					<Image
+						src="/images/couple.png"
+						alt="Expecting couple"
+						fill
+						style={{
+							objectFit: 'cover',
+							objectPosition: 'center'
+						}}
+						priority
+					/>
+				</div>
+				{/* Desktop background */}
+				<div className="hidden lg:block absolute inset-0">
+					<Image
+						src="/images/full.jpg"
+						alt="Expecting couple"
+						fill
+						style={{
+							objectFit: 'cover',
+							objectPosition: 'center'
+						}}
+						priority
+					/>
+				</div>
+				{/* Gradient overlay */}
+				<div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/80"></div>
+			</div>
+
+			{/* Content Container */}
+			<div className="relative h-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+				<div className="h-full flex items-end pb-12 sm:pb-16 md:pb-20 lg:pb-24">
+					<div className="grid grid-cols-1 lg:grid-cols-[1fr_1.4fr] gap-6 sm:gap-8 lg:gap-24 xl:gap-32 2xl:gap-40 w-full items-end">
+						{/* Left side - Headline and pills */}
+						<div className="space-y-4 sm:space-y-5">
+							{/* Small tags */}
+							<div className="flex flex-wrap gap-2">
+								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium">
+									Fertility Care
+								</span>
+								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium">
+									Fast Referrals
+								</span>
+								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-xs sm:text-sm font-medium">
+									100% Online
+								</span>
+							</div>
+
+							{/* Main Headline */}
+							<h1 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl xl:text-4xl font-bold text-white leading-tight max-w-xs sm:max-w-sm md:max-w-md">
+								Your Path to Pregnancy Starts Today
+							</h1>
+
+							{/* Promo code hint */}
+							<p className="text-xs sm:text-sm text-white/80">
+								Use code <span className="font-bold text-yellow-300">OPENING10</span> for 80% off your first consultation
+							</p>
+						</div>
+
+						{/* Right side - Description and CTA */}
+						<div className="space-y-4 sm:space-y-5 lg:pl-16 xl:pl-20 2xl:pl-24">
+							<p className="text-sm sm:text-base md:text-base lg:text-base text-white/90 leading-relaxed max-w-sm sm:max-w-md lg:max-w-lg">
+								Get your fertility specialist referral in minutes, not weeks.<br />
+								AHPRA-registered doctors available 24/7 across Australia.
+							</p>
+
+							{/* CTA Button */}
+							<div className="flex gap-4">
+								<a
+									href="https://app.heydochealth.com.au/register?type=patient"
+									target="_blank"
+									rel="noopener noreferrer"
+									className="group relative inline-flex items-center justify-center px-5 sm:px-6 py-2.5 sm:py-3 bg-white/15 backdrop-blur-md border-2 border-white/40 rounded-full text-white font-semibold text-sm sm:text-base transition-all shadow-[0_0_25px_rgba(154,209,52,0.6),0_0_40px_rgba(154,209,52,0.3)] hover:shadow-[0_0_35px_rgba(154,209,52,0.8),0_0_50px_rgba(154,209,52,0.4)] hover:bg-white/25 hover:border-[#9AD134]/60 hover:scale-105 active:scale-95"
+								>
+									<span className="relative z-10">Book Consultation</span>
+									<div className="absolute inset-0 rounded-full bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	)
+}
