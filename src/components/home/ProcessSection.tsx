@@ -56,10 +56,10 @@ export function ProcessSection() {
 				</motion.div>
 
 				{/* Phone Mockups Row */}
-				<div className="flex justify-center items-end gap-6 sm:gap-8 md:gap-12 lg:gap-16 mb-10 sm:mb-12 px-8 sm:px-12 overflow-visible">
+				<div className="flex justify-center items-end gap-1 sm:gap-8 md:gap-12 lg:gap-16 mb-10 sm:mb-12 px-1 sm:px-12 overflow-visible">
 					{/* Phone 1 - Questionnaire */}
 					<motion.div
-						className="flex-shrink-0 -translate-x-12 sm:-translate-x-16 md:-translate-x-20 hover:scale-105 transition-transform duration-300"
+						className="flex-shrink-0 -translate-x-2 sm:-translate-x-16 md:-translate-x-20 hover:scale-105 transition-transform duration-300"
 						style={{
 							opacity: phone1Opacity,
 							y: phone1Y,
@@ -67,7 +67,7 @@ export function ProcessSection() {
 							rotate: phone1Rotate
 						}}
 					>
-						<div className="relative w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] h-[280px] sm:h-[360px] md:h-[440px] lg:h-[520px]">
+						<div className="relative w-[72px] sm:w-[155px] md:w-[190px] lg:w-[225px] h-[145px] sm:h-[310px] md:h-[380px] lg:h-[450px]">
 							<Image
 								src="/images/questionnaire.png"
 								alt="Complete fertility questionnaire"
@@ -82,14 +82,14 @@ export function ProcessSection() {
 
 					{/* Phone 2 - Consultation */}
 					<motion.div
-						className="flex-shrink-0 -translate-y-4 sm:-translate-y-6 md:-translate-y-8 hover:scale-105 hover:-translate-y-4 sm:hover:-translate-y-6 md:hover:-translate-y-8 transition-transform duration-300"
+						className="flex-shrink-0 -translate-y-2 sm:-translate-y-6 md:-translate-y-8 hover:scale-105 hover:-translate-y-2 sm:hover:-translate-y-6 md:hover:-translate-y-8 transition-transform duration-300"
 						style={{
 							opacity: phone2Opacity,
 							y: phone2Y,
 							scale: phone2Scale
 						}}
 					>
-						<div className="relative w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] h-[280px] sm:h-[360px] md:h-[440px] lg:h-[520px]">
+						<div className="relative w-[72px] sm:w-[155px] md:w-[190px] lg:w-[225px] h-[145px] sm:h-[310px] md:h-[380px] lg:h-[450px]">
 							<Image
 								src="/images/consultation.png"
 								alt="Speak with AHPRA doctor"
@@ -104,7 +104,7 @@ export function ProcessSection() {
 
 					{/* Phone 3 - Referral */}
 					<motion.div
-						className="flex-shrink-0 translate-x-12 sm:translate-x-16 md:translate-x-20 hover:scale-105 transition-transform duration-300"
+						className="flex-shrink-0 translate-x-2 sm:translate-x-16 md:translate-x-20 hover:scale-105 transition-transform duration-300"
 						style={{
 							opacity: phone3Opacity,
 							y: phone3Y,
@@ -112,7 +112,7 @@ export function ProcessSection() {
 							rotate: phone3Rotate
 						}}
 					>
-						<div className="relative w-[140px] sm:w-[180px] md:w-[220px] lg:w-[260px] h-[280px] sm:h-[360px] md:h-[440px] lg:h-[520px]">
+						<div className="relative w-[72px] sm:w-[155px] md:w-[190px] lg:w-[225px] h-[145px] sm:h-[310px] md:h-[380px] lg:h-[450px]">
 							<Image
 								src="/images/referral.png"
 								alt="Receive fertility referral"
@@ -141,7 +141,7 @@ export function ProcessSection() {
 								Complete a Short Questionnaire
 							</h3>
 						</div>
-						<p className="text-xs sm:text-sm text-[#1C1B3A]/70" style={{ fontFamily: 'Satoshi, sans-serif' }}>
+						<p className="text-sm sm:text-base text-[#1C1B3A]/70" style={{ fontFamily: 'Satoshi, sans-serif' }}>
 							Tell us about your fertility journey in just a few minutes.
 						</p>
 					</div>
@@ -156,7 +156,7 @@ export function ProcessSection() {
 								Speak with an Australian Doctor
 							</h3>
 						</div>
-						<p className="text-xs sm:text-sm text-[#1C1B3A]/70" style={{ fontFamily: 'Satoshi, sans-serif' }}>
+						<p className="text-sm sm:text-base text-[#1C1B3A]/70" style={{ fontFamily: 'Satoshi, sans-serif' }}>
 							Connect with an AHPRA-registered fertility doctor in minutes, not weeks!
 						</p>
 					</div>
@@ -171,7 +171,7 @@ export function ProcessSection() {
 								Receive Your Referral
 							</h3>
 						</div>
-						<p className="text-xs sm:text-sm text-[#1C1B3A]/70" style={{ fontFamily: 'Satoshi, sans-serif' }}>
+						<p className="text-sm sm:text-base text-[#1C1B3A]/70" style={{ fontFamily: 'Satoshi, sans-serif' }}>
 							Get your referral sent directly to you via email or SMS.
 						</p>
 					</div>

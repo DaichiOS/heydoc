@@ -150,7 +150,7 @@ export function NotificationCardsSection() {
 	]
 
 	return (
-		<section ref={ref} className="py-20 sm:py-28 md:py-36 bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">
+		<section ref={ref} className="hidden md:block py-20 sm:py-28 md:py-36 bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">
 			{/* Decorative elements */}
 			<motion.div
 				className="absolute top-1/4 right-10 w-64 h-64 bg-rose-200/20 rounded-full blur-3xl"
