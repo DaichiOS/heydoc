@@ -10,7 +10,7 @@ export function FooterSection({ onPrivacyClick, onTermsClick }: FooterSectionPro
 	return (
 		<footer className="bg-gradient-to-br from-blue-100 to-white text-[#1C1B3A] py-8 sm:py-10 md:py-12 mt-auto pb-24 md:pb-12" style={{ fontFamily: 'Satoshi, sans-serif' }}>
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
+				<div className="grid grid-cols-1 md:grid-cols-5 gap-6 sm:gap-8">
 					<div className="col-span-1 md:col-span-2">
 						<Image
 							src="/logos/heydoc.png"
@@ -49,7 +49,7 @@ export function FooterSection({ onPrivacyClick, onTermsClick }: FooterSectionPro
 							<li><Link href="/about" className="hover:text-blue-500 transition-colors inline-block py-1">About Us</Link></li>
 							<li><a href="mailto:admin@heydochealth.com.au" className="hover:text-blue-500 transition-colors inline-block py-1">Contact</a></li>
 							<li><Link href="/careers" className="hover:text-blue-500 transition-colors inline-block py-1">Careers</Link></li>
-							<li><a href="#faq" className="hover:text-blue-500 transition-colors inline-block py-1">FAQ</a></li>
+							<li><Link href="/security" className="hover:text-blue-500 transition-colors inline-block py-1">Security & Privacy</Link></li>
 							<li className="pt-2 border-t border-[#1C1B3A]/30">
 								<a href="https://app.heydochealth.com.au/register?type=doctor" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors inline-block py-1 text-[#1C1B3A]/60">
 									For Doctors →
@@ -67,15 +67,26 @@ export function FooterSection({ onPrivacyClick, onTermsClick }: FooterSectionPro
 							<li><a href="https://app.heydochealth.com.au/register?type=patient" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 transition-colors inline-block py-1">Fertility Referrals</a></li>
 						</ul>
 					</div>
+
+					<div>
+						<h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Resources</h4>
+						<ul className="space-y-2 text-sm sm:text-base text-[#1C1B3A]/70">
+							<li><Link href="/due-date-calculator" className="hover:text-blue-500 transition-colors inline-block py-1">Due Date Calculator</Link></li>
+							<li><Link href="/pregnancy-info" className="hover:text-blue-500 transition-colors inline-block py-1">Pregnancy Information</Link></li>
+						</ul>
+					</div>
 				</div>
 
 				<div className="border-t border-[#1C1B3A]/30 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-[#1C1B3A]/70">
 					<div className="flex flex-col md:flex-row justify-between items-center space-y-3 md:space-y-0">
 						<p className="text-xs sm:text-sm">&copy; 2025 HeyDoc. All rights reserved.</p>
 						<div className="flex space-x-6 text-xs sm:text-sm">
-							<button onClick={onPrivacyClick} className="hover:text-blue-500 transition-colors cursor-pointer">
+							<Link href="/privacy" className="hover:text-blue-500 transition-colors">
 								Privacy Policy
-							</button>
+							</Link>
+							<Link href="/security" className="hover:text-blue-500 transition-colors">
+								Security
+							</Link>
 							<button onClick={onTermsClick} className="hover:text-blue-500 transition-colors cursor-pointer">
 								Terms of Service
 							</button>

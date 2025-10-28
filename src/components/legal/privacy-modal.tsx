@@ -212,15 +212,17 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p>
                 We store personal information in electronic form using secure databases and cloud storage solutions based
-                in Australia and/or overseas with trusted providers.
+                in Australia with trusted providers.
               </p>
               <p>
                 HeyDoc takes reasonable steps to protect your personal information from misuse, interference, loss,
-                unauthorised access, modification or disclosure.
+                unauthorised access, modification or disclosure. This includes encryption of data in transit and at rest,
+                private network architecture with no public database access, daily automated backups, and comprehensive
+                audit logging of all access to patient records.
               </p>
               <p>
                 Access to personal information is restricted to authorised personnel only and protected by appropriate
-                security controls.
+                security controls including session management and multi-factor authentication.
               </p>
             </div>
           </section>
@@ -291,7 +293,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
               </p>
               <p>
                 The latest version will always be available on our website at{' '}
-                <a href="https://www.heydochealth.com.au" className="text-[#1C1B3A] hover:underline">
+                <a href="https://www.heydochealth.com.au" className="text-blue-600 hover:underline">
                   www.heydochealth.com.au
                 </a>
                 .
@@ -300,6 +302,7 @@ export function PrivacyModal({ isOpen, onClose }: PrivacyModalProps) {
                 We encourage you to review this Policy periodically to remain informed about how we manage your personal
                 information.
               </p>
+              <p className="text-xs text-gray-600 mt-4">Last Updated: October 2025</p>
             </div>
           </section>
         </div>

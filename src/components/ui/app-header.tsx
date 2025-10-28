@@ -75,38 +75,9 @@ export function AppHeader() {
 								/>
 							</Link>
 						</div>
-						{/* Desktop Menu */}
+						{/* Desktop Menu - Ultra Clean (no dropdown) */}
 						<div className="hidden md:flex items-center gap-4 flex-1 justify-center">
-							{/* Navigation Links - Centered */}
-							<nav className="flex items-center gap-1">
-								{/* Resources Dropdown */}
-								<div className="relative group">
-									<button className="flex items-center gap-1.5 text-gray-700 hover:text-gray-900 font-medium transition-all duration-200 px-3 py-1.5 rounded-lg hover:bg-blue-200/40 cursor-pointer">
-										<span className="text-sm">Resources</span>
-									</button>
-									{/* Dropdown */}
-									<div className="absolute left-0 mt-2 w-56 bg-white/90 backdrop-blur-lg rounded-lg shadow-lg shadow-blue-200/50 border border-blue-200/60 py-1 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-										<Link
-											href="/tools/due-date-calculator"
-											className="flex items-start px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-100/60 hover:text-gray-900 transition-colors"
-										>
-											<div>
-												<div className="font-medium">Due Date Calculator</div>
-												<div className="text-xs text-gray-500 mt-0.5">Calculate your pregnancy due date</div>
-											</div>
-										</Link>
-										<Link
-											href="/tools/due-date-calculator/pregnancy-health-guide"
-											className="flex items-start px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-100/60 hover:text-gray-900 transition-colors"
-										>
-											<div>
-												<div className="font-medium">Pregnancy Health Guide</div>
-												<div className="text-xs text-gray-500 mt-0.5">Essential pregnancy health info</div>
-											</div>
-										</Link>
-									</div>
-								</div>
-							</nav>
+							{/* Empty center space for ultra-clean look */}
 						</div>
 
 						{/* Right side: CTAs */}
