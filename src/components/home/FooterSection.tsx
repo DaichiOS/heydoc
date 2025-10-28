@@ -71,8 +71,8 @@ export function FooterSection({ onPrivacyClick, onTermsClick }: FooterSectionPro
 					<div>
 						<h4 className="font-semibold mb-3 sm:mb-4 text-sm sm:text-base">Resources</h4>
 						<ul className="space-y-2 text-sm sm:text-base text-[#1C1B3A]/70">
-							<li><Link href="/due-date-calculator" className="hover:text-blue-500 transition-colors inline-block py-1">Due Date Calculator</Link></li>
-							<li><Link href="/pregnancy-info" className="hover:text-blue-500 transition-colors inline-block py-1">Pregnancy Information</Link></li>
+							<li><Link href="/tools/due-date-calculator" className="hover:text-blue-500 transition-colors inline-block py-1">Due Date Calculator</Link></li>
+							<li><Link href="/tools/due-date-calculator/pregnancy-health-guide" className="hover:text-blue-500 transition-colors inline-block py-1">Pregnancy Health Guide</Link></li>
 						</ul>
 					</div>
 				</div>
