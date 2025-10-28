@@ -24,7 +24,7 @@ const faqData: FAQItem[] = [
 	},
 	{
 		question: 'How much does a fertility consultation cost?',
-		answer: 'Our standard fertility consultation is $49. However, we\'re currently offering 80% off your first consultation with code OPENING10, bringing the cost down to just $10. This includes your consultation and specialist referral.'
+		answer: 'Our standard fertility consultation is $49. However, first-time patients get 80% off with code WELCOME10, bringing the cost down to just $10. This includes your consultation and specialist referral.'
 	},
 	{
 		question: 'What fertility services can I get referred for?',
@@ -114,11 +114,11 @@ export function FAQSection() {
 							>
 								<div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-0">
 									<p className="text-sm sm:text-base text-[#1C1B3A]/80 leading-relaxed" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
-										{faq.answer.split('OPENING10').map((part, i, arr) => (
+										{faq.answer.split('WELCOME10').map((part, i, arr) => (
 											<span key={i}>
 												{part}
 												{i < arr.length - 1 && (
-													<span className="font-bold text-blue-500">OPENING10</span>
+													<span className="font-bold text-blue-500">WELCOME10</span>
 												)}
 											</span>
 										))}

@@ -66,7 +66,7 @@ export function HeroSection() {
 
 							{/* Promo code hint */}
 							<p className="text-sm sm:text-base md:text-lg text-white/90" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
-								Use code <span className="font-bold text-yellow-300">OPENING10</span> for 80% off your first consultation
+								First-time patients: Use code <span className="font-bold text-yellow-300">WELCOME10</span> for 80% off
 							</p>
 						</div>
 
