@@ -148,7 +148,7 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
               <p className="font-medium">8.1 Payment Terms</p>
               <p>
-                All consultation fees are payable in advance at the time of booking. Payment is processed securely through our third-party payment provider. The consultation fee is $49 AUD (including GST) and covers the provision of a fertility referral consultation with a qualified healthcare practitioner.
+                All consultation fees are payable in advance at the time of booking. Payment is processed securely through our third-party payment provider. Consultation fees (including GST) are displayed at the time of booking and cover the provision of a consultation with a qualified healthcare practitioner.
               </p>
 
               <p className="font-medium">8.2 Refund Policy</p>
