@@ -146,11 +146,47 @@ export function TermsModal({ isOpen, onClose }: TermsModalProps) {
           <section>
             <h3 className="text-xl font-semibold text-[#1C1B3A] mb-3">8. Payments and Refunds</h3>
             <div className="space-y-3 text-gray-700 leading-relaxed text-sm">
+              <p className="font-medium">8.1 Payment Terms</p>
               <p>
-                Payment options and fees, where applicable, will be displayed on the Platform. You agree to pay all fees or charges in accordance with the payment terms in effect at the time of booking or service request.
+                All consultation fees are payable in advance at the time of booking. Payment is processed securely through our third-party payment provider. The consultation fee is $49 AUD (including GST) and covers the provision of a fertility referral consultation with a qualified healthcare practitioner.
               </p>
+
+              <p className="font-medium">8.2 Refund Policy</p>
               <p>
-                Refunds will be provided where required under the Australian Consumer Law or if a service is cancelled by HeyDoc due to circumstances beyond your control. Refunds, when approved, will be processed to the original payment method within a reasonable timeframe.
+                Refunds are provided at our discretion and will only be considered in exceptional circumstances. All refund requests must be submitted to our support team for review. Refunds may be provided in the following limited circumstances:
+              </p>
+
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li><strong>Platform Technical Failure:</strong> Refund may be provided if the consultation cannot occur due to documented technical issues or system failures on HeyDoc&apos;s platform (not including patient internet or device issues).</li>
+                <li><strong>Service Not Delivered:</strong> Refund may be provided if we are completely unable to provide a doctor for your consultation within a reasonable timeframe.</li>
+              </ul>
+
+              <p className="font-medium">8.3 No Refund Circumstances</p>
+              <p>
+                Refunds will not be provided in the following circumstances:
+              </p>
+
+              <ul className="list-disc list-inside space-y-2 ml-4">
+                <li>After the consultation has been completed and a referral or medical advice has been provided;</li>
+                <li>Patient no-show or failure to attend the consultation;</li>
+                <li>Dissatisfaction with the medical advice or outcome provided, where the practitioner has acted in accordance with professional medical standards;</li>
+                <li>Technical issues on the patient&apos;s end (internet connection, device malfunction, etc.);</li>
+                <li>Change of mind or personal circumstances after booking;</li>
+                <li>After the consultation has commenced.</li>
+              </ul>
+
+              <p className="font-medium">8.4 Refund Process</p>
+              <p>
+                To request a refund, contact our support team at{' '}
+                <a href="mailto:support@heydochealth.com.au" className="text-[#1C1B3A] hover:underline font-medium">
+                  support@heydochealth.com.au
+                </a>{' '}
+                with your consultation number and detailed reason for the refund request. All requests will be reviewed on a case-by-case basis. There is no guarantee that a refund will be granted. If approved, refunds will be processed to your original payment method within 5-10 business days.
+              </p>
+
+              <p className="font-medium">8.5 Australian Consumer Law</p>
+              <p>
+                Nothing in this refund policy limits your rights under the Australian Consumer Law. If there is a major problem with our services, you are entitled to a refund or compensation as required by law.
               </p>
             </div>
           </section>
