@@ -47,9 +47,9 @@ export function CTASection() {
 					className="text-3xl sm:text-4xl lg:text-5xl text-[#1C1B3A] mb-8 sm:mb-10"
 					style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400, opacity: headingOpacity, y: headingY, scale: headingScale }}
 				>
-					Ready to Start Your
+					Ready to start your
 					<br />
-					Fertility Journey?
+					fertility journey?
 				</motion.h2>
 
 				{/* CTA Button */}

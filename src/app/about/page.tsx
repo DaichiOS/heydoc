@@ -36,7 +36,7 @@ export default function AboutPage() {
             <section>
               <h2 className="text-2xl lg:text-3xl text-gray-900 mb-4" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>Who We Are</h2>
               <p className="text-lg text-gray-600 leading-relaxed mb-4" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
-                HeyDoc is a specialized fertility telehealth and referral platform founded and run by doctors specializing in fertility medicine and obstetrics. We connect Australian patients with AHPRA-registered fertility doctors through secure online telehealth consultations, providing the specialist referrals needed to access fertility clinics across Australia.
+                HeyDoc is a specialized fertility telehealth and referral platform founded and run by doctors specializing in fertility medicine and obstetrics. We connect Australian patients with AHPRA-registered doctors through secure online telehealth consultations, providing the specialist referrals needed to access fertility clinics across Australia.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
                 Unlike generic telehealth platforms, HeyDoc is purpose-built for fertility and pre-conception care. We have one goal — supporting your fertility journey with expert medical guidance.
@@ -169,13 +169,13 @@ export default function AboutPage() {
                   <span className="text-gray-900/70 font-medium" style={{ fontFamily: 'Satoshi, sans-serif' }}>AUD</span>
                 </div>
                 <p className="text-lg text-gray-900/80 mb-3" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>Limited time opening price for new patients</p>
-                <p className="text-gray-900/70 text-sm" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>Includes secure phone consultation with an AHPRA-registered fertility doctor and specialist referral letter.</p>
+                <p className="text-gray-900/70 text-sm" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>Includes secure phone consultation with an AHPRA-registered doctor and specialist referral letter.</p>
               </div>
             </section>
 
             {/* CTA Section */}
             <section className="text-center pt-8 border-t border-blue-200/30">
-              <h2 className="text-2xl lg:text-3xl text-gray-900 mb-4" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>Ready to Start Your Fertility Journey?</h2>
+              <h2 className="text-2xl lg:text-3xl text-gray-900 mb-4" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>Ready to start your fertility journey?</h2>
               <p className="text-lg text-gray-900/70 mb-6" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>Connect with a fertility specialist today.</p>
               <a
                 href="https://app.heydochealth.com.au/register"

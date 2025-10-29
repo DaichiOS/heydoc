@@ -44,10 +44,10 @@ export function HeroSection() {
 							{/* Small tags */}
 							<div className="flex flex-wrap gap-2">
 								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm sm:text-base font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
-									Fertility Care
+									Fertility care
 								</span>
 								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm sm:text-base font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
-									Fast Referrals
+									Fast referrals
 								</span>
 								<span className="px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full text-white text-sm sm:text-base font-medium" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
 									100% Online
@@ -57,16 +57,16 @@ export function HeroSection() {
 							{/* Main Headline */}
 							<div className="space-y-2">
 								<h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-bold text-white leading-tight max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3)' }}>
-									Need a Fertility Referral?
+									Need a fertility referral?
 								</h1>
 								<p className="text-base sm:text-lg md:text-xl text-white/80 max-w-xs sm:max-w-sm" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
-									Your Path to Pregnancy Starts Today
+									Your path to pregnancy starts today
 								</p>
 							</div>
 
 							{/* Promo code hint */}
 							<p className="text-sm sm:text-base md:text-lg text-white/90" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
-								First-time patients: Use code <span className="font-bold text-yellow-300">WELCOME10</span> for 80% off
+								First time? Use code <span className="font-bold text-yellow-300">WELCOME10</span> for 80% off
 							</p>
 						</div>
 

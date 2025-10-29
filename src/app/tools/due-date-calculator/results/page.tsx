@@ -15,6 +15,7 @@ function ResultsContent() {
   // Get results from URL params
   const dueDate = searchParams.get('dueDate')
   const currentWeek = searchParams.get('currentWeek')
+  const currentDays = searchParams.get('currentDays') || '0'
   const daysRemaining = searchParams.get('daysRemaining')
   const trimester = searchParams.get('trimester')
   const method = searchParams.get('method')
@@ -219,8 +220,10 @@ function ResultsContent() {
               {/* Stats Grid */}
               <div className="grid grid-cols-3 gap-4">
                 <div className="text-center">
-                  <div className="text-xs text-[#1C1B3A]/60 mb-1">You're in</div>
-                  <div className="text-2xl font-semibold text-blue-600 mb-1">Week {currentWeek}</div>
+                  <div className="text-xs text-[#1C1B3A]/60 mb-1">You're at</div>
+                  <div className="text-xl font-semibold text-blue-600 mb-1">
+                    {currentWeek} week{currentWeek !== '1' ? 's' : ''}{currentDays !== '0' ? ` + ${currentDays} day${currentDays !== '1' ? 's' : ''}` : ''}
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-xs text-[#1C1B3A]/60 mb-1">{isPastDue ? 'Now' : 'Only'}</div>

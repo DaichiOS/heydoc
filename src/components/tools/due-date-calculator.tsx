@@ -193,6 +193,7 @@ export function DueDateCalculator() {
     const daysSinceConception = differenceInDays(today, estimatedConceptionDate)
     const gestationalDays = daysSinceConception + 14
     const currentWeek = Math.max(0, Math.floor(gestationalDays / 7))
+    const currentDays = Math.max(0, gestationalDays % 7)
     const daysRemaining = differenceInDays(dueDate, today)
 
     if (currentWeek >= 28) trimester = 3
@@ -203,6 +204,7 @@ export function DueDateCalculator() {
     const params = new URLSearchParams({
       dueDate: dueDate.toISOString(),
       currentWeek: currentWeek.toString(),
+      currentDays: currentDays.toString(),
       daysRemaining: daysRemaining.toString(),
       trimester: trimester.toString(),
       method: method

@@ -6,7 +6,7 @@ export function WhyHeyDocSection() {
 					{/* Section Header */}
 					<div className="text-center mb-8 sm:mb-10">
 						<h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#2C2520] mb-3">
-							Why Aussies Love HeyDoc
+							Why Aussies love HeyDoc
 						</h2>
 						<p className="text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed font-medium">
 							Australia's only online doctor-led fertility referral network
@@ -20,7 +20,7 @@ export function WhyHeyDocSection() {
 								✓
 							</div>
 							<div>
-								<h3 className="font-bold text-base sm:text-lg text-[#2C2520] mb-1">Consultations in Minutes</h3>
+								<h3 className="font-bold text-base sm:text-lg text-[#2C2520] mb-1">Consultations in minutes</h3>
 								<p className="text-sm text-slate-600 leading-relaxed">
 									No waiting weeks for GP appointments. Get your fertility referral from an AHPRA-registered doctor in minutes, not weeks.
 								</p>
@@ -32,7 +32,7 @@ export function WhyHeyDocSection() {
 								✓
 							</div>
 							<div>
-								<h3 className="font-bold text-base sm:text-lg text-[#2C2520] mb-1">Fertility-Focused Platform</h3>
+								<h3 className="font-bold text-base sm:text-lg text-[#2C2520] mb-1">Fertility-focused platform</h3>
 								<p className="text-sm text-slate-600 leading-relaxed">
 									Focused on fertility, not general telehealth. We have one goal - your future pregnancy.
 								</p>
@@ -44,7 +44,7 @@ export function WhyHeyDocSection() {
 								✓
 							</div>
 							<div>
-								<h3 className="font-bold text-base sm:text-lg text-[#2C2520] mb-1">Doctor-Led Care</h3>
+								<h3 className="font-bold text-base sm:text-lg text-[#2C2520] mb-1">Doctor-led care</h3>
 								<p className="text-sm text-slate-600 leading-relaxed">
 									Founded and run by doctors specialising in fertility medicine and obstetrics.
 								</p>
@@ -56,7 +56,7 @@ export function WhyHeyDocSection() {
 								✓
 							</div>
 							<div>
-								<h3 className="font-bold text-base sm:text-lg text-[#2C2520] mb-1">Safe & Ethical</h3>
+								<h3 className="font-bold text-base sm:text-lg text-[#2C2520] mb-1">Safe & ethical</h3>
 								<p className="text-sm text-slate-600 leading-relaxed">
 									Every referral reviewed by AHPRA-registered Australian doctors.
 								</p>

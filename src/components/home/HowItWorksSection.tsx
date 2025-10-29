@@ -35,7 +35,7 @@ export function HowItWorksSection() {
 					style={{ opacity: opacity1, y: y1, scale: scale1 }}
 				>
 					<h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#1C1B3A] mb-3" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
-						Why Aussies Love HeyDoc
+						Why Aussies love HeyDoc
 					</h2>
 					<p className="text-base sm:text-lg text-blue-600" style={{ fontFamily: 'Satoshi, sans-serif' }}>
 						Australia's only online doctor-led fertility referral network
@@ -57,7 +57,7 @@ export function HowItWorksSection() {
 							</div>
 							<div>
 								<h3 className="text-lg font-medium text-[#1C1B3A] mb-2" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
-									Consultations in Minutes
+									Consultations in minutes
 								</h3>
 								<p className="text-sm text-blue-600 leading-relaxed" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 									No waiting weeks for GP appointments. Get your fertility referral from an AHPRA-registered doctor in minutes, not weeks.
@@ -76,7 +76,7 @@ export function HowItWorksSection() {
 							</div>
 							<div>
 								<h3 className="text-lg font-medium text-[#1C1B3A] mb-2" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
-									Fertility-Focused Platform
+									Fertility-focused platform
 								</h3>
 								<p className="text-sm text-blue-600 leading-relaxed" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 									Focused on fertility, not general telehealth. We have one goal - your future pregnancy.
@@ -116,7 +116,7 @@ export function HowItWorksSection() {
 							</div>
 							<div>
 								<h3 className="text-lg font-medium text-[#1C1B3A] mb-2" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
-									Doctor-Led Care
+									Doctor-led care
 								</h3>
 								<p className="text-sm text-blue-600 leading-relaxed" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 									Founded and run by doctors specialising in fertility medicine and obstetrics.
@@ -135,7 +135,7 @@ export function HowItWorksSection() {
 							</div>
 							<div>
 								<h3 className="text-lg font-medium text-[#1C1B3A] mb-2" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
-									Safe & Ethical
+									Safe & ethical
 								</h3>
 								<p className="text-sm text-blue-600 leading-relaxed" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 									Every referral reviewed by AHPRA-registered Australian doctors.
