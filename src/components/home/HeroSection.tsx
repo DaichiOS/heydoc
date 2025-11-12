@@ -25,10 +25,10 @@ export function HeroSection() {
 
 					{/* Centered Content */}
 					<div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 lg:mb-6 max-w-4xl" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.3)' }}>
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 lg:mb-6 max-w-4xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
 							Need a fertility referral?
 						</h1>
-						<p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-6 lg:mb-8 max-w-2xl" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.3)' }}>
+						<p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-6 lg:mb-8 max-w-2xl" style={{ textShadow: '0 3px 16px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.5)' }}>
 							Get your fertility specialist referral in minutes, not weeks
 						</p>
 
@@ -46,7 +46,7 @@ export function HeroSection() {
 						</a>
 
 						{/* Promo code */}
-						<p className="mt-6 text-sm sm:text-base text-white/90" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.3)' }}>
+						<p className="mt-6 text-sm sm:text-base text-white/90" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.5)' }}>
 							First time? Use code <span className="font-bold text-yellow-400">WELCOME10</span> for a $10 initial consult
 						</p>
 					</div>
