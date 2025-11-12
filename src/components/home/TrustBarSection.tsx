@@ -1,5 +1,7 @@
 'use client'
 
+import React from 'react'
+
 export function TrustBarSection() {
 	return (
 		<section className="pt-2 pb-0 bg-white relative overflow-hidden">
