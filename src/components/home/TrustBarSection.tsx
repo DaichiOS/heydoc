@@ -74,7 +74,7 @@ export function TrustBarSection() {
 								className="text-[#1C1B3A] inline-block"
 								style={{ opacity: opacity1, y: y1, scale: scale1 }}
 							>
-								at HeyDoc, we're dedicated to helping Australians start their fertility journey.
+								At HeyDoc, we're dedicated to helping Australians start their fertility journey.
 							</motion.span>
 							{" "}
 							<motion.span

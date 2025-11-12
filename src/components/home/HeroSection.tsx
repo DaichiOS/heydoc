@@ -56,7 +56,7 @@ export function HeroSection() {
 
 							{/* Main Headline */}
 							<div className="space-y-2">
-								<h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-bold text-white leading-tight max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3)' }}>
+								<h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-6xl font-bold text-white leading-tight max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.5), 0 4px 16px rgba(0,0,0,0.3)', wordSpacing: '-0.15em' }}>
 									Need a fertility referral?
 								</h1>
 								<p className="text-base sm:text-lg md:text-xl text-white/80 max-w-xs sm:max-w-sm" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.4)' }}>
