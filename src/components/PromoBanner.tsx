@@ -72,7 +72,7 @@ export default function PromoBanner({
       <div className="max-w-7xl mx-auto relative pr-8">
         <div className="flex items-center justify-center text-center gap-3 sm:gap-4">
           <p className="text-xs sm:text-sm font-medium leading-relaxed">
-            First-time patients save $39 with code: <span className="font-bold">WELCOME10</span>
+            First-time patients: Use code <span className="font-bold">WELCOME10</span> for a $10 initial consult
           </p>
           {/* CTA Button - Desktop/Tablet only (hidden on mobile < 768px) - Enhanced Glassmorphism */}
           <a

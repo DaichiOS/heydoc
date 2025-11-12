@@ -56,58 +56,52 @@ export function AppHeader() {
 	}
 
 	return (
-		<div className="fixed top-0 left-0 right-0 z-50 px-6 py-3 lg:px-9 lg:py-4 xl:px-10 xl:py-5">
-			<div className="max-w-7xl mx-auto">
-				<div className="bg-blue-100/40 backdrop-blur-md rounded-full px-8 py-4 shadow-lg border border-blue-200/50">
-					<div className="flex items-center justify-between">
-						<div className="flex items-center flex-1">
-							<Link
-								href="/"
-								className="group transition-all duration-200 hover:opacity-90"
-							>
-								<Image
-									src="/logos/heydoc.png"
-									alt="HeyDoc"
-									width={160}
-									height={55}
-									className="h-10 w-auto transition-all duration-200 hover:scale-105"
-									priority
-								/>
-							</Link>
-						</div>
-						{/* Desktop Menu - Ultra Clean (no dropdown) */}
-						<div className="hidden md:flex items-center gap-8 flex-1 justify-center">
-							{/* Empty center space for ultra-clean look */}
-						</div>
+		<div className="fixed top-0 left-0 right-0 z-50 bg-white py-[10px]">
+			<div className="px-4 sm:px-6 lg:px-8">
+				<div className="flex items-center justify-between">
+					{/* Logo */}
+					<div className="flex items-center">
+						<Link
+							href="/"
+							className="transition-opacity duration-200 hover:opacity-80"
+						>
+							<Image
+								src="/logos/heydoc.png"
+								alt="HeyDoc"
+								width={240}
+								height={84}
+								className="h-14 w-auto"
+								priority
+							/>
+						</Link>
+					</div>
 
-						{/* Right side: CTAs */}
-						<div className="flex items-center gap-4 flex-1 justify-end">
-							<a
-								href="https://app.heydochealth.com.au/register?type=doctor"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="text-gray-700 hover:text-gray-900 hover:bg-white/50 font-medium transition-all duration-200 px-4 py-2 rounded-md text-sm"
-							>
-								For Doctors
-							</a>
-							<div className="w-px h-4 bg-gray-300"></div>
-							<a
-								href="https://app.heydochealth.com.au/login"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="text-gray-700 hover:text-gray-900 hover:bg-white/60 font-medium transition-all duration-200 px-4 py-2 rounded-md text-sm"
-							>
-								Sign In
-							</a>
-							<a
-								href="https://app.heydochealth.com.au/register"
-								target="_blank"
-								rel="noopener noreferrer"
-								className="bg-blue-500 text-white hover:bg-blue-600 font-semibold transition-all duration-200 px-5 py-2 rounded-md text-sm shadow-md"
-							>
-								Get Started
-							</a>
-						</div>
+					{/* Right side: CTAs */}
+					<div className="flex items-center gap-4">
+						<a
+							href="https://app.heydochealth.com.au/login"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 text-base"
+						>
+							Login
+						</a>
+						<a
+							href="https://app.heydochealth.com.au/register"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="inline-flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700 font-medium transition-all duration-200 px-6 py-2.5 rounded-full text-base shadow-sm hover:shadow-md"
+						>
+							Get Started
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+							</svg>
+						</a>
+						<button className="p-2 hover:bg-gray-100 rounded-md transition-colors">
+							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+							</svg>
+						</button>
 					</div>
 				</div>
 			</div>

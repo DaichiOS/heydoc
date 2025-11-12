@@ -67,7 +67,7 @@ export default function HomePage() {
 	}
 
 	return (
-		<div className="min-h-screen bg-[#FDFCFA] flex flex-col">
+		<div className="min-h-screen bg-white flex flex-col">
 			{/* Structured Data for SEO */}
 			<script
 				type="application/ld+json"

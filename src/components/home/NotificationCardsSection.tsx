@@ -2,8 +2,6 @@
 
 import { cn } from '@/lib/utils'
 import { Calendar, Mail, Sparkles, ArrowRight } from 'lucide-react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { useRef } from 'react'
 
 interface DisplayCardProps {
 	className?: string
@@ -92,22 +90,6 @@ function DisplayCards({ cards }: DisplayCardsProps) {
 }
 
 export function NotificationCardsSection() {
-	const ref = useRef(null)
-	const { scrollYProgress } = useScroll({
-		target: ref,
-		offset: ["start 0.85", "start 0.2"]
-	})
-
-	// Animations for title - MUCH more dramatic
-	const titleOpacity = useTransform(scrollYProgress, [0, 0.5], [0, 1])
-	const titleY = useTransform(scrollYProgress, [0, 0.5], [100, 0])
-	const titleScale = useTransform(scrollYProgress, [0, 0.5], [0.85, 1])
-
-	// Animations for cards with staggered effect - more dramatic
-	const cardsOpacity = useTransform(scrollYProgress, [0.3, 0.8], [0, 1])
-	const cardsY = useTransform(scrollYProgress, [0.3, 0.8], [120, 0])
-	const cardsScale = useTransform(scrollYProgress, [0.3, 0.8], [0.85, 1])
-
 	const cards = [
 		{
 			icon: <ArrowRight className="size-4 text-white" />,
@@ -150,38 +132,22 @@ export function NotificationCardsSection() {
 	]
 
 	return (
-		<section ref={ref} className="hidden md:block py-20 sm:py-28 md:py-36 bg-gradient-to-br from-blue-50 to-white relative overflow-hidden">
-			{/* Decorative elements */}
-			<motion.div
-				className="absolute top-1/4 right-10 w-64 h-64 bg-rose-200/20 rounded-full blur-3xl"
-				style={{ opacity: titleOpacity }}
-			></motion.div>
-			<motion.div
-				className="absolute bottom-1/4 left-10 w-48 h-48 bg-purple-200/20 rounded-full blur-3xl"
-				style={{ opacity: titleOpacity }}
-			></motion.div>
-
+		<section className="hidden md:block pt-8 pb-20 sm:pb-28 md:pb-36 bg-white relative overflow-hidden">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 				{/* Title */}
-				<motion.div
-					className="text-center mb-16 sm:mb-20 md:mb-24"
-					style={{ opacity: titleOpacity, y: titleY, scale: titleScale }}
-				>
+				<div className="text-center mb-16 sm:mb-20 md:mb-24">
 					<h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#1C1B3A] mb-4 sm:mb-5" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 500 }}>
 						From inquiry to specialist<br />in minutes, not months!
 					</h2>
 					<p className="text-base sm:text-lg text-blue-600 max-w-3xl mx-auto" style={{ fontFamily: 'Satoshi, sans-serif' }}>
 						Receive your referral direct to your inbox before your consultation ends
 					</p>
-				</motion.div>
+				</div>
 
 				{/* Cards Display */}
-				<motion.div
-					className="pb-12"
-					style={{ opacity: cardsOpacity, y: cardsY, scale: cardsScale }}
-				>
+				<div className="pb-12">
 					<DisplayCards cards={cards} />
-				</motion.div>
+				</div>
 			</div>
 		</section>
 	)
