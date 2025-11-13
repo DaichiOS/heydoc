@@ -29,7 +29,7 @@ export function TrustBarSection() {
 
 							{/* Text with value points */}
 							<div className="space-y-6 text-center">
-								<h3 className="text-2xl sm:text-3xl lg:text-4xl leading-tight max-w-3xl mx-auto" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
+								<h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-tight max-w-4xl mx-auto" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 									<span className="text-[#1C1B3A] inline-block">
 										At HeyDoc, we're dedicated to helping Australians start their fertility journey.
 									</span>
@@ -42,23 +42,23 @@ export function TrustBarSection() {
 								{/* Three value points with icons */}
 								<div className="flex flex-wrap gap-6 sm:gap-8 pt-4 justify-center">
 									<div className="flex items-center gap-3">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="xl:w-7 xl:h-7 2xl:w-8 2xl:h-8">
 											<path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
 											<path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27"/>
 										</svg>
-										<span className="text-base sm:text-lg text-[#1C1B3A]" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>Fertility focused</span>
+										<span className="text-base sm:text-lg xl:text-xl 2xl:text-2xl text-[#1C1B3A]" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>Fertility focused</span>
 									</div>
 									<div className="flex items-center gap-3">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="xl:w-7 xl:h-7 2xl:w-8 2xl:h-8">
 											<path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/>
 										</svg>
-										<span className="text-base sm:text-lg text-[#1C1B3A]" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>Same day service</span>
+										<span className="text-base sm:text-lg xl:text-xl 2xl:text-2xl text-[#1C1B3A]" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>Same day service</span>
 									</div>
 									<div className="flex items-center gap-3">
-										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1C1B3A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="xl:w-7 xl:h-7 2xl:w-8 2xl:h-8">
 											<path d="M20 16V7a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v9m16 0H4m16 0 1.28 2.55a1 1 0 0 1-.9 1.45H3.62a1 1 0 0 1-.9-1.45L4 16"/>
 										</svg>
-										<span className="text-base sm:text-lg text-[#1C1B3A]" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>100% Online</span>
+										<span className="text-base sm:text-lg xl:text-xl 2xl:text-2xl text-[#1C1B3A]" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>100% Online</span>
 									</div>
 								</div>
 							</div>

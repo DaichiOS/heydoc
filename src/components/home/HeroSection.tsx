@@ -25,10 +25,10 @@ export function HeroSection() {
 
 					{/* Centered Content */}
 					<div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 lg:mb-6 max-w-4xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-white mb-4 lg:mb-6 max-w-5xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
 							Need a fertility referral?
 						</h1>
-						<p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-6 lg:mb-8 max-w-2xl" style={{ textShadow: '0 3px 16px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.5)' }}>
+						<p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white/90 mb-6 lg:mb-8 max-w-3xl" style={{ textShadow: '0 3px 16px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.5)' }}>
 							Get your fertility specialist referral in minutes, not weeks
 						</p>
 
@@ -37,16 +37,16 @@ export function HeroSection() {
 							href="https://app.heydochealth.com.au/register?type=patient"
 							target="_blank"
 							rel="noopener noreferrer"
-							className="inline-flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-50 font-semibold transition-all duration-200 px-8 py-4 rounded-full text-base lg:text-lg shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
+							className="inline-flex items-center gap-2 bg-white text-gray-900 hover:bg-gray-50 font-semibold transition-all duration-200 px-8 py-4 lg:px-10 lg:py-5 rounded-full text-base lg:text-lg xl:text-xl 2xl:text-2xl shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
 						>
 							Get started
-							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" className="xl:w-6 xl:h-6">
 								<path d="M7.5 4L13.5 10L7.5 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 							</svg>
 						</a>
 
 						{/* Promo code */}
-						<p className="mt-6 text-sm sm:text-base text-white/90" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.5)' }}>
+						<p className="mt-6 text-sm sm:text-base lg:text-lg xl:text-xl 2xl:text-2xl text-white/90" style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8), 0 1px 4px rgba(0,0,0,0.5)' }}>
 							First time? Use code <span className="font-bold text-yellow-400">WELCOME10</span> for a $10 initial consult
 						</p>
 					</div>
