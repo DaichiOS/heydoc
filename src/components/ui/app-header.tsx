@@ -1,12 +1,10 @@
 'use client'
 
 import Link from 'next/link'
-import { X, Menu } from 'lucide-react'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
 export function AppHeader() {
-	const [showMobileMenu, setShowMobileMenu] = useState(false)
 	const [isDesktop, setIsDesktop] = useState(false)
 	const [hasMounted, setHasMounted] = useState(false)
 
@@ -20,36 +18,6 @@ export function AppHeader() {
 		window.addEventListener('resize', checkDesktop)
 		return () => window.removeEventListener('resize', checkDesktop)
 	}, [])
-
-	// Close menu when clicking outside
-	useEffect(() => {
-		const handleClickOutside = (event: MouseEvent) => {
-			const target = event.target as HTMLElement
-			const isMobileMenuClick = target.closest('[data-mobile-menu]') || target.closest('[data-mobile-menu-button]')
-
-			if (showMobileMenu && !isMobileMenuClick) {
-				setShowMobileMenu(false)
-			}
-		}
-
-		if (showMobileMenu) {
-			setTimeout(() => {
-				document.addEventListener('click', handleClickOutside)
-			}, 0)
-		}
-
-		// Prevent body scroll when mobile menu is open
-		if (showMobileMenu) {
-			document.body.style.overflow = 'hidden'
-		} else {
-			document.body.style.overflow = 'unset'
-		}
-
-		return () => {
-			document.removeEventListener('click', handleClickOutside)
-			document.body.style.overflow = 'unset'
-		}
-	}, [showMobileMenu])
 
 	if (!hasMounted || !isDesktop) {
 		return null
@@ -97,11 +65,6 @@ export function AppHeader() {
 								<path d="M6 3L11 8L6 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
 							</svg>
 						</a>
-						<button className="p-2 hover:bg-gray-100 rounded-md transition-colors">
-							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-							</svg>
-						</button>
 					</div>
 				</div>
 			</div>
