@@ -29,7 +29,7 @@ export function TrustBarSection() {
 
 							{/* Text with value points */}
 							<div className="space-y-6 text-center">
-								<h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl leading-tight max-w-4xl mx-auto" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
+								<h3 className="text-2xl sm:text-3xl lg:text-4xl xl:text-4xl 2xl:text-5xl leading-tight max-w-4xl mx-auto" style={{ fontFamily: 'Satoshi, sans-serif', fontWeight: 400 }}>
 									<span className="text-[#1C1B3A] inline-block">
 										At HeyDoc, we're dedicated to helping Australians start their fertility journey.
 									</span>

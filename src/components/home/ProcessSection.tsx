@@ -1,7 +1,5 @@
 'use client'
 
-import Image from 'next/image'
-
 export function ProcessSection() {
 	return (
 		<section className="pt-12 pb-10 bg-white relative overflow-hidden">
@@ -14,54 +12,6 @@ export function ProcessSection() {
 					<p className="text-base sm:text-lg text-blue-600 max-w-3xl mx-auto" style={{ fontFamily: 'Satoshi, sans-serif' }}>
 						HeyDoc removes the hassle of in-person appointments, uncomfortable waiting rooms, and doctors running late.
 					</p>
-				</div>
-
-				{/* Phone Mockups Row */}
-				<div className="flex justify-center items-end gap-1 sm:gap-8 md:gap-12 lg:gap-16 mb-10 sm:mb-12 px-1 sm:px-12 overflow-visible">
-					{/* Phone 1 - Questionnaire */}
-					<div className="flex-shrink-0 -translate-x-2 sm:-translate-x-16 md:-translate-x-20 hover:scale-105 transition-transform duration-300 -rotate-6">
-						<div className="relative w-[72px] sm:w-[155px] md:w-[190px] lg:w-[225px] h-[145px] sm:h-[310px] md:h-[380px] lg:h-[450px]">
-							<Image
-								src="/images/questionnaire.png"
-								alt="Complete fertility questionnaire"
-								fill
-								style={{
-									objectFit: 'contain',
-								}}
-								priority
-							/>
-						</div>
-					</div>
-
-					{/* Phone 2 - Consultation */}
-					<div className="flex-shrink-0 -translate-y-2 sm:-translate-y-6 md:-translate-y-8 hover:scale-105 hover:-translate-y-2 sm:hover:-translate-y-6 md:hover:-translate-y-8 transition-transform duration-300">
-						<div className="relative w-[72px] sm:w-[155px] md:w-[190px] lg:w-[225px] h-[145px] sm:h-[310px] md:h-[380px] lg:h-[450px]">
-							<Image
-								src="/images/consultation.png"
-								alt="Speak with AHPRA doctor"
-								fill
-								style={{
-									objectFit: 'contain',
-								}}
-								priority
-							/>
-						</div>
-					</div>
-
-					{/* Phone 3 - Referral */}
-					<div className="flex-shrink-0 translate-x-2 sm:translate-x-16 md:translate-x-20 hover:scale-105 transition-transform duration-300 rotate-6">
-						<div className="relative w-[72px] sm:w-[155px] md:w-[190px] lg:w-[225px] h-[145px] sm:h-[310px] md:h-[380px] lg:h-[450px]">
-							<Image
-								src="/images/referral.png"
-								alt="Receive fertility referral"
-								fill
-								style={{
-									objectFit: 'contain',
-								}}
-								priority
-							/>
-						</div>
-					</div>
 				</div>
 
 				{/* Step Descriptions */}
