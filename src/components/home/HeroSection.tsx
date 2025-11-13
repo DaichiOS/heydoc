@@ -25,10 +25,10 @@ export function HeroSection() {
 
 					{/* Centered Content */}
 					<div className="relative h-full flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8">
-						<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-white mb-4 lg:mb-6 max-w-5xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
+						<h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold text-white mb-4 lg:mb-6 max-w-4xl xl:max-w-6xl 2xl:max-w-7xl" style={{ textShadow: '0 4px 20px rgba(0,0,0,0.8), 0 2px 8px rgba(0,0,0,0.6)' }}>
 							Need a fertility referral?
 						</h1>
-						<p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white/90 mb-6 lg:mb-8 max-w-3xl" style={{ textShadow: '0 3px 16px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.5)' }}>
+						<p className="text-lg sm:text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl text-white/90 mb-6 lg:mb-8 max-w-2xl xl:max-w-4xl 2xl:max-w-5xl" style={{ textShadow: '0 3px 16px rgba(0,0,0,0.8), 0 2px 6px rgba(0,0,0,0.5)' }}>
 							Get your fertility specialist referral in minutes, not weeks
 						</p>
 
