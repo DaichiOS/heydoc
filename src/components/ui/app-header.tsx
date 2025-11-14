@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react'
 export function AppHeader() {
 	const [isDesktop, setIsDesktop] = useState(false)
 	const [hasMounted, setHasMounted] = useState(false)
+	const [isPartnersOpen, setIsPartnersOpen] = useState(false)
 
 	// Detect if desktop on mount and window resize
 	useEffect(() => {
@@ -44,8 +45,47 @@ export function AppHeader() {
 						</Link>
 					</div>
 
-					{/* Right side: CTAs */}
-					<div className="flex items-center gap-4">
+					{/* Right side: Partners dropdown + CTAs */}
+					<div className="flex items-center gap-6">
+						{/* Partners Dropdown */}
+						<div className="relative">
+							<button
+								onClick={() => setIsPartnersOpen(!isPartnersOpen)}
+								onMouseEnter={() => setIsPartnersOpen(true)}
+								onMouseLeave={() => setIsPartnersOpen(false)}
+								className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 text-base flex items-center gap-1"
+							>
+								Partners
+								<svg
+									width="12"
+									height="12"
+									viewBox="0 0 12 12"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+									className={`transition-transform duration-200 ${isPartnersOpen ? 'rotate-180' : ''}`}
+								>
+									<path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+								</svg>
+							</button>
+
+							{/* Dropdown Menu */}
+							{isPartnersOpen && (
+								<div
+									onMouseEnter={() => setIsPartnersOpen(true)}
+									onMouseLeave={() => setIsPartnersOpen(false)}
+									className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
+								>
+									<Link
+										href="/partners/barangaroo-pharmacy"
+										className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
+									>
+										<div className="font-medium text-sm">Barangaroo Pharmacy</div>
+										<div className="text-xs text-gray-500 mt-0.5">10% off fertility supplements</div>
+									</Link>
+								</div>
+							)}
+						</div>
+
 						<a
 							href="https://app.heydochealth.com.au/login"
 							target="_blank"
