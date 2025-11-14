@@ -27,11 +27,11 @@ export default function BarangarooPartnershipPage() {
                 <p className="text-lg text-gray-700 mb-6" style={{ fontFamily: 'Satoshi, sans-serif' }}>
                   Book a consultation for <span className="font-semibold text-blue-600">10% off selected items & services</span>
                 </p>
-                <Link href="/fertility">
+                <a href="https://app.heydochealth.com.au/register?type=patient" target="_blank" rel="noopener noreferrer">
                   <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl hover:shadow-2xl transition-all transform hover:scale-105" style={{ fontFamily: 'Satoshi, sans-serif' }}>
                     Book now →
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
             <div className="relative h-[400px] flex items-center justify-center">
@@ -363,7 +363,9 @@ export default function BarangarooPartnershipPage() {
             Book a consultation with a HeyDoc doctor to receive your fertility referral and get 10% off at Barangaroo Pharmacy.
           </p>
           <a
-            href="https://app.heydochealth.com.au"
+            href="https://app.heydochealth.com.au/register?type=patient"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#1C1B3A] hover:bg-[#2A2951] text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-200 shadow-lg hover:shadow-xl"
             style={{ fontFamily: 'Satoshi, sans-serif' }}
           >
