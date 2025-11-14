@@ -83,14 +83,13 @@ export function AppHeader() {
 
 							{/* Dropdown Menu */}
 							{isPartnersOpen && (
-								<div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+								<div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
 									<a
 										href="https://www.heydochealth.com.au/partners/barangaroo-pharmacy"
 										className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
 										onClick={() => setIsPartnersOpen(false)}
 									>
 										<div className="font-medium text-sm">Barangaroo Pharmacy</div>
-										<div className="text-xs text-gray-500 mt-0.5">10% off fertility supplements</div>
 									</a>
 								</div>
 							)}
