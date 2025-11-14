@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     siteName: "HeyDoc",
     images: [
       {
-        url: "https://heydochealth.com.au/logos/heydoc-socials2.png",
+        url: "https://heydochealth.com.au/logos/heydoc-bg.png",
         width: 1200,
         height: 800,
         alt: "HeyDoc - Expert Fertility Care, Anytime",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "heydoc - Expert Fertility Telehealth & Specialist Referrals",
     description: "Connect with AHPRA-registered fertility doctors across Australia through our secure telehealth platform. Get personalized fertility consultations and specialist referrals online.",
-    images: ["https://heydochealth.com.au/logos/heydoc-socials2.png"],
+    images: ["https://heydochealth.com.au/logos/heydoc-bg.png"],
   },
 };
 
@@ -67,7 +67,7 @@ export default function RootLayout({
     "description": "Australia's only online doctor-led fertility telehealth and referral network. Connect with AHPRA-registered fertility doctors for specialist referrals.",
     "url": "https://heydochealth.com.au",
     "logo": "https://heydochealth.com.au/logos/heydoc.png",
-    "image": "https://heydochealth.com.au/logos/heydoc-socials2.png",
+    "image": "https://heydochealth.com.au/logos/heydoc-bg.png",
     "telephone": "",
     "email": "support@heydochealth.com.au",
     "address": {

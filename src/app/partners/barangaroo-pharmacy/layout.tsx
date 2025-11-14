@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     siteName: 'HeyDoc',
     images: [
       {
-        url: 'https://www.heydochealth.com.au/images/heydocxbarangaroo.png',
+        url: 'https://www.heydochealth.com.au/images/heydocxbarangaroo-bg.png',
         width: 1200,
         height: 630,
         alt: 'HeyDoc x Barangaroo Pharmacy Partnership',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'HeyDoc x Barangaroo Pharmacy Partnership',
     description: 'Comprehensive fertility support combining specialist referrals with 10% off supplements.',
-    images: ['https://www.heydochealth.com.au/images/heydocxbarangaroo.png'],
+    images: ['https://www.heydochealth.com.au/images/heydocxbarangaroo-bg.png'],
   },
   alternates: {
     canonical: 'https://www.heydochealth.com.au/partners/barangaroo-pharmacy',
