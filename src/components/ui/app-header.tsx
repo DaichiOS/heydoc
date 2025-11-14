@@ -20,6 +20,21 @@ export function AppHeader() {
 		return () => window.removeEventListener('resize', checkDesktop)
 	}, [])
 
+	// Close dropdown when clicking outside
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as HTMLElement
+			if (!target.closest('[data-dropdown]')) {
+				setIsPartnersOpen(false)
+			}
+		}
+
+		if (isPartnersOpen) {
+			document.addEventListener('mousedown', handleClickOutside)
+		}
+		return () => document.removeEventListener('mousedown', handleClickOutside)
+	}, [isPartnersOpen])
+
 	if (!hasMounted || !isDesktop) {
 		return null
 	}
@@ -48,11 +63,9 @@ export function AppHeader() {
 					{/* Right side: Partners dropdown + CTAs */}
 					<div className="flex items-center gap-6">
 						{/* Partners Dropdown */}
-						<div className="relative">
+						<div className="relative" data-dropdown>
 							<button
 								onClick={() => setIsPartnersOpen(!isPartnersOpen)}
-								onMouseEnter={() => setIsPartnersOpen(true)}
-								onMouseLeave={() => setIsPartnersOpen(false)}
 								className="text-gray-700 hover:text-gray-900 font-medium transition-colors duration-200 text-base flex items-center gap-1"
 							>
 								Partners
@@ -70,18 +83,15 @@ export function AppHeader() {
 
 							{/* Dropdown Menu */}
 							{isPartnersOpen && (
-								<div
-									onMouseEnter={() => setIsPartnersOpen(true)}
-									onMouseLeave={() => setIsPartnersOpen(false)}
-									className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
-								>
-									<Link
-										href="/partners/barangaroo-pharmacy"
+								<div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+									<a
+										href="https://www.heydochealth.com.au/partners/barangaroo-pharmacy"
 										className="block px-4 py-3 text-gray-700 hover:bg-gray-50 transition-colors"
+										onClick={() => setIsPartnersOpen(false)}
 									>
 										<div className="font-medium text-sm">Barangaroo Pharmacy</div>
 										<div className="text-xs text-gray-500 mt-0.5">10% off fertility supplements</div>
-									</Link>
+									</a>
 								</div>
 							)}
 						</div>
